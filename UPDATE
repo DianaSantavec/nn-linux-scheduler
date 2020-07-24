@@ -1,0 +1,4 @@
+Tested printk:
+    *switching active and expired arrays message has appeared
+    *test-process-1 has been started
+    *kernel panic :(
