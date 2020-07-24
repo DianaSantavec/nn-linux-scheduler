@@ -5,9 +5,9 @@
 #include <stdio.h>
 
 int main(){
-    prinf("Test process 1 has started\n");
+    printf("Test process 1 has started\n");
     while (1){
-        prinf("\nworking");
+        printf("\nworking");
         sleep(3);
     }
 }
