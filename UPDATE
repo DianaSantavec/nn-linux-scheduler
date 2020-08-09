@@ -1,4 +1,4 @@
-Tested printk:
-    *switching active and expired arrays message has appeared
-    *test-process-1 has been started
-    *kernel panic :(
+init process and test process are in same file
+fork is used instead of system() call
+build script is changed
+-t option skips building of entire kernel
