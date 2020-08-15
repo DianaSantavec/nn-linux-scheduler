@@ -51,6 +51,6 @@ fi
 cd $IMAGES
 
 #QEMU
-qemu-system-x86_64 -kernel bzImage \
+cpulimit -l 75 qemu-system-x86_64 -kernel bzImage \
   -initrd initramfs.cpio.gz -nographic \
   -append "console=ttyS0"

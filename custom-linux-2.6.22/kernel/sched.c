@@ -3657,7 +3657,6 @@ need_resched_nonpreemptible:
 		array = rq->active;
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
-		printk("swithcing active and expired arrays");
 	}
 
 	idx = sched_find_first_bit(array->bitmap);

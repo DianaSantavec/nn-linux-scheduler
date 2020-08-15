@@ -12,6 +12,19 @@ create_input_folder() {
         dev=${dev#/sys/class/input/}
         mknod -m 660 "/dev/input/$dev" c "$major" "$minor"
     done
+    echo "/dev/input created"
+}
+
+cpu_bound() {
+
+    cat > test.sh <<\EOF
+        sum=0
+        while [ "$sum" -lt 1844445 ]
+        do
+          sum=$((sum+1))
+        done
+        echo $1
+EOF
 }
 
 mount -t proc none /proc
@@ -26,6 +39,16 @@ exec /bin/sh +m &
 
 create_input_folder &
 
-ls /dev
+cpu_bound
+chmod +x test.sh
+time test.sh 0 &
+time test.sh 1 &
+time test.sh 2 &
+time test.sh 3 &
+time test.sh 4 &
+time test.sh 5 &
+time test.sh 6 &
+time test.sh 7 &
 
-sleep 100
+
+sleep 100000000
