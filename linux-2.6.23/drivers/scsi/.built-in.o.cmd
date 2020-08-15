@@ -1,0 +1,1 @@
+cmd_drivers/scsi/built-in.o :=  ld -m elf_x86_64  -r -o drivers/scsi/built-in.o drivers/scsi/scsi_mod.o drivers/scsi/scsi_transport_spi.o drivers/scsi/scsi_transport_fc.o drivers/scsi/aic7xxx/built-in.o drivers/scsi/sd_mod.o drivers/scsi/sr_mod.o drivers/scsi/sg.o

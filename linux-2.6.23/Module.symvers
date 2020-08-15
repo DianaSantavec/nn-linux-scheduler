@@ -1,0 +1,2 @@
+0x00000000	video_output_register	drivers/video/output	EXPORT_SYMBOL
+0x00000000	video_output_unregister	drivers/video/output	EXPORT_SYMBOL

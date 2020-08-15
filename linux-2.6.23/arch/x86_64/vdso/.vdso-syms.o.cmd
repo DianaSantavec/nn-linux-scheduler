@@ -1,0 +1,1 @@
+cmd_arch/x86_64/vdso/vdso-syms.o := gcc -m elf_x86_64 -nostdlib -r -d -Wl,-T,arch/x86_64/vdso/vdso.lds arch/x86_64/vdso/vdso-start.o arch/x86_64/vdso/vdso-note.o arch/x86_64/vdso/vclock_gettime.o arch/x86_64/vdso/vgetcpu.o arch/x86_64/vdso/vvar.o -o arch/x86_64/vdso/vdso-syms.o
