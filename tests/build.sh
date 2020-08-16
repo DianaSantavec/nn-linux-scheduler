@@ -21,6 +21,9 @@ if [ "$1" != "-r" ];then
         #CREATE CONFIGURATION
         docker exec -w $CUSTOMD $CNAME make defconfig
 
+        #ENABLE PRINTK
+        docker exec -w $CUSTOMD $CNAME sed -i 's|# CONFIG_PRINTK_TIME is not set|CONFIG_PRINTK_TIME=y|g' .config
+
         #BUILD KERNEL
         docker exec -w $CUSTOMD $CNAME make -j8
         docker exec -w $CUSTOMD $CNAME make modules
@@ -35,17 +38,14 @@ if [ "$1" != "-r" ];then
 
     fi
 
-    docker exec -w $BUSYBOX $CNAME rm -r bin sbin etc proc sys usr init dev/null
-    docker exec -w $BUSYBOX $CNAME mkdir -p bin sbin etc proc sys usr/bin usr/sbin dev/null
-    docker exec -w $BUSYBOX $CNAME cp -a $BUSYBOXW/_install/* .
+docker exec -w $BUSYBOX $CNAME rm -r bin sbin etc proc sys usr init dev/null
+docker exec -w $BUSYBOX $CNAME mkdir -p bin sbin etc proc sys usr/bin usr/sbin dev/null
+docker exec -w $BUSYBOX $CNAME cp -a $BUSYBOXW/_install/* .
+docker exec -w $BUSYBOX $CNAME cp $INIT .
+docker exec -w $BUSYBOX $CNAME chmod +x init
+docker exec -w $TESTS $CNAME ./compress-initramfs.sh
+docker stop $CNAME
 
-    docker exec -w $BUSYBOX $CNAME cp $INIT .
-    docker exec -w $BUSYBOX $CNAME chmod +x init
-
-    docker exec -w $TESTS $CNAME ./compress-initramfs.sh
-
-
-    docker stop $CNAME
 fi
 
 cd $IMAGES
@@ -53,4 +53,4 @@ cd $IMAGES
 #QEMU
 cpulimit -l 75 qemu-system-x86_64 -kernel bzImage \
   -initrd initramfs.cpio.gz -nographic \
-  -append "console=ttyS0"
+  -append "console=ttyS0" -smp 1
