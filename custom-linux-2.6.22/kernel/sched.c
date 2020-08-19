@@ -3460,7 +3460,7 @@ static void task_running_tick(struct rq *rq, struct task_struct *p)
 				rq->best_expired_prio = p->static_prio;
 		} else{
 			enqueue_task(p, rq->active);
-			printk("\nreturned to active array")
+			printk("\nreturned to active array");
 		}
 	} else {
 		/*
@@ -3649,7 +3649,7 @@ need_resched_nonpreemptible:
 	}
 
 	array = rq->active;
-	printk("number of activ proces on queue: %d on CPU: %d\n",array->nr_active, rq->cpu);
+	printk("number of activ proces on queue: %d on CPU: %d\n",rq->nr_running, rq->cpu);
 	if (unlikely(!array->nr_active)) {
 		/*
 		 * Switch the active and expired arrays.
