@@ -1,0 +1,4 @@
+swithced to busybox
+init is bash script
+build script is changed
+-r option skips building of entire kernel and busybox
