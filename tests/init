@@ -1,10 +1,5 @@
 #!/bin/sh
 
-<<<<<<< HEAD
-### For I/O bound processes
-
-=======
->>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
 create_input_folder() {
     mkdir -m 660 -p /dev/input
     for dev in /sys/class/input/*/dev; do
@@ -20,16 +15,6 @@ create_input_folder() {
     echo "/dev/input created"
 }
 
-<<<<<<< HEAD
-io_bound() {
-    cat > test.sh <<\EOF
-        counter=0
-        while [ "$counter" -lt 100 ]
-        do
-          read -t 2 X < /dev/console
-          sleep 3
-          counter=$((counter+1))
-=======
 cpu_bound() {
 
     cat > test.sh <<\EOF
@@ -37,7 +22,6 @@ cpu_bound() {
         while [ "$sum" -lt 1844445 ]
         do
           sum=$((sum+1))
->>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
         done
         echo $1
 EOF
@@ -55,19 +39,6 @@ exec /bin/sh +m &
 
 create_input_folder &
 
-<<<<<<< HEAD
-io_bound
-chmod +x test.sh
-
-time test.sh 0 & > file0
-time test.sh 1 & > file1
-time test.sh 2 & > file2
-time test.sh 3 & > file3
-time test.sh 4 & > file4
-time test.sh 5 & > file5
-time test.sh 6 & > file6
-time test.sh 7 & > file7
-=======
 cpu_bound
 chmod +x test.sh
 time test.sh 0 &
@@ -78,7 +49,6 @@ time test.sh 4 &
 time test.sh 5 &
 time test.sh 6 &
 time test.sh 7 &
->>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
 
 
 sleep 100000000
