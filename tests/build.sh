@@ -1,7 +1,12 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 CUSTOMD=/home/dianas/project/nn-linux-scheduler/linux-2.6.23
 CUSTOMBZ=/home/dianas/project/nn-linux-scheduler/linux-2.6.23/arch/x86_64/boot
+=======
+CUSTOMD=/home/dianas/project/nn-linux-scheduler/linux-2.6.22
+CUSTOMBZ=/home/dianas/project/nn-linux-scheduler/linux-2.6.22/arch/x86_64/boot
+>>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
 IMAGES=/home/dianas/project/images
 TESTS=/home/dianas/project/nn-linux-scheduler/tests
 DOCKER=/home/dianas/project/docker
@@ -24,6 +29,10 @@ if [ "$1" != "-r" ];then
         #BUILD KERNEL
         docker exec -w $CUSTOMD $CNAME make -j8
         docker exec -w $CUSTOMD $CNAME make modules
+<<<<<<< HEAD
+=======
+	docker exec -w $CUSTOMD $CNAME make bzImage
+>>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
 
         docker exec -w $CUSTOMBZ $CNAME mv bzImage $IMAGES
 
@@ -53,4 +62,8 @@ cd $IMAGES
 #QEMU
 cpulimit -l 75 qemu-system-x86_64 -kernel bzImage \
   -initrd initramfs.cpio.gz -nographic \
+<<<<<<< HEAD
   -append "console=ttyS0"
+=======
+  -append "console=ttyS0"
+>>>>>>> c8467a0c3eef54ac7704df51088e528f765d5eaa
