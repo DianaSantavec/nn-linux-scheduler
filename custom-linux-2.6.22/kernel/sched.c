@@ -3458,10 +3458,8 @@ static void task_running_tick(struct rq *rq, struct task_struct *p)
 			enqueue_task(p, rq->expired);
 			if (p->static_prio < rq->best_expired_prio)
 				rq->best_expired_prio = p->static_prio;
-		} else{
+		} else
 			enqueue_task(p, rq->active);
-			printk("\nreturned to active array");
-		}
 	} else {
 		/*
 		 * Prevent a too long timeslice allowing a task to monopolize
@@ -3649,7 +3647,6 @@ need_resched_nonpreemptible:
 	}
 
 	array = rq->active;
-	printk("number of activ proces on queue: %d on CPU: %d\n",rq->nr_running, rq->cpu);
 	if (unlikely(!array->nr_active)) {
 		/*
 		 * Switch the active and expired arrays.
@@ -3660,7 +3657,6 @@ need_resched_nonpreemptible:
 		array = rq->active;
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
-		printk("switching active and exipred arrays\n");
 	}
 
 	idx = sched_find_first_bit(array->bitmap);
