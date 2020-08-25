@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#init for testing
+
+test_process() {
+ 
+    sum=0
+    while [ "$sum" -lt 1844445 ]
+    do
+      sum=$((sum+1))
+      echo hello from $1
+    done
+}
+
+chmod +x test
+./test
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+cat << !
+    HELLO WORLD
+                                             
+!
+
+exec /bin/sh +m &
+
+test_process 0 &
+test_process 1 &
+
+sleep 10000
