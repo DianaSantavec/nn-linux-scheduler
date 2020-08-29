@@ -1703,6 +1703,8 @@ void fastcall sched_fork(struct task_struct *p, int clone_flags)
 	 */
 	p->prio = current->normal_prio;
 
+	p->my_run_time = 0;
+	
 	INIT_LIST_HEAD(&p->run_list);
 	p->array = NULL;
 #if defined(CONFIG_SCHEDSTATS) || defined(CONFIG_TASK_DELAY_ACCT)
@@ -3614,7 +3616,7 @@ need_resched_nonpreemptible:
 			run_time = 0;
 	} else
 		run_time = NS_MAX_SLEEP_AVG;
-
+	curretn->my_run_time += run_time; 
 	/*
 	 * Tasks charged proportionately less run_time at high sleep_avg to
 	 * delay them losing their interactive status
@@ -3658,6 +3660,8 @@ need_resched_nonpreemptible:
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
 	}
+
+	printk("runtime: %lu\n", current->my_run_time);
 
 	idx = sched_find_first_bit(array->bitmap);
 	queue = array->queue + idx;

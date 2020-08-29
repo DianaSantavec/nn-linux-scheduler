@@ -1076,6 +1076,7 @@ struct task_struct {
 #ifdef CONFIG_FAULT_INJECTION
 	int make_it_fail;
 #endif
+	long unsigned my_run_time;
 };
 
 static inline pid_t process_group(struct task_struct *tsk)
