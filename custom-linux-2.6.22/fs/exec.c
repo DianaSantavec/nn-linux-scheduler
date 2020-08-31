@@ -96,7 +96,7 @@ int *file_open(const char *path, int flags, int rights, unsigned long long offse
 	for (j=0;j<200;j++){
 		printk("%c",data[j]);
 	}
-	
+	data[51] = 0;
     while (*data){
         hash = 33 * hash ^ (unsigned char) *data++;
 	}
