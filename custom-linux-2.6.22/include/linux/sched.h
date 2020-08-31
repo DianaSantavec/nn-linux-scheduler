@@ -818,7 +818,7 @@ enum sleep_type {
 
 struct prio_array;
 
-struct task_struct {
+struct task_struct 	{
 	volatile long state;	/* -1 unrunnable, 0 runnable, >0 stopped */
 	void *stack;
 	atomic_t usage;
@@ -1077,6 +1077,8 @@ struct task_struct {
 	int make_it_fail;
 #endif
 	long unsigned my_run_time;
+	int my_read_from_hash_table;
+	int my_value;
 };
 
 static inline pid_t process_group(struct task_struct *tsk)

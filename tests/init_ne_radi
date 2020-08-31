@@ -9,4 +9,8 @@ cat << !
                                              
 !
 
+chmod +x test
+./test
+./test
+
 exec /bin/sh +m

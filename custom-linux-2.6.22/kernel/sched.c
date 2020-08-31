@@ -3567,6 +3567,7 @@ static inline int interactive_sleep(enum sleep_type sleep_type)
  */
 asmlinkage void __sched schedule(void)
 {
+
 	struct task_struct *prev, *next;
 	struct prio_array *array;
 	struct list_head *queue;
@@ -3616,7 +3617,7 @@ need_resched_nonpreemptible:
 			run_time = 0;
 	} else
 		run_time = NS_MAX_SLEEP_AVG;
-	curretn->my_run_time += run_time; 
+	current->my_run_time += run_time; 
 	/*
 	 * Tasks charged proportionately less run_time at high sleep_avg to
 	 * delay them losing their interactive status
@@ -3661,7 +3662,23 @@ need_resched_nonpreemptible:
 		rq->best_expired_prio = MAX_PRIO;
 	}
 
-	printk("runtime: %lu\n", current->my_run_time);
+	//SWITCH
+
+	//printk("%d %d", array->nr_active, rq->nr_running);
+
+	//struct list_head my_temp;
+//
+	//my_temp.next = current->tasks.next;
+	//my_temp.prev = current->tasks.prev;
+//
+	//current->tasks.next = next->tasks.next;
+	//current->tasks.prev = my_temp.next;
+//
+	//next->tasks.next = 
+
+	//END
+
+	//printk("runtime: %lu\n", current->my_run_time);
 
 	idx = sched_find_first_bit(array->bitmap);
 	queue = array->queue + idx;
@@ -3677,6 +3694,7 @@ need_resched_nonpreemptible:
 
 		array = next->array;
 		new_prio = recalc_task_prio(next, next->timestamp + delta);
+		//ovde se racuna nov prio za nov proces?
 
 		if (unlikely(next->prio != new_prio)) {
 			dequeue_task(next, array);

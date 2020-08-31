@@ -55,6 +55,92 @@
 #include <asm/uaccess.h>
 #include <asm/mmu_context.h>
 
+/*MY*/
+#include <linux/fs.h>
+#include <asm/segment.h>
+#include <asm/uaccess.h>
+#include <linux/buffer_head.h>
+/*END*/
+
+int *file_open(const char *path, int flags, int rights, unsigned long long offset, unsigned char *data, unsigned int size) 
+{
+	struct kstat *my_stat;
+	my_stat =(struct kstat *) kmalloc(sizeof(struct kstat), GFP_KERNEL);
+    struct file *filp = NULL;
+    mm_segment_t oldfs;
+    int err = 0;
+
+    oldfs = get_fs();
+    set_fs(get_ds());
+    filp = filp_open(path, flags, rights);
+
+    if (IS_ERR(filp)) {
+        err = PTR_ERR(filp);
+        return NULL;
+    }
+
+	vfs_stat(path, my_stat);
+	printk("%d\n",my_stat->size);
+
+    int ret;
+	loff_t pos = filp->f_pos;
+    ret = vfs_read(filp, data, size, &pos);
+
+    set_fs(oldfs);
+
+	filp_close(filp, NULL);
+
+	size_t hash = 5381;
+
+	int j;
+	for (j=0;j<200;j++){
+		printk("%c",data[j]);
+	}
+	
+    while (*data){
+        hash = 33 * hash ^ (unsigned char) *data++;
+	}
+    printk("\n%zu\n", hash);
+	int key = hash % (size_t)100003;
+    return key;
+
+    //return ret;
+}
+
+
+/*static size_t djb_hash(const char* cp)
+{
+    size_t hash = 5381;
+    while (*cp)
+        hash = 33 * hash ^ (unsigned char) *cp++;
+    printf("\n%zu\n", hash);
+    return hash;
+}
+
+size_t hash(){
+
+    //char *string = malloc(fsize + 1);
+    //fread(string, 1, fsize, fp);
+    //fclose(fp);
+    string[fsize] = 0;
+
+    //size_t nesto = 0;
+    //printf("%u\n", djb_hash(string));
+    size_t nesto = djb_hash(string);
+    free (string);
+    return nesto;
+    
+}*/
+
+//my code
+struct HashTable {
+    int start_counter;
+    int time;
+};
+my_done = 0;
+struct HashTable my_table[100003];
+//end
+
 #ifdef CONFIG_KMOD
 #include <linux/kmod.h>
 #endif
@@ -1147,11 +1233,34 @@ EXPORT_SYMBOL(search_binary_handler);
 /*
  * sys_execve() executes a new program.
  */
+
 int do_execve(char * filename,
 	char __user *__user *argv,
 	char __user *__user *envp,
 	struct pt_regs * regs)
 {
+
+//my code
+	if (!my_done){
+		my_done = 1;
+		int i;
+    	for (i=0;i<100003;i++){
+        	my_table[i].start_counter = 0;
+    	} 
+	}
+
+	printk("\nMOJE\n%s %d\n", filename, current->pid);
+	char my_data[201];
+//end of my code
+
+	//printk("%zu", file_open(filename, O_RDONLY, 0, 1, my_data, 200));
+	int my_key = file_open(filename, O_RDONLY, 0, 1, my_data, 50);
+	//printk("%d\n",my_key);
+	my_table[my_key].start_counter += 1; 
+	current->my_read_from_hash_table = 1;
+	printk("test hash table: %d and key: %d\n\n", my_table[my_key].start_counter, my_key);
+
+
 	struct linux_binprm *bprm;
 	struct file *file;
 	int retval;

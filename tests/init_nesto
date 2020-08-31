@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+chmod +x test
+time test 0 &
+time test 1 &
+time test 2 &
+time test 3 &
+time test 4 &
+time test 5 &
+time test 6 &
+time test 7 &
+
+sleep 100000000
