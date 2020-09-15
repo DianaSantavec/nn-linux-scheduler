@@ -3,6 +3,9 @@
  *
  *  Copyright (C) 1991, 1992  Linus Torvalds
  */
+//#include "my_h.h"
+
+#include <linux/sched.h>
 
 #include <linux/mm.h>
 #include <linux/slab.h>
@@ -861,6 +864,18 @@ static void exit_notify(struct task_struct *tsk)
 
 fastcall NORET_TYPE void do_exit(long code)
 {
+	struct HashTable *my_table = current->pointer_to_table;
+	//EXPORT_SYMBOL(struct HashTable my_table[100003]);
+	my_table[current->my_key].start_counter += 1;
+	if (my_table[current->my_key].start_counter > 1){
+		my_table[current->my_key].average_time = (unsigned int) my_table[current->my_key].average_time + ( ( current->my_run_time - my_table[current->my_key].average_time) / my_table[current->my_key].start_counter); 
+	}
+	else{
+		my_table[current->my_key].average_time = current->my_run_time;
+	}
+	my_table[current->my_key].average_time == current->my_run_time ? printk("YES") : printk("NO");
+	printk("\nu exit.c: %d za proces: %d i key: %d vreme trajanja je: %u a prosecno: %u\n", my_table[current->my_key].start_counter, current->pid, current->my_key, current->my_run_time, my_table[current->my_key].average_time);
+
 	struct task_struct *tsk = current;
 	int group_dead;
 

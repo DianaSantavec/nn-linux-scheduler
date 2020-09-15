@@ -1,0 +1,70 @@
+#!/bin/sh
+
+### For I/O bound processes
+
+#create_input_folder() {
+#    mkdir -m 660 -p /dev/input
+#    for dev in /sys/class/input/*/dev; do
+#        if [ ! -f "$dev" ]; then
+#            echo "no evdev devices"
+#            break
+#        fi    
+#        IFS=: read major minor < "$dev"
+#        dev=${dev%/dev}
+#        dev=${dev#/sys/class/input/}
+#        mknod -m 660 "/dev/input/$dev" c "$major" "$minor"
+#    done
+#    echo "/dev/input created"
+#}
+#
+#io_bound() {
+#
+#    cat > test.sh <<\EOF
+#        counter=0
+#        while [ "$counter" -lt 14444 ]
+#        do
+#        echo shell
+#          counter=$((counter+1))
+#        done
+#        echo gotov $1 sam ja
+#        echo i jos nesto
+#        echo molim te radi 
+#EOF
+#}
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+cat << !
+    HELLO WORLD
+                                             
+!
+
+
+#exec /bin/sh +m 
+
+
+#create_input_folder &
+#
+#io_bound
+#chmod +x test.sh
+
+#./test.sh 0s &
+#sleep 20
+#./test.sh 1s &
+./test_c 6c
+sleep 5
+#./test.sh 2s &
+./test_c 5c &
+#./test.sh 3s &
+#./test.sh 4s &
+./test_c 0c &
+#./test.sh 5s &
+./test_c 4c &
+#./test.sh 6s &
+#./test.sh 7s &
+time ./test_c 1c &
+time ./test_c 2c &
+time ./test_c 3c &
+
+
+sleep 100000000

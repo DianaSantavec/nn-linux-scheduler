@@ -764,11 +764,57 @@ enqueue_task_head(struct task_struct *p, struct prio_array *array)
 
 static inline int __normal_prio(struct task_struct *p)
 {
+	//ovde? za rt samo?
 	int bonus, prio;
 
 	bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
 
+	/*my part*/
+	if (current->my_average_time != 0 && current->my_value_n != 0){
+		double my_bonus = (double) current->my_average_time / current->my_value_n;
+		printk("for pid: %d, n = %d and avg = %u, bonus=%d bonus=%d\n", current->pid, current->my_value_n, current->my_average_time, (int)my_bonus*100000, (int)my_bonus*1000000);
+		if(my_bonus < 0.00003051){
+			bonus = -5;
+		}
+		else if( my_bonus < 0.0003051){
+			bonus += -4;
+		}
+		else if( my_bonus < 0.003051){
+			bonus += -3;
+		}
+		else if( my_bonus < 0.03051){
+			bonus += -2;
+		}
+		else if( my_bonus < 0.3051){
+			bonus += -1;
+		}
+		else if( my_bonus < 3.051){
+			bonus += 0;
+		}
+		else if( my_bonus < 30.51){
+			bonus += 1;
+		}
+		else if( my_bonus < 305.1){
+			bonus += 2;
+		}
+		else if( my_bonus < 3051){
+			bonus += 3;
+		}
+		else if( my_bonus < 30510){
+			bonus += 4;
+		}
+		else {
+			bonus += 5;
+		}
+		
+	}
+	
+
+	//bonus += 5;
+	/*end of my part*/
+
 	prio = p->static_prio - bonus;
+
 	if (prio < MAX_RT_PRIO)
 		prio = MAX_RT_PRIO;
 	if (prio > MAX_PRIO-1)
@@ -3617,7 +3663,7 @@ need_resched_nonpreemptible:
 			run_time = 0;
 	} else
 		run_time = NS_MAX_SLEEP_AVG;
-	current->my_run_time += run_time; 
+	current->my_run_time += run_time / 1000; 
 	/*
 	 * Tasks charged proportionately less run_time at high sleep_avg to
 	 * delay them losing their interactive status
@@ -3661,24 +3707,7 @@ need_resched_nonpreemptible:
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
 	}
-
-	//SWITCH
-
-	//printk("%d %d", array->nr_active, rq->nr_running);
-
-	//struct list_head my_temp;
-//
-	//my_temp.next = current->tasks.next;
-	//my_temp.prev = current->tasks.prev;
-//
-	//current->tasks.next = next->tasks.next;
-	//current->tasks.prev = my_temp.next;
-//
-	//next->tasks.next = 
-
-	//END
-
-	//printk("runtime: %lu\n", current->my_run_time);
+	printk("%d pid has %d prio\n", current->pid, current->prio);
 
 	idx = sched_find_first_bit(array->bitmap);
 	queue = array->queue + idx;

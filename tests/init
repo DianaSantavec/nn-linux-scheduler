@@ -1,65 +1,68 @@
 #!/bin/sh
 
-### For I/O bound processes
+chmod +x test
+chmod +x background
 
-create_input_folder() {
-    mkdir -m 660 -p /dev/input
-    for dev in /sys/class/input/*/dev; do
-        if [ ! -f "$dev" ]; then
-            echo "no evdev devices"
-            break
-        fi    
-        IFS=: read major minor < "$dev"
-        dev=${dev%/dev}
-        dev=${dev#/sys/class/input/}
-        mknod -m 660 "/dev/input/$dev" c "$major" "$minor"
-    done
-    echo "/dev/input created"
-}
+./background &
+./background &
+./background &
+./background &
+./background &
 
-io_bound() {
+time ./test vreme
 
-    cat > test.sh <<\EOF
-        counter=0
-        while [ "$counter" -lt 144444400 ]
-        do
-          counter=$((counter+1))
-        done
-        echo $1
-EOF
-}
+time ./test vreme &
+time ./test vreme
 
-mount -t proc none /proc
-mount -t sysfs none /sys
-cat << !
-    HELLO WORLD
-                                             
-!
+time ./test vreme &
+time ./test vreme &
+time ./test vreme
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test vreme poslednji
 
 
-exec /bin/sh +m &
-
-create_input_folder &
-
-io_bound
-chmod +x test.sh
-
-time test.sh &
-time test.sh &
-./test_c 6 &
-time test.sh &
-./test_c 5 &
-time test.sh &
-time test.sh &
-./test_c 0 &
-time test.sh &
-./test_c 4 &
-time test.sh &
-time test.sh &
-
-./test_c 1 &
-./test_c 2 &
-./test_c 3 &
+##time ./test1 t1 &
+##time ./test3 t3 &
+##time ./test3 t3 &
+##time ./test2 t2
+##
+##time ./test1 t1 &
+##time ./test1 t1 &
+##time ./test2 t2 &
+##
+##sleep 1
+##
+##time ./test3 t3 &
+##time ./test3 t3 &
+##time ./test3 t3 &
+##
+##sleep 1
+##
+##time ./test2 t2 &
+##time ./test2 t2 &
+##time ./test1 t1
+##
+##time ./test2 t2 &
+##time ./test2 t2 &
+##time ./test3 t3 &
+##time ./test1 t1 &
+##time ./test1 t1 &
 
 
 sleep 100000000

@@ -20,10 +20,12 @@ int main(int argc, char* argv[]){
     long fsize = ftell(fp);
     fseek(fp, 0, SEEK_SET);
     
-    char string[51];
-    fread(string, 50, 1, fp);
+    printf("size: %ld", fsize);
+
+    char *string = (char*) malloc((fsize+1)*sizeof(char));
+    fread(string, fsize, 1, fp);
     fclose(fp);
-    string[51] = 0;
+    string[fsize-1] = 0;
 
     size_t nesto = 0;
     nesto = djb_hash(string);

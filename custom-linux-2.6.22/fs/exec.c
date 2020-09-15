@@ -22,6 +22,9 @@
  * formats. 
  */
 
+ #include <linux/sched.h>
+ //#include<asm-x86_64/resource.h>
+
 #include <linux/slab.h>
 #include <linux/file.h>
 #include <linux/mman.h>
@@ -62,8 +65,10 @@
 #include <linux/buffer_head.h>
 /*END*/
 
-int *file_open(const char *path, int flags, int rights, unsigned long long offset, unsigned char *data, unsigned int size) 
+int *file_open(const char *path, int flags, int rights, unsigned long long offset, unsigned int size) 
 {
+	const char *my_path = path;
+	unsigned char *data;
 	struct kstat *my_stat;
 	my_stat =(struct kstat *) kmalloc(sizeof(struct kstat), GFP_KERNEL);
     struct file *filp = NULL;
@@ -74,17 +79,24 @@ int *file_open(const char *path, int flags, int rights, unsigned long long offse
     set_fs(get_ds());
     filp = filp_open(path, flags, rights);
 
-    if (IS_ERR(filp)) {
+    if (IS_ERR(filp) || filp == NULL) {
         err = PTR_ERR(filp);
-        return NULL;
+        return 0;
     }
 
 	vfs_stat(path, my_stat);
-	printk("%d\n",my_stat->size);
+	printk("size: %d for: %d\n",my_stat->size, current->pid);
+	
+
+/**/
+	int i;
+	for (i = 0; path[i] != '\0'; ++i);
 
     int ret;
 	loff_t pos = filp->f_pos;
-    ret = vfs_read(filp, data, size, &pos);
+	data = (unsigned char *) kmalloc((my_stat->size + 1 + i) * sizeof(unsigned char), GFP_KERNEL);
+    ret = vfs_read(filp, data, my_stat->size, &pos);
+	//ret = kernel_read(filp, &pos, data, size);
 
     set_fs(oldfs);
 
@@ -92,16 +104,23 @@ int *file_open(const char *path, int flags, int rights, unsigned long long offse
 
 	size_t hash = 5381;
 
-	int j;
-	for (j=0;j<200;j++){
-		printk("%c",data[j]);
+	//if (path[6] == 's' && path[7] == 'h'){
+	//	int j;
+	//	for (j=0;j<my_stat->size;j++){
+	//		printk("%c",data[j]);
+	//	}
+	//}
+	data[my_stat->size + i + 1] = 0;
+	while (*my_path){
+		hash = 33 * hash ^ (unsigned char) *my_path++;
 	}
-	data[51] = 0;
     while (*data){
         hash = 33 * hash ^ (unsigned char) *data++;
 	}
-    printk("\n%zu\n", hash);
-	int key = hash % (size_t)100003;
+	//kfree(data);
+    printk("hahs: %zu\n", hash);
+	int key = hash % 100003; //(size_t)100003;
+	printk("%d\n",key);
     return key;
 
     //return ret;
@@ -133,10 +152,10 @@ size_t hash(){
 }*/
 
 //my code
-struct HashTable {
-    int start_counter;
-    int time;
-};
+//struct HashTable {
+//    int start_counter;
+//    int average_time;
+//};
 my_done = 0;
 struct HashTable my_table[100003];
 //end
@@ -1246,20 +1265,37 @@ int do_execve(char * filename,
 		int i;
     	for (i=0;i<100003;i++){
         	my_table[i].start_counter = 0;
+			my_table[i].average_time = 0;
     	} 
 	}
 
-	printk("\nMOJE\n%s %d\n", filename, current->pid);
-	char my_data[201];
+	printk("%s %d\n", filename, current->pid);
+	//char my_data[201];
 //end of my code
-
+	if (filename[1] != 'b' && filename[2] != 'i' && filename[3] != 'n'){
 	//printk("%zu", file_open(filename, O_RDONLY, 0, 1, my_data, 200));
-	int my_key = file_open(filename, O_RDONLY, 0, 1, my_data, 50);
-	//printk("%d\n",my_key);
-	my_table[my_key].start_counter += 1; 
-	current->my_read_from_hash_table = 1;
-	printk("test hash table: %d and key: %d\n\n", my_table[my_key].start_counter, my_key);
+	int my_key = file_open(filename, O_RDONLY, 0, 1, 50);
+	printk("my key in exec: %d ide u proces: %d\n",my_key, current->pid);
+	//current->static_prio += 5;
+	//if (current->static_prio > MAX_PRIO){
+	//	current->static_prio = MAX_PRIO;
+	//}
 
+	//printk("i menja mu prioritet: %d\n", current->prio);
+	//printk("%d\n",my_key);
+	//my_table[my_key].start_counter += 1; 
+	//if (!current->my_read_from_hash_table){
+	//	current->my_read_from_hash_table = 1;
+		//printk("test hash table: %d and key: %d\n\n", my_table[my_key].start_counter, my_key);
+		current->my_value_n = my_table[my_key].start_counter;
+		current->my_average_time = my_table[my_key].average_time;
+		current->my_key = my_key;
+		current->pointer_to_table = my_table;
+		printk("\nexec.c :for pid: %d, n = %d and avg = %u\n\n", current->pid, current->my_value_n, current->my_average_time);
+	}
+	else{
+		printk("nismo usli jer je bin\n\n");
+	}
 
 	struct linux_binprm *bprm;
 	struct file *file;

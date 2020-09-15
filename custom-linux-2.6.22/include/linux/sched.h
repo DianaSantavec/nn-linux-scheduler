@@ -1076,9 +1076,17 @@ struct task_struct 	{
 #ifdef CONFIG_FAULT_INJECTION
 	int make_it_fail;
 #endif
-	long unsigned my_run_time;
+	unsigned int my_run_time;
 	int my_read_from_hash_table;
-	int my_value;
+	int my_value_n;
+	double my_average_time;
+	int my_key;
+	struct HashTable *pointer_to_table;
+};
+
+struct HashTable {
+    int start_counter;
+    unsigned int average_time;
 };
 
 static inline pid_t process_group(struct task_struct *tsk)

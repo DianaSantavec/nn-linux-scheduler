@@ -57,3 +57,56 @@ time test.sh 7 & > file7
 
 
 sleep 100000000
+
+
+
+
+
+###############
+#!/bin/sh
+
+#init for testing
+
+#test_process() {
+# 
+#    sum=0
+#    while [ "$sum" -lt 1844445 ]
+#    do
+#      sum=$((sum+1))
+#      echo hello from $1
+#    done
+#}
+
+#mount -t proc none /proc
+#mount -t sysfs none /sys
+#exec /bin/sh +m 
+#cat << !
+#    HELLO WORLD
+                                             
+#!
+
+chmod +x test
+./test 0 &
+prvi=$!
+./test 1 &
+drugi=$!
+./test 2 &
+treci=$!
+./test 3 &
+cetvrti=$!
+sleep 4
+ls proc > ovde
+cat ovde
+sleep 4
+cat proc/$prvi/cmdline
+cat proc/$drugi/cmdline
+cat proc/$treci/cmdline
+cat proc/$cetvrti/cmdline
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+exec /bin/sh +m 
+
+sleep 100000
+
+
