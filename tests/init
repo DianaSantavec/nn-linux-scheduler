@@ -1,18 +1,68 @@
 #!/bin/sh
 
-chmod +x test_CPU
+chmod +x test
+chmod +x background
 
-counter=0
-while [ "$counter" -lt 100 ]
-    do
-        time ./test_CPU $counter &
-        counter=$((counter+1))
-    done
-    
-sleep 100000000
-sleep 100000000
-sleep 100000000
-sleep 100000000
-sleep 100000000
-sleep 100000000
+./background &
+./background &
+./background &
+./background &
+./background &
+
+time ./test vreme
+
+time ./test vreme &
+time ./test vreme
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
+
+time ./test poslednji
+
+
+##time ./test1 t1 &
+##time ./test3 t3 &
+##time ./test3 t3 &
+##time ./test2 t2
+##
+##time ./test1 t1 &
+##time ./test1 t1 &
+##time ./test2 t2 &
+##
+##sleep 1
+##
+##time ./test3 t3 &
+##time ./test3 t3 &
+##time ./test3 t3 &
+##
+##sleep 1
+##
+##time ./test2 t2 &
+##time ./test2 t2 &
+##time ./test1 t1
+##
+##time ./test2 t2 &
+##time ./test2 t2 &
+##time ./test3 t3 &
+##time ./test1 t1 &
+##time ./test1 t1 &
+
+
 sleep 100000000

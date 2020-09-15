@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.23
- * Tue Aug 25 22:30:48 2020
+ * Tue Sep 15 12:37:17 2020
  */
 /*
  * Linker script for vsyscall DSO.  The vsyscall page is an ELF shared

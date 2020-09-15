@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.23
- * Wed Aug 26 09:13:06 2020
+ * Tue Sep 15 12:37:17 2020
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_BLK_DEV_FD 1
@@ -192,6 +192,7 @@
 #define CONFIG_BLK_DEV_IDEACPI 1
 #define CONFIG_INET_TUNNEL 1
 #define CONFIG_CPU_FREQ_GOV_ONDEMAND 1
+#define CONFIG_PRINTK_TIME 1
 #define CONFIG_X86_INTERNODE_CACHE_BYTES 128
 #define CONFIG_SEMAPHORE_SLEEPERS 1
 #define CONFIG_DMIID 1
