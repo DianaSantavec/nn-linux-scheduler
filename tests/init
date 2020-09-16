@@ -1,54 +1,37 @@
 #!/bin/sh
 
-create_input_folder() {
-    mkdir -m 660 -p /dev/input
-    for dev in /sys/class/input/*/dev; do
-        if [ ! -f "$dev" ]; then
-            echo "no evdev devices"
-            break
-        fi    
-        IFS=: read major minor < "$dev"
-        dev=${dev%/dev}
-        dev=${dev#/sys/class/input/}
-        mknod -m 660 "/dev/input/$dev" c "$major" "$minor"
-    done
-    echo "/dev/input created"
-}
+chmod +x test
+chmod +x background
 
-cpu_bound() {
+./background &
+./background &
+./background &
+./background &
+./background &
 
-    cat > test.sh <<\EOF
-        sum=0
-        while [ "$sum" -lt 1844445 ]
-        do
-          sum=$((sum+1))
-        done
-        echo $1
-EOF
-}
+time ./test vreme
 
-mount -t proc none /proc
-mount -t sysfs none /sys
-cat << !
-    HELLO WORLD
-                                             
-!
+time ./test vreme &
+time ./test vreme
 
+time ./test vreme &
+time ./test vreme &
+time ./test vreme
 
-exec /bin/sh +m &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
 
-create_input_folder &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
 
-cpu_bound
-chmod +x test.sh
-time test.sh 0 &
-time test.sh 1 &
-time test.sh 2 &
-time test.sh 3 &
-time test.sh 4 &
-time test.sh 5 &
-time test.sh 6 &
-time test.sh 7 &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme &
+time ./test vreme 
 
-
-sleep 100000000
+time ./test poslednji
