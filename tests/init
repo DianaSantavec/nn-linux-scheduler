@@ -9,60 +9,11 @@ chmod +x background
 ./background &
 ./background &
 
-time ./test vreme
-
-time ./test vreme &
-time ./test vreme
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test vreme poslednji
-
-
-##time ./test1 t1 &
-##time ./test3 t3 &
-##time ./test3 t3 &
-##time ./test2 t2
-##
-##time ./test1 t1 &
-##time ./test1 t1 &
-##time ./test2 t2 &
-##
-##sleep 1
-##
-##time ./test3 t3 &
-##time ./test3 t3 &
-##time ./test3 t3 &
-##
-##sleep 1
-##
-##time ./test2 t2 &
-##time ./test2 t2 &
-##time ./test1 t1
-##
-##time ./test2 t2 &
-##time ./test2 t2 &
-##time ./test3 t3 &
-##time ./test1 t1 &
-##time ./test1 t1 &
-
+counter=0
+while [ "$counter" -lt 100 ]
+        do
+          time ./test $counter
+          counter=$((counter+1))
+        done
 
 sleep 100000000

@@ -864,17 +864,26 @@ static void exit_notify(struct task_struct *tsk)
 
 fastcall NORET_TYPE void do_exit(long code)
 {
+	long long my_temp;
 	struct HashTable *my_table = current->pointer_to_table;
 	//EXPORT_SYMBOL(struct HashTable my_table[100003]);
 	my_table[current->my_key].start_counter += 1;
-	if (my_table[current->my_key].start_counter > 1){
-		my_table[current->my_key].average_time = (unsigned int) my_table[current->my_key].average_time + ( ( current->my_run_time - my_table[current->my_key].average_time) / my_table[current->my_key].start_counter); 
+
+	if (my_table[current->my_key].start_counter > 1 && current->sched_time > 0){
+		my_temp = current->sched_time / 1000;
+		my_temp -= my_table[current->my_key].average_time;
+		my_temp /= my_table[current->my_key].start_counter;
+		my_table[current->my_key].average_time += my_temp;
+		
 	}
-	else{
-		my_table[current->my_key].average_time = current->my_run_time;
+	else if (my_table[current->my_key].start_counter == 1){
+		my_table[current->my_key].average_time = current->sched_time / 1000;//current->my_run_time;
 	}
-	my_table[current->my_key].average_time == current->my_run_time ? printk("YES") : printk("NO");
-	printk("\nu exit.c: %d za proces: %d i key: %d vreme trajanja je: %u a prosecno: %u\n", my_table[current->my_key].start_counter, current->pid, current->my_key, current->my_run_time, my_table[current->my_key].average_time);
+	if (current->sched_time <= 0){
+		my_table[current->my_key].start_counter -= 1;
+	}
+	//my_table[current->my_key].average_time == current->my_run_time ? printk("YES") : printk("NO");
+	printk("u exit.c: %d za proces: %d i key: %d vreme trajanja je: %u a iz PD-a: %llu a prosecno: %u\n", my_table[current->my_key].start_counter, current->pid, current->my_key, current->my_run_time, current->sched_time, my_table[current->my_key].average_time);
 
 	struct task_struct *tsk = current;
 	int group_dead;

@@ -67,7 +67,7 @@ while getopts 'kbir' OPTION; do
             cpulimit -l 75 qemu-system-x86_64 -kernel bzImage \
               -initrd initramfs.cpio.gz -nographic \
               -append "console=ttyS0" -smp 1 \
-              -rtc clock=vm,base=2010-12-03T01:02:00
+              -rtc clock=vm
             ;;
         
         ?)

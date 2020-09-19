@@ -768,49 +768,40 @@ static inline int __normal_prio(struct task_struct *p)
 	int bonus, prio;
 
 	bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
-
 	/*my part*/
 	if (current->my_average_time != 0 && current->my_value_n != 0){
 		double my_bonus = (double) current->my_average_time / current->my_value_n;
-		printk("for pid: %d, n = %d and avg = %u, bonus=%d bonus=%d\n", current->pid, current->my_value_n, current->my_average_time, (int)my_bonus*100000, (int)my_bonus*1000000);
-		if(my_bonus < 0.00003051){
-			bonus = -5;
+		printk("for pid: %d, n = %d and avg = %u ", current->pid, current->my_value_n, current->my_average_time);
+		if(my_bonus < 0.47){
+			bonus = 5;
 		}
-		else if( my_bonus < 0.0003051){
-			bonus += -4;
-		}
-		else if( my_bonus < 0.003051){
-			bonus += -3;
-		}
-		else if( my_bonus < 0.03051){
-			bonus += -2;
-		}
-		else if( my_bonus < 0.3051){
-			bonus += -1;
-		}
-		else if( my_bonus < 3.051){
-			bonus += 0;
-		}
-		else if( my_bonus < 30.51){
-			bonus += 1;
-		}
-		else if( my_bonus < 305.1){
-			bonus += 2;
-		}
-		else if( my_bonus < 3051){
+		else if( my_bonus < 4.7){
 			bonus += 3;
 		}
-		else if( my_bonus < 30510){
-			bonus += 4;
+		else if( my_bonus < 47){
+			bonus += 1;
 		}
+		else if( my_bonus < 470){
+			bonus += 0;
+		}
+		else if( my_bonus < 4700){
+			bonus += -1;
+		}
+		else if( my_bonus < 47000){
+			bonus += -2;
+		}
+		else if( my_bonus < 470000){
+			bonus += -3;
+		}
+		else if( my_bonus < 4700000){
+			bonus += -4;
+		}
+		
 		else {
 			bonus += 5;
 		}
 		
 	}
-	
-
-	//bonus += 5;
 	/*end of my part*/
 
 	prio = p->static_prio - bonus;
@@ -819,6 +810,7 @@ static inline int __normal_prio(struct task_struct *p)
 		prio = MAX_RT_PRIO;
 	if (prio > MAX_PRIO-1)
 		prio = MAX_PRIO-1;
+	printk("pid = %d prio=%d, bonus = %d\n",current->pid,prio,bonus);
 	return prio;
 }
 
@@ -3663,12 +3655,14 @@ need_resched_nonpreemptible:
 			run_time = 0;
 	} else
 		run_time = NS_MAX_SLEEP_AVG;
-	current->my_run_time += run_time / 1000; 
+
+	current->my_run_time += run_time / 1000;
+
 	/*
 	 * Tasks charged proportionately less run_time at high sleep_avg to
 	 * delay them losing their interactive status
 	 */
-	run_time /= (CURRENT_BONUS(prev) ? : 1);
+	run_time /= (CURRENT_BONUS(prev) ? : 1); 
 
 	spin_lock_irq(&rq->lock);
 
