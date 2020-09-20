@@ -1,6 +1,8 @@
 #!/bin/sh
 
-chmod +x test
+chmod +x test_0
+chmod +x test_1
+chmod +x test_2
 chmod +x background
 
 ./background &
@@ -9,29 +11,27 @@ chmod +x background
 ./background &
 ./background &
 
-time ./test vreme
+counter0=0
+counter1=0
 
-time ./test vreme &
-time ./test vreme
+while [ "$counter0" -lt 10 ]
+do
+    echo processes: $counter0
+    counter1=0
+    
+    while [ "$counter1" -lt 10 ]
+    do
+        ./test_0 0_$counter &
+        ./test_1 1_$counter &
+        
+        if [ $counter -eq 9 ]; then
+            ./test_2 2_$counter
+        else
+            ./test_2 2_$counter &
+        fi
 
-time ./test vreme &
-time ./test vreme &
-time ./test vreme
+        counter1=$((counter1+1))
+    done
 
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test vreme &
-time ./test vreme &
-time ./test vreme &
-time ./test vreme 
-
-time ./test poslednji
+    counter0=$((counter0+1))   
+done
