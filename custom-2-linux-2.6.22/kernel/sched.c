@@ -764,7 +764,32 @@ enqueue_task_head(struct task_struct *p, struct prio_array *array)
 
 static inline int __normal_prio(struct task_struct *p)
 {
+	struct files_struct *current_files; 
+ 	struct fdtable *files_table;
+ 	unsigned int *fds;
+ 	int i=0;
+ 	struct path files_path;
+ 	char *cwd;
+ 	char *buf, *buf_free;
+	buf = buf_free = (char *)kmalloc(GFP_KERNEL,100*sizeof(char));
+
+ 	current_files = current->files;
+ 	files_table = files_fdtable(current_files);
+
+ 	while(files_table->fd[i] != NULL) { 
+ 	files_path = files_table->fd[i]->f_path;
+ 	cwd = d_path(&files_path,buf,100*sizeof(char));
+
+ 	printk(KERN_ALERT "Open file with fd %d  %s", i,cwd);
+
+ 	i++;
+ 	}
+	printk("%d\n",i);
+	kfree(buf_free);
+
 	int bonus, prio;
+
+	printk("for pid:%d f_uid iz fs:%u\n", current->pid, current->files->fd_array[0]);
 
 	bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
 
