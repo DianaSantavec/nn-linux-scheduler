@@ -870,14 +870,14 @@ fastcall NORET_TYPE void do_exit(long code)
 	my_table[current->my_key].start_counter += 1;
 
 	if (my_table[current->my_key].start_counter > 1 && current->sched_time > 0){
-		my_temp = current->sched_time / 1000;
+		my_temp = current->sched_time / 1000000;
 		my_temp -= my_table[current->my_key].average_time;
 		my_temp /= my_table[current->my_key].start_counter;
 		my_table[current->my_key].average_time += my_temp;
 		
 	}
 	else if (my_table[current->my_key].start_counter == 1){
-		my_table[current->my_key].average_time = current->sched_time / 1000;//current->my_run_time;
+		my_table[current->my_key].average_time = current->sched_time / 1000000;//current->my_run_time;
 	}
 	if (current->sched_time <= 0){
 		my_table[current->my_key].start_counter -= 1;
