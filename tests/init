@@ -1,37 +1,47 @@
 #!/bin/sh
 
-chmod +x test_0
-chmod +x test_1
-chmod +x test_2
-chmod +x background
-
-./background &
-./background &
-./background &
-./background &
-./background &
-
-counter0=0
-counter1=0
-
-while [ "$counter0" -lt 10 ]
-do
-    echo processes: $counter0
-    counter1=0
-    
-    while [ "$counter1" -lt 10 ]
-    do
-        ./test_0 0_$counter &
-        ./test_1 1_$counter &
-        
-        if [ $counter -eq 9 ]; then
-            ./test_2 2_$counter
-        else
-            ./test_2 2_$counter &
-        fi
-
-        counter1=$((counter1+1))
-    done
-
-    counter0=$((counter0+1))   
-done
+##chmod +x test_0
+##chmod +x test_1
+##chmod +x test_2
+##chmod +x background
+##
+##./background &
+##./background &
+##./background &
+##./background &
+##./background &
+##
+##counter0=0
+##counter1=0
+##
+##while [ "$counter0" -lt 10 ]
+##do
+##    echo processes: $counter0
+##    counter1=0
+##    
+##    while [ "$counter1" -lt 10 ]
+##    do
+##        ./test_0 0_$counter &
+##        ./test_1 1_$counter &
+##        
+##        if [ $counter -eq 9 ]; then
+##            ./test_2 2_$counter
+##        else
+##            ./test_2 2_$counter &
+##        fi
+##
+##        counter1=$((counter1+1))
+##    done
+##
+##    counter0=$((counter0+1))   
+##done
+chmod +x test3
+chmod +x io
+./test3 &
+./io &
+./test3 &
+./test3 &
+./io &
+./test3 &
+./io &
+sleep 10000000

@@ -17,6 +17,13 @@
  *  2003-09-03	Interactivity tuning by Con Kolivas.
  *  2004-04-02	Scheduler domains code by Nick Piggin
  */
+#include <linux/file.h>
+//#include<linux/sched.h>
+////#include <linux/fdtable.h>
+//#include <linux/fs.h> 
+//#include <linux/fs_struct.h>
+//#include <linux/dcache.h>
+//#include <linux/slab.h>
 
 #include <linux/mm.h>
 #include <linux/module.h>
@@ -764,36 +771,58 @@ enqueue_task_head(struct task_struct *p, struct prio_array *array)
 
 static inline int __normal_prio(struct task_struct *p)
 {
-	struct files_struct *current_files; 
- 	struct fdtable *files_table;
- 	unsigned int *fds;
- 	int i=0;
- 	struct path files_path;
- 	char *cwd;
- 	char *buf, *buf_free;
-	buf = buf_free = (char *)kmalloc(GFP_KERNEL,100*sizeof(char));
-
- 	current_files = current->files;
- 	files_table = files_fdtable(current_files);
-
- 	while(files_table->fd[i] != NULL) { 
- 	files_path = files_table->fd[i]->f_path;
- 	cwd = d_path(&files_path,buf,100*sizeof(char));
-
- 	printk(KERN_ALERT "Open file with fd %d  %s", i,cwd);
-
- 	i++;
- 	}
-	printk("%d\n",i);
-	kfree(buf_free);
-
 	int bonus, prio;
 
-	printk("for pid:%d f_uid iz fs:%u\n", current->pid, current->files->fd_array[0]);
+	int my_count=0;
+	unsigned long long curretn_clock = sched_clock();
 
-	bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
+	if (curretn_clock > 25770996224 && (current->last_file_counting == 0 || curretn_clock - current->last_file_counting >= 5000000000)){
+		current->last_file_counting = curretn_clock;
+		//printk("razlika: %llu\n",current->last_file_counting - curretn_clock);
+		struct files_struct *current_files; 
+ 		struct fdtable *files_table;
+ 		int my_count=0;
+ 		char *cwd;
 
+ 		current_files = current->files;
+ 		files_table = files_fdtable(current_files);
+
+ 		while(files_table->fd[my_count] != NULL) { 
+ 			my_count++;
+ 		}
+
+		printk("for pid: %d number of opened files is:%d\n",current->pid,my_count);
+
+		bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
+
+		if ( ( my_count > 5 || my_count==5)  && my_count < 15){
+			bonus += 1;
+			printk("my bonus is 1\n");
+		}
+		if ( ( my_count > 15 || my_count==15) && my_count < 25){
+			bonus += 2;
+			printk("my bonus is 2\n");
+		}
+		if ( ( my_count > 25 || my_count == 25) && my_count < 40){
+			bonus += 3;
+			printk("my bonus is 3\n");
+		}
+		if ( ( my_count > 40 || my_count==40) && my_count < 55){
+			bonus += 4;
+			printk("my bonus is 4\n");
+		}
+		if ( my_count > 55 || my_count == 55 ){
+			bonus += 5;
+			printk("my bonus is 5\n");
+		}
+
+	}
+
+	else{
+		bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
+	}
 	prio = p->static_prio - bonus;
+
 	if (prio < MAX_RT_PRIO)
 		prio = MAX_RT_PRIO;
 	if (prio > MAX_PRIO-1)
@@ -3683,6 +3712,8 @@ need_resched_nonpreemptible:
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
 	}
+
+	printk("%d pid has %d prio\n", current->pid, current->prio);
 
 	idx = sched_find_first_bit(array->bitmap);
 	queue = array->queue + idx;
