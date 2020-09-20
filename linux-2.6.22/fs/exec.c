@@ -1158,7 +1158,7 @@ int do_execve(char * filename,
 	int i;
 
 	printk("in exec key : xxx ide u proces: %d putanje: %s\n", current->pid, filename);
-
+	
 	retval = -ENOMEM;
 	bprm = kzalloc(sizeof(*bprm), GFP_KERNEL);
 	if (!bprm)

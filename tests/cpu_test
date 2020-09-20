@@ -1,4 +1,8 @@
 ubuntu_terminal
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/kxgettext.o
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
 scripts/kconfig/conf -d arch/x86_64/Kconfig
 *
 * Linux Kernel Configuration
@@ -1381,12 +1385,2411 @@ CRC32c (Castagnoli, et al) Cyclic Redundancy-Check (LIBCRC32C) [N/m/y/?] n
 scripts/kconfig/conf -s arch/x86_64/Kconfig
   CHK     include/linux/version.h
   CHK     include/linux/utsrelease.h
+  MKELF   scripts/mod/elfconfig.h
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTCC  scripts/mod/modpost.o
+  HOSTCC  scripts/mod/sumversion.o
+  HOSTLD  scripts/mod/modpost
+  CC      arch/x86_64/kernel/asm-offsets.s
+  GEN     include/asm-x86_64/asm-offsets.h
   CALL    scripts/checksyscalls.sh
+  GEN     usr/initramfs_data.cpio.gz
   CHK     include/linux/compile.h
-  CC      kernel/sched.o
-  CC      fs/exec.o
+  CC      init/do_mounts_rd.o
+  CC      init/initramfs.o
+  AS      usr/initramfs_data.o
+  CC      arch/x86_64/mm/init.o
+  AS      arch/x86_64/ia32/ia32entry.o
+  LD      usr/built-in.o
+  UPD     include/linux/compile.h
+  CC      arch/x86_64/kernel/process.o
+  CC      arch/x86_64/ia32/sys_ia32.o
+  CC      arch/x86_64/ia32/ia32_signal.o
+  CC      kernel/printk.o
+  CC      fs/open.o
+  CC      arch/x86_64/ia32/tls32.o
+  CC      arch/x86_64/mm/fault.o
+  CC      arch/x86_64/kernel/signal.o
+  CC      arch/x86_64/ia32/ia32_binfmt.o
+  CC      init/version.o
+  CC      arch/x86_64/ia32/fpu32.o
+  CC      arch/x86_64/ia32/ptrace32.o
   GZIP    kernel/config_data.gz
-  LD      fs/built-in.o
   IKCFG   kernel/config_data.h
   CC      kernel/configs.o
+  LD      init/mounts.o
+  LD      init/built-in.o
+  CC      fs/read_write.o
+  CC      arch/x86_64/mm/ioremap.o
+  CC      arch/x86_64/ia32/syscall32.o
+  CC      arch/x86_64/mm/extable.o
+  AS      arch/x86_64/kernel/entry.o
+  AS      arch/x86_64/ia32/vsyscall-sysenter.o
   LD      kernel/built-in.o
+  AS      arch/x86_64/ia32/vsyscall-syscall.o
+  CC      arch/x86_64/ia32/mmap32.o
+  CC      arch/x86_64/kernel/traps.o
+  CC      fs/file_table.o
+  CC      arch/x86_64/ia32/ipc32.o
+  CC      block/elevator.o
+  CC      arch/x86_64/mm/pageattr.o
+  CC      fs/super.o
+  CC      arch/x86_64/ia32/ia32_aout.o
+  CC      block/ll_rw_blk.o
+  CC      fs/char_dev.o
+  CC      arch/x86_64/mm/mmap.o
+  CC      arch/x86_64/mm/../../i386/mm/hugetlbpage.o
+  CC      arch/x86_64/kernel/irq.o
+  CC      block/ioctl.o
+  CC      fs/stat.o
+  CC      drivers/acpi/tables.o
+  CC      fs/exec.o
+  SYSCALL arch/x86_64/ia32/vsyscall-sysenter.so
+  CC      arch/x86_64/mm/numa.o
+  CC      arch/x86_64/kernel/ptrace.o
+  CC      drivers/acpi/blacklist.o
+  CC      block/genhd.o
+  SYSCALL arch/x86_64/ia32/vsyscall-syscall.so
+  AS      arch/x86_64/ia32/syscall32_syscall.o
+  CC      drivers/ata/libata-core.o
+  LD      arch/x86_64/ia32/built-in.o
+  CC      arch/x86_64/mm/k8topology.o
+  CC      drivers/acpi/osl.o
+  CC      arch/x86_64/kernel/time.o
+  CC      block/scsi_ioctl.o
+  CC      arch/x86_64/mm/srat.o
+  CC      block/noop-iosched.o
+  CC      fs/pipe.o
+  CC      arch/x86_64/kernel/ioport.o
+  CC      block/deadline-iosched.o
+  LD      arch/x86_64/mm/hugetlbpage.o
+  LD      arch/x86_64/mm/built-in.o
+  CC      block/cfq-iosched.o
+  CC      drivers/acpi/utils.o
+  CC      arch/x86_64/kernel/ldt.o
+  CC      arch/x86_64/pci/../../i386/pci/acpi.o
+  CC      drivers/base/core.o
+  CC      drivers/acpi/dispatcher/dsfield.o
+  CC      arch/x86_64/kernel/setup.o
+  CC      fs/namei.o
+  CC      fs/fcntl.o
+  CC      arch/x86_64/pci/../../i386/pci/common.o
+  CC      drivers/acpi/dispatcher/dsmthdat.o
+  CC      drivers/base/sys.o
+  CC      drivers/acpi/dispatcher/dsopcode.o
+  CC      arch/x86_64/pci/../../i386/pci/direct.o
+  CC      fs/ioctl.o
+  CC      arch/x86_64/kernel/i8259.o
+  LD      block/built-in.o
+  CC      drivers/block/floppy.o
+  CC      drivers/base/bus.o
+  CC      drivers/acpi/dispatcher/dswexec.o
+  CC      arch/x86_64/pci/../../i386/pci/early.o
+  CC      fs/readdir.o
+  CC      arch/x86_64/kernel/sys_x86_64.o
+  CC      drivers/acpi/dispatcher/dswscope.o
+  CC      arch/x86_64/pci/../../i386/pci/fixup.o
+  CC      drivers/base/dd.o
+  CC      fs/select.o
+  CC      drivers/acpi/dispatcher/dsmethod.o
+  CC      arch/x86_64/kernel/x8664_ksyms.o
+  CC      drivers/base/driver.o
+  CC      arch/x86_64/pci/../../i386/pci/i386.o
+  CC      arch/x86_64/kernel/i387.o
+  CC      drivers/acpi/dispatcher/dsobject.o
+  CC      drivers/ata/libata-scsi.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/oprof.o
+  CC      drivers/base/class.o
+  CC      arch/x86_64/kernel/syscall.o
+  CC      fs/fifo.o
+  CC      drivers/acpi/dispatcher/dsutils.o
+  CC      arch/x86_64/pci/../../i386/pci/init.o
+  CC      arch/x86_64/kernel/vsyscall.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/cpu_buffer.o
+  CC      arch/x86_64/pci/../../i386/pci/irq.o
+  CC      arch/x86_64/kernel/setup64.o
+  CC      fs/locks.o
+  CC      drivers/acpi/dispatcher/dswload.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/buffer_sync.o
+  CC      drivers/base/platform.o
+  CC      drivers/acpi/dispatcher/dswstate.o
+  CC      arch/x86_64/kernel/../../i386/kernel/alternative.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/event_buffer.o
+  CC      drivers/base/cpu.o
+  CC      arch/x86_64/pci/../../i386/pci/legacy.o
+  CC      drivers/acpi/dispatcher/dsinit.o
+  CC      drivers/base/firmware.o
+  CC      arch/x86_64/kernel/../../i386/kernel/bootflag.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/oprofile_files.o
+  CC      drivers/ata/libata-sff.o
+  CC      drivers/base/init.o
+  LD      drivers/acpi/dispatcher/built-in.o
+  CC      drivers/acpi/events/evevent.o
+  CC      arch/x86_64/pci/../../i386/pci/mmconfig-shared.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/oprofilefs.o
+  CC      drivers/base/map.o
+  CC      fs/dcache.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpuid.o
+  CC      drivers/block/rd.o
+  CC      drivers/acpi/events/evregion.o
+  CC      drivers/base/devres.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/oprofile_stats.o
+  CC      arch/x86_64/pci/mmconfig.o
+  CC      arch/x86_64/kernel/../../i386/kernel/i8237.o
+  CC      drivers/acpi/events/evsci.o
+  CC      drivers/ata/libata-eh.o
+  CC      arch/x86_64/oprofile/../../../drivers/oprofile/timer_int.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/intel_cacheinfo.o
+  CC      drivers/block/loop.o
+  CC      drivers/acpi/events/evxfevnt.o
+  CC      drivers/base/attribute_container.o
+  LD      arch/x86_64/pci/mmconfig-shared.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/init.o
+  CC      arch/x86_64/pci/k8-bus.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/backtrace.o
+  CC      drivers/acpi/events/evmisc.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/nmi_int.o
+  CC      drivers/base/transport_class.o
+  CC      arch/x86_64/kernel/../../i386/kernel/legacy_serial.o
+  LD      arch/x86_64/pci/i386.o
+  LD      arch/x86_64/pci/direct.o
+  LD      arch/x86_64/pci/fixup.o
+  LD      arch/x86_64/pci/init.o
+  LD      arch/x86_64/pci/acpi.o
+  LD      arch/x86_64/pci/legacy.o
+  LD      arch/x86_64/pci/irq.o
+  LD      arch/x86_64/pci/common.o
+  LD      arch/x86_64/pci/early.o
+  LD      arch/x86_64/pci/built-in.o
+  CC      fs/inode.o
+  CC      drivers/acpi/events/evrgnini.o
+  CC      drivers/base/power/shutdown.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/op_model_athlon.o
+  CC      arch/x86_64/kernel/../../i386/kernel/msr.o
+  CC      drivers/base/power/main.o
+  CC      drivers/acpi/events/evxface.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/op_model_p4.o
+  LD      drivers/block/built-in.o
+  CC      drivers/base/power/suspend.o
+  CC      drivers/ata/libata-acpi.o
+  CC      drivers/acpi/executer/exconfig.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/op_model_ppro.o
+  CC      arch/x86_64/kernel/../../i386/kernel/pcspeaker.o
+  CC      drivers/acpi/events/evxfregn.o
+  CC      drivers/base/power/resume.o
+  CC      fs/attr.o
+  CC      arch/x86_64/oprofile/../../i386/oprofile/nmi_timer_int.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/perfctr-watchdog.o
+  LD      net/sunrpc/built-in.o
+  CC      drivers/acpi/executer/exfield.o
+  CC      drivers/acpi/events/evgpe.o
+  LD      arch/x86_64/oprofile/oprofile.o
+  LD      net/built-in.o
+  LD      arch/x86_64/oprofile/built-in.o
+  CC      drivers/base/power/runtime.o
+  CC      drivers/cdrom/cdrom.o
+  CC      drivers/acpi/executer/exnames.o
+  CC      drivers/base/power/sysfs.o
+  CC      drivers/ata/ahci.o
+  CC      fs/bad_inode.o
+  CC      drivers/acpi/hardware/hwacpi.o
+  CC      drivers/acpi/events/evgpeblk.o
+  CC      arch/x86_64/kernel/../../i386/kernel/quirks.o
+  LD      drivers/base/power/built-in.o
+  CC      drivers/base/dma-mapping.o
+  CC      drivers/acpi/executer/exoparg6.o
+  CC      drivers/acpi/hardware/hwgpe.o
+  CC      fs/file.o
+  CC      drivers/base/dmapool.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/mcheck/therm_throt.o
+  CC      drivers/acpi/executer/exresolv.o
+  LD      drivers/acpi/events/built-in.o
+  CC      drivers/acpi/hardware/hwregs.o
+  CC      drivers/acpi/namespace/nsaccess.o
+  CC      arch/x86_64/kernel/../../i386/kernel/topology.o
+  CC      drivers/acpi/executer/exstorob.o
+  CC      fs/filesystems.o
+  CC      drivers/base/firmware_class.o
+  CC      arch/x86_64/kernel/e820.o
+  CC      drivers/acpi/hardware/hwsleep.o
+  CC      drivers/acpi/namespace/nsload.o
+  CC      drivers/acpi/executer/exconvrt.o
+  CC      drivers/ata/sata_svw.o
+  CC      drivers/acpi/namespace/nssearch.o
+  LD      drivers/acpi/hardware/built-in.o
+  CC      fs/namespace.o
+  CC      drivers/acpi/parser/psargs.o
+  CC      drivers/base/node.o
+  CC      drivers/acpi/executer/exfldio.o
+  CC      drivers/acpi/namespace/nsxfeval.o
+  CC      arch/x86_64/kernel/reboot.o
+  CC      drivers/acpi/parser/psparse.o
+  CC      drivers/ata/ata_piix.o
+  CC      drivers/acpi/executer/exoparg1.o
+  CC      drivers/acpi/namespace/nsalloc.o
+  CC      drivers/base/topology.o
+  LD      drivers/cdrom/built-in.o
+  CC      fs/aio.o
+  LD      arch/x86_64/kernel/quirks.o
+  CC      drivers/acpi/parser/psloop.o
+  LD      arch/x86_64/kernel/i8237.o
+  CC      arch/x86_64/kernel/pci-dma.o
+  CC      drivers/acpi/namespace/nseval.o
+  LD      drivers/base/built-in.o
+  CC      drivers/acpi/executer/exprep.o
+  CC      drivers/char/mem.o
+  CC      drivers/acpi/namespace/nsnames.o
+  CC      arch/x86_64/kernel/pci-nommu.o
+  CC      drivers/acpi/parser/pstree.o
+  CC      drivers/ata/sata_sil.o
+  CC      drivers/acpi/executer/exresop.o
+  CC      fs/seq_file.o
+  CC      drivers/acpi/namespace/nsutils.o
+  CC      drivers/acpi/parser/pswalk.o
+  LD      arch/x86_64/kernel/alternative.o
+  CC      arch/x86_64/kernel/hpet.o
+  CC      drivers/acpi/parser/psopcode.o
+  CC      drivers/acpi/executer/exsystem.o
+  CC      drivers/char/random.o
+  CC      drivers/acpi/namespace/nsxfname.o
+  CC      fs/xattr.o
+  CC      fs/libfs.o
+  CC      drivers/acpi/parser/psscope.o
+  CC      drivers/acpi/executer/excreate.o
+  CC      drivers/ata/sata_via.o
+  CC      drivers/acpi/namespace/nsdump.o
+  CC      arch/x86_64/kernel/tsc.o
+  CC      drivers/acpi/parser/psutils.o
+  CC      drivers/acpi/executer/exmisc.o
+  CC      drivers/acpi/namespace/nsinit.o
+  CC      drivers/acpi/parser/psxface.o
+  CC      arch/x86_64/kernel/bugs.o
+  CC      fs/fs-writeback.o
+  CC      fs/pnode.o
+  CC      drivers/acpi/executer/exoparg2.o
+  CC      drivers/acpi/namespace/nsobject.o
+  CC      drivers/ata/sata_nv.o
+  LD      arch/x86_64/kernel/perfctr-watchdog.o
+  CC      arch/x86_64/kernel/mce.o
+  LD      drivers/acpi/parser/built-in.o
+  CC      drivers/char/tty_io.o
+  CC      drivers/acpi/resources/rsaddr.o
+  CC      drivers/acpi/namespace/nswalk.o
+  CC      drivers/acpi/executer/exregion.o
+  CC      fs/drop_caches.o
+  CC      drivers/acpi/resources/rscreate.o
+  CC      drivers/acpi/namespace/nsxfobj.o
+  LD      arch/x86_64/kernel/therm_throt.o
+  CC      arch/x86_64/kernel/mce_intel.o
+  CC      drivers/acpi/executer/exstore.o
+  CC      fs/splice.o
+  CC      drivers/acpi/resources/rsinfo.o
+  CC      drivers/acpi/namespace/nsparse.o
+  CC      arch/x86_64/kernel/mce_amd.o
+  CC      drivers/acpi/executer/exutils.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/mtrr/main.o
+  CC      drivers/acpi/resources/rsio.o
+  LD      drivers/acpi/namespace/built-in.o
+  CC      drivers/clocksource/acpi_pm.o
+  CC      drivers/acpi/executer/exdump.o
+  CC      drivers/acpi/resources/rslist.o
+  LD      drivers/ata/libata.o
+  LD      drivers/ata/built-in.o
+  CC      drivers/char/n_tty.o
+  CC      drivers/acpi/executer/exmutex.o
+  CC      drivers/acpi/resources/rsmisc.o
+  CC      fs/sync.o
+  LD      drivers/clocksource/built-in.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/mtrr/if.o
+  CC      drivers/cpufreq/cpufreq.o
+  CC      drivers/acpi/executer/exoparg3.o
+  CC      fs/utimes.o
+  CC      drivers/acpi/resources/rsxface.o
+  CC      fs/stack.o
+  CC      drivers/acpi/executer/exresnte.o
+  CC      drivers/acpi/resources/rscalc.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/mtrr/generic.o
+  CC      arch/x86_64/kernel/acpi/../../../i386/kernel/acpi/boot.o
+  CC      arch/x86_64/lib/io.o
+  CC      fs/buffer.o
+  CC      drivers/acpi/executer/exstoren.o
+  AS      arch/x86_64/lib/iomap_copy.o
+  CC      arch/x86_64/lib/msr-on-cpu.o
+  CC      drivers/acpi/resources/rsirq.o
+  LD      drivers/acpi/executer/built-in.o
+  CC      drivers/char/tty_ioctl.o
+  CC      drivers/acpi/sleep/poweroff.o
+  CC      arch/x86_64/lib/bitops.o
+  CC      drivers/cpufreq/cpufreq_stats.o
+  CC      drivers/acpi/resources/rsmemory.o
+  CC      arch/x86_64/kernel/../../i386/kernel/cpu/mtrr/state.o
+  CC      drivers/acpi/sleep/wakeup.o
+  CC      arch/x86_64/lib/bitstr.o
+  CC      drivers/acpi/resources/rsutils.o
+  CC      arch/x86_64/kernel/acpi/../../../i386/kernel/acpi/processor.o
+  CC      drivers/cpufreq/cpufreq_performance.o
+  AS      arch/x86_64/lib/clear_page.o
+  LD      arch/x86_64/kernel/../../i386/kernel/cpu/mtrr/built-in.o
+  AS      arch/x86_64/lib/copy_page.o
+  CC      drivers/char/pty.o
+  CC      arch/x86_64/kernel/cpufreq/../../../i386/kernel/cpu/cpufreq/acpi-cpufreq.o
+  AS      arch/x86_64/lib/copy_user.o
+  AS      arch/x86_64/lib/copy_user_nocache.o
+  CC      drivers/acpi/sleep/main.o
+  CC      drivers/cpufreq/cpufreq_userspace.o
+  AS      arch/x86_64/lib/csum-copy.o
+  LD      drivers/acpi/resources/built-in.o
+  CC      arch/x86_64/kernel/acpi/../../../i386/kernel/acpi/cstate.o
+  CC      drivers/acpi/tables/tbxface.o
+  CC      arch/x86_64/lib/csum-partial.o
+  CC      drivers/char/misc.o
+  CC      drivers/cpufreq/cpufreq_ondemand.o
+  CC      drivers/acpi/sleep/proc.o
+  CC      arch/x86_64/kernel/acpi/sleep.o
+  CC      arch/x86_64/lib/csum-wrappers.o
+  CC      drivers/acpi/tables/tbinstal.o
+  CC      arch/x86_64/kernel/cpufreq/../../../i386/kernel/cpu/cpufreq/powernow-k8.o
+  CC      drivers/char/vt_ioctl.o
+  CC      arch/x86_64/lib/delay.o
+  CC      drivers/cpufreq/freq_table.o
+  AS      arch/x86_64/kernel/acpi/wakeup.o
+  CC      drivers/acpi/tables/tbutils.o
+  AS      arch/x86_64/lib/getuser.o
+  LD      arch/x86_64/kernel/acpi/processor.o
+  CC      fs/bio.o
+  LD      drivers/acpi/sleep/built-in.o
+  LD      arch/x86_64/kernel/acpi/boot.o
+  AS      arch/x86_64/lib/memcpy.o
+  LD      arch/x86_64/kernel/msr.o
+  LD      arch/x86_64/kernel/acpi/built-in.o
+  CC      arch/x86_64/lib/memmove.o
+  LD      arch/x86_64/kernel/cpuid.o
+  CC      drivers/char/vc_screen.o
+  LD      drivers/cpufreq/built-in.o
+  CC      fs/block_dev.o
+  CC      drivers/firmware/dmi_scan.o
+  CC      drivers/acpi/tables/tbfind.o
+  AS      arch/x86_64/lib/memset.o
+  CC      drivers/acpi/tables/tbfadt.o
+  AS      arch/x86_64/lib/putuser.o
+  AS      arch/x86_64/lib/rwlock.o
+  LD      arch/x86_64/kernel/cpufreq/powernow-k8.o
+  LD      arch/x86_64/kernel/cpufreq/acpi-cpufreq.o
+  CC      drivers/char/consolemap.o
+  LD      arch/x86_64/kernel/cpufreq/built-in.o
+  CC      arch/x86_64/kernel/smp.o
+  AS      arch/x86_64/lib/thunk.o
+  LD      drivers/firmware/built-in.o
+  CC      fs/direct-io.o
+  LD      drivers/acpi/tables/built-in.o
+  CC      drivers/hid/hid-core.o
+  CC      arch/x86_64/lib/usercopy.o
+  CC      drivers/acpi/utilities/utalloc.o
+  CC      fs/mpage.o
+  LD      arch/x86_64/lib/built-in.o
+  AR      arch/x86_64/lib/lib.a
+  CC      drivers/char/consolemap_deftbl.o
+  CC      fs/ioprio.o
+  CC      arch/x86_64/kernel/smpboot.o
+  CC      drivers/hid/hid-input.o
+  CC      drivers/acpi/utilities/utdebug.o
+  CC      drivers/char/selection.o
+  CC      drivers/acpi/utilities/uteval.o
+  CC      fs/inotify.o
+  AS      arch/x86_64/kernel/trampoline.o
+  CC      drivers/hid/usbhid/hid-core.o
+  CC      drivers/char/keyboard.o
+  CC      drivers/acpi/utilities/utinit.o
+  CC      drivers/acpi/bus.o
+  CC      drivers/hwmon/hwmon.o
+  CC      arch/x86_64/kernel/tsc_sync.o
+  CC      drivers/acpi/utilities/utmisc.o
+  CC      drivers/hwmon/coretemp.o
+  CC      fs/inotify_user.o
+  CC      arch/x86_64/kernel/apic.o
+  CC      drivers/hid/usbhid/hid-quirks.o
+  CC [M]  drivers/hwmon/smsc47b397.o
+  LD      drivers/hid/hid.o
+  CC      drivers/i2c/i2c-boardinfo.o
+  CC      drivers/acpi/utilities/utxface.o
+  CC      fs/eventpoll.o
+  LD      drivers/hid/usbhid/usbhid.o
+  LD      drivers/hid/usbhid/built-in.o
+  LD      drivers/hid/built-in.o
+  CC      fs/anon_inodes.o
+  LD      drivers/hwmon/built-in.o
+  CC      drivers/char/vt.o
+  CC [M]  drivers/i2c/i2c-core.o
+  CC      drivers/acpi/utilities/utcopy.o
+  CC      drivers/ide/pci/amd74xx.o
+  CC      drivers/char/defkeymap.o
+  CC      fs/signalfd.o
+  CC      arch/x86_64/kernel/nmi.o
+  CC      drivers/ieee1394/ieee1394_core.o
+  CC      drivers/acpi/utilities/utdelete.o
+  CC [M]  drivers/i2c/i2c-dev.o
+  CC      fs/timerfd.o
+  CC      drivers/acpi/utilities/utglobal.o
+  CC      arch/x86_64/kernel/io_apic.o
+  CC      drivers/ide/pci/atiixp.o
+  LD      drivers/i2c/built-in.o
+  CC      drivers/acpi/glue.o
+  CC      drivers/char/sysrq.o
+  CC      drivers/acpi/utilities/utmath.o
+  CC      fs/eventfd.o
+  CC      drivers/acpi/utilities/utobject.o
+  CC      drivers/ieee1394/ieee1394_transactions.o
+  CC      drivers/ieee1394/hosts.o
+  CC      drivers/ide/pci/pdc202xx_new.o
+  CC      drivers/char/raw.o
+  CC      drivers/acpi/utilities/utstate.o
+  CC      fs/compat.o
+  CC      drivers/ieee1394/highlevel.o
+  CC      drivers/acpi/utilities/utmutex.o
+  CC      drivers/ieee1394/csr.o
+  CC      drivers/ide/pci/piix.o
+  CC      drivers/acpi/utilities/utcache.o
+  CC      arch/x86_64/kernel/mpparse.o
+  CC      arch/x86_64/kernel/genapic.o
+  CC      drivers/acpi/utilities/utresrc.o
+  CC      drivers/ieee1394/nodemgr.o
+  CC      arch/x86_64/kernel/genapic_flat.o
+  LD      drivers/acpi/utilities/built-in.o
+  CC      drivers/char/rtc.o
+  CC      drivers/acpi/scan.o
+  CC      drivers/ieee1394/dma.o
+  LD      drivers/ide/pci/built-in.o
+  CC      drivers/ide/ide.o
+  CC      fs/compat_ioctl.o
+  CC      arch/x86_64/kernel/suspend.o
+  CC      drivers/input/input.o
+  CC      fs/nfsctl.o
+  AS      arch/x86_64/kernel/suspend_asm.o
+  CC      arch/x86_64/kernel/early_printk.o
+  CC      drivers/char/hpet.o
+  CC      drivers/acpi/ec.o
+  CC      drivers/ide/ide-io.o
+  CC      arch/x86_64/kernel/pci-gart.o
+  CC      drivers/ieee1394/iso.o
+  CC      drivers/input/serio/serio.o
+  CC      drivers/acpi/ac.o
+  CC      drivers/char/agp/backend.o
+  CC      drivers/ieee1394/csr1212.o
+  CC      arch/x86_64/kernel/aperture.o
+  CC      drivers/input/ff-core.o
+  CC      drivers/acpi/battery.o
+  CC      drivers/char/agp/frontend.o
+  CC      drivers/input/mousedev.o
+  CC      drivers/input/serio/i8042.o
+  CC      arch/x86_64/kernel/pci-swiotlb.o
+  CC      drivers/ide/ide-iops.o
+  CC      drivers/acpi/button.o
+  LD      arch/x86_64/kernel/legacy_serial.o
+  CC      arch/x86_64/kernel/kprobes.o
+  CC      fs/binfmt_script.o
+  CC      drivers/ieee1394/config_roms.o
+  CC      fs/binfmt_elf.o
+  CC      drivers/char/agp/generic.o
+  CC      drivers/acpi/fan.o
+  CC      drivers/input/evdev.o
+  CC      drivers/ieee1394/ohci1394.o
+  CC      drivers/input/serio/libps2.o
+  CC      arch/x86_64/kernel/pmtimer.o
+  CC      drivers/acpi/pci_root.o
+  CC      drivers/ide/ide-lib.o
+  CC      arch/x86_64/kernel/k8.o
+  LD      drivers/input/serio/built-in.o
+  CC      drivers/char/hw_random/core.o
+  CC      drivers/input/keyboard/atkbd.o
+  CC      drivers/acpi/pci_link.o
+  CC      arch/x86_64/kernel/module.o
+  CC      drivers/char/agp/isoch.o
+  CC      drivers/ide/ide-probe.o
+  CC      arch/x86_64/kernel/early-quirks.o
+  CC      drivers/char/hw_random/intel-rng.o
+  CC      fs/mbcache.o
+  CC      drivers/char/agp/compat_ioctl.o
+  LD      arch/x86_64/kernel/topology.o
+  LD      arch/x86_64/kernel/intel_cacheinfo.o
+  LD      arch/x86_64/kernel/pcspeaker.o
+  CC      drivers/acpi/pci_irq.o
+  AS      arch/x86_64/kernel/head.o
+  CC      drivers/char/hw_random/amd-rng.o
+  LD      drivers/input/keyboard/built-in.o
+  CC      arch/x86_64/kernel/head64.o
+  CC      drivers/input/mouse/psmouse-base.o
+  LD      drivers/char/hw_random/rng-core.o
+  CC      drivers/char/agp/amd64-agp.o
+  LD      drivers/char/hw_random/built-in.o
+  CC      drivers/ieee1394/raw1394.o
+  CC      fs/posix_acl.o
+  CC      drivers/acpi/pci_bind.o
+  CC      arch/x86_64/kernel/init_task.o
+  CC      drivers/md/dm.o
+  CC      drivers/ide/ide-taskfile.o
+  LDS     arch/x86_64/kernel/vmlinux.lds
+  CC      fs/xattr_acl.o
+  LD      arch/x86_64/kernel/bootflag.o
+  LD      arch/x86_64/kernel/built-in.o
+  CC      drivers/acpi/power.o
+  CC      drivers/char/agp/intel-agp.o
+  CC      drivers/input/mouse/synaptics.o
+  LD      drivers/ieee1394/ieee1394.o
+  CC      fs/autofs4/init.o
+  CC      drivers/message/fusion/mptbase.o
+  CC      drivers/acpi/processor_core.o
+  CC      fs/autofs4/inode.o
+  CC      drivers/input/mouse/alps.o
+  CC      drivers/md/dm-table.o
+  CC      drivers/ide/setup-pci.o
+  CC      fs/autofs4/root.o
+  CC      drivers/input/mouse/logips2pp.o
+  CC      drivers/acpi/processor_throttling.o
+  LD      drivers/char/agp/agpgart.o
+  LD      drivers/char/agp/built-in.o
+  LD      drivers/char/built-in.o
+  CC      drivers/message/fusion/mptscsih.o
+  LD      drivers/ieee1394/built-in.o
+  CC      drivers/md/dm-target.o
+  CC      drivers/acpi/processor_idle.o
+  CC      drivers/input/mouse/lifebook.o
+  CC      drivers/ide/ide-dma.o
+  CC      fs/autofs4/symlink.o
+  CC      fs/autofs4/waitq.o
+  CC      drivers/md/dm-linear.o
+  CC      drivers/message/fusion/mptspi.o
+  CC      drivers/input/mouse/trackpoint.o
+  CC      fs/autofs4/expire.o
+  CC      drivers/acpi/processor_thermal.o
+  CC      drivers/md/dm-stripe.o
+  CC      drivers/ide/ide-proc.o
+  CC      drivers/message/fusion/mptsas.o
+  LD      drivers/input/mouse/psmouse.o
+  LD      drivers/input/mouse/built-in.o
+  LD      drivers/input/input-core.o
+  LD      drivers/input/built-in.o
+  LD      fs/autofs4/autofs4.o
+  LD      fs/autofs4/built-in.o
+  CC      drivers/acpi/processor_perflib.o
+  CC      drivers/acpi/container.o
+  CC      fs/debugfs/inode.o
+  CC      drivers/md/dm-ioctl.o
+  CC      drivers/ide/ide-acpi.o
+  CC      drivers/acpi/thermal.o
+  CC      fs/devpts/inode.o
+  CC      fs/debugfs/file.o
+  CC      drivers/acpi/system.o
+  CC      drivers/ide/ide-generic.o
+  CC      drivers/acpi/event.o
+  LD      fs/debugfs/debugfs.o
+  CC      drivers/net/e1000/e1000_main.o
+  LD      fs/devpts/devpts.o
+  LD      fs/devpts/built-in.o
+  LD      fs/debugfs/built-in.o
+  CC      drivers/md/dm-io.o
+  CC      fs/exportfs/expfs.o
+  CC      drivers/acpi/numa.o
+  CC      drivers/ide/ide-disk.o
+  CC      drivers/acpi/cm_sbs.o
+  CC      drivers/net/tulip/eeprom.o
+  LD      fs/exportfs/exportfs.o
+  LD      fs/exportfs/built-in.o
+  CC      fs/ext2/balloc.o
+  CC      drivers/md/kcopyd.o
+  LD      drivers/acpi/processor.o
+  CC      drivers/net/3c59x.o
+  LD      drivers/acpi/built-in.o
+  LD      drivers/message/fusion/built-in.o
+  CC      drivers/pci/access.o
+  LD      drivers/message/built-in.o
+  CC      drivers/net/tulip/interrupt.o
+  CC      fs/ext3/balloc.o
+  LD      drivers/md/dm-mod.o
+  CC      drivers/pci/bus.o
+  LD      drivers/md/built-in.o
+  CC      fs/ext2/dir.o
+  CC      drivers/pnp/core.o
+  CC      drivers/ide/ide-cd.o
+  CC      drivers/net/tulip/media.o
+  CC      drivers/pnp/card.o
+  CC      drivers/pci/probe.o
+  CC      fs/ext2/file.o
+  CC      drivers/pnp/driver.o
+  CC      fs/ext3/bitmap.o
+  CC      fs/ext2/fsync.o
+  CC      drivers/pnp/resource.o
+  CC      fs/ext3/dir.o
+  CC      fs/ext2/ialloc.o
+  CC      drivers/net/tulip/timer.o
+  CC      drivers/pci/remove.o
+  CC      drivers/net/e100.o
+  CC      fs/ext3/file.o
+  CC      drivers/pnp/manager.o
+  CC      drivers/pci/pci.o
+  CC      drivers/net/tulip/tulip_core.o
+  CC      fs/ext2/inode.o
+  CC      drivers/net/e1000/e1000_hw.o
+  CC      fs/ext3/fsync.o
+  CC      drivers/pnp/support.o
+  LD      drivers/ide/ide-core.o
+  CC      fs/ext3/ialloc.o
+  LD      drivers/ide/built-in.o
+  CC      fs/fat/cache.o
+  CC      drivers/pnp/interface.o
+  CC      drivers/pci/quirks.o
+  CC      fs/ext2/ioctl.o
+  CC      fs/fat/dir.o
+  CC      fs/ext3/inode.o
+  CC      drivers/pnp/quirks.o
+  CC      drivers/net/tulip/21142.o
+  CC      fs/ext2/namei.o
+  CC      drivers/net/e1000/e1000_ethtool.o
+  CC      drivers/pnp/system.o
+  CC      drivers/pnp/pnpacpi/core.o
+  CC      fs/ext2/super.o
+  CC      drivers/pci/pci-driver.o
+  CC      drivers/net/tulip/pnic.o
+  CC      drivers/pnp/pnpacpi/rsparser.o
+  CC      fs/fat/fatent.o
+  CC      drivers/pci/search.o
+  CC      drivers/net/tulip/pnic2.o
+  CC      fs/ext2/symlink.o
+  CC      fs/ext3/ioctl.o
+  CC      fs/ext2/xattr.o
+  LD      drivers/pnp/pnpacpi/built-in.o
+  CC      drivers/pci/pci-sysfs.o
+  LD      drivers/pnp/built-in.o
+  CC      fs/hugetlbfs/inode.o
+  LD      drivers/net/tulip/tulip.o
+  LD      drivers/net/tulip/built-in.o
+  CC      drivers/net/tg3.o
+  CC      fs/fat/file.o
+  CC      drivers/net/e1000/e1000_param.o
+  CC      fs/ext3/namei.o
+  CC      fs/ext2/xattr_user.o
+  CC      fs/ext2/xattr_trusted.o
+  CC      drivers/pci/rom.o
+  CC      fs/fat/inode.o
+  CC      fs/ext2/acl.o
+  CC      fs/isofs/namei.o
+  LD      fs/hugetlbfs/hugetlbfs.o
+  LD      fs/hugetlbfs/built-in.o
+  CC      fs/jbd/transaction.o
+  CC      drivers/pci/setup-res.o
+  LD      drivers/net/e1000/e1000.o
+  LD      drivers/net/e1000/built-in.o
+  CC      drivers/net/bnx2.o
+  CC      fs/isofs/inode.o
+  LD      fs/ext2/ext2.o
+  LD      fs/ext2/built-in.o
+  CC      fs/fat/misc.o
+  CC      drivers/pci/proc.o
+  LD      fs/fat/fat.o
+  LD      fs/fat/built-in.o
+  CC      fs/jbd/commit.o
+  CC      fs/ext3/super.o
+  CC      drivers/scsi/scsi.o
+  CC      drivers/pci/pcie/portdrv_core.o
+  CC      drivers/net/mii.o
+  CC      fs/isofs/dir.o
+  CC      drivers/pci/pcie/portdrv_pci.o
+  CC      drivers/scsi/hosts.o
+  CC      fs/jbd/recovery.o
+  CC      fs/isofs/util.o
+  CC      drivers/net/Space.o
+  CC      drivers/pci/pcie/portdrv_bus.o
+  CC      fs/isofs/rock.o
+  CC      fs/jbd/checkpoint.o
+  CC      drivers/scsi/scsi_ioctl.o
+  CC      drivers/net/loopback.o
+  CC      drivers/pci/pcie/aer/aerdrv_errprint.o
+  CC      fs/ext3/symlink.o
+  CC      drivers/scsi/constants.o
+  CC      fs/ext3/hash.o
+  CC      drivers/net/b44.o
+  CC      fs/isofs/export.o
+  CC      drivers/pci/pcie/aer/aerdrv_core.o
+  CC      fs/jbd/revoke.o
+  CC      fs/ext3/resize.o
+  CC      fs/isofs/joliet.o
+  CC      drivers/scsi/scsicam.o
+  CC      fs/jbd/journal.o
+  CC      drivers/pci/pcie/aer/aerdrv.o
+  LD      fs/isofs/isofs.o
+  LD      fs/isofs/built-in.o
+  CC      fs/lockd/clntlock.o
+  CC      drivers/scsi/scsi_error.o
+  CC      drivers/pci/pcie/aer/aerdrv_acpi.o
+  CC      fs/lockd/clntproc.o
+  CC      fs/ext3/ext3_jbd.o
+  LD      drivers/pci/pcie/aer/aerdriver.o
+  LD      drivers/pci/pcie/aer/built-in.o
+  LD      drivers/pci/pcie/pcieportdrv.o
+  LD      drivers/pci/pcie/built-in.o
+  CC      drivers/pci/hotplug.o
+  CC      drivers/net/forcedeth.o
+  CC      drivers/net/8139cp.o
+  CC      fs/ext3/xattr.o
+  LD      fs/jbd/jbd.o
+  LD      fs/jbd/built-in.o
+  CC      drivers/pci/msi.o
+  CC      fs/msdos/namei.o
+  CC      fs/lockd/host.o
+  CC      drivers/scsi/scsi_lib.o
+  LD      fs/msdos/msdos.o
+  LD      fs/msdos/built-in.o
+  CC      drivers/pci/setup-bus.o
+  CC      fs/lockd/svc.o
+  CC      fs/nfs/client.o
+  CC      fs/ext3/xattr_user.o
+  CC      drivers/scsi/scsi_scan.o
+  CC      fs/ext3/xattr_trusted.o
+  CC      drivers/serial/serial_core.o
+  CC      drivers/pci/pci-acpi.o
+  CC      fs/lockd/svclock.o
+  CC      fs/nfsd/nfssvc.o
+  CC      fs/ext3/acl.o
+  LD      drivers/pci/built-in.o
+  CC      fs/nfs/dir.o
+  CC      fs/nfs/file.o
+  CC      drivers/scsi/scsi_sysfs.o
+  CC      fs/nfsd/nfsctl.o
+  LD      fs/ext3/ext3.o
+  LD      fs/ext3/built-in.o
+  CC      fs/nls/nls_base.o
+  CC      fs/lockd/svcshare.o
+  CC      fs/nfs/getroot.o
+  CC      fs/nls/nls_cp437.o
+  CC      fs/lockd/svcproc.o
+  CC      drivers/serial/8250.o
+  CC      fs/nfsd/nfsproc.o
+  CC      fs/nls/nls_ascii.o
+  CC      fs/nfs/inode.o
+  CC      drivers/net/8139too.o
+  CC      fs/nls/nls_iso8859-1.o
+  CC      drivers/scsi/scsi_devinfo.o
+  CC      fs/nls/nls_iso8859-15.o
+  CC      fs/lockd/svcsubs.o
+  CC      fs/partitions/check.o
+  CC      fs/nls/nls_utf8.o
+  CC      fs/nfsd/nfsfh.o
+  CC      drivers/scsi/scsi_netlink.o
+  LD      fs/nls/built-in.o
+  CC      fs/proc/mmu.o
+  CC      fs/lockd/mon.o
+  CC      fs/nfs/super.o
+  CC      drivers/scsi/scsi_sysctl.o
+  CC      fs/partitions/msdos.o
+  CC      fs/proc/task_mmu.o
+  CC      drivers/scsi/sd.o
+  CC      fs/nfsd/vfs.o
+  CC      drivers/serial/8250_pnp.o
+  CC      drivers/net/tun.o
+  CC      fs/lockd/xdr.o
+  LD      fs/partitions/built-in.o
+  CC      fs/ramfs/inode.o
+  CC      drivers/serial/8250_pci.o
+  CC      fs/nfs/nfs2xdr.o
+  CC      fs/proc/inode.o
+  CC      drivers/net/netconsole.o
+  CC      fs/ramfs/file-mmu.o
+  CC      fs/lockd/xdr4.o
+  CC      fs/proc/root.o
+  LD      fs/ramfs/ramfs.o
+  LD      fs/ramfs/built-in.o
+  CC [M]  drivers/net/s2io.o
+  CC      fs/reiserfs/bitmap.o
+  CC      drivers/serial/8250_early.o
+  CC      fs/proc/base.o
+  CC      fs/nfs/pagelist.o
+  CC      drivers/scsi/sr.o
+  CC      fs/nfsd/export.o
+  CC      fs/lockd/svc4proc.o
+  LD      drivers/serial/built-in.o
+  CC      fs/sysfs/inode.o
+  CC      fs/nfs/proc.o
+  CC      drivers/scsi/sr_ioctl.o
+  LD      fs/lockd/lockd.o
+  CC      fs/sysfs/file.o
+  LD      fs/lockd/built-in.o
+  CC      fs/vfat/namei.o
+  CC      fs/reiserfs/do_balan.o
+  CC      fs/nfs/read.o
+  CC      fs/nfsd/auth.o
+  CC      drivers/scsi/sr_vendor.o
+  CC      fs/proc/generic.o
+  CC      fs/sysfs/dir.o
+  CC      fs/nfsd/lockd.o
+  CC      drivers/scsi/scsi_transport_spi.o
+  LD      fs/vfat/vfat.o
+  LD      fs/vfat/built-in.o
+  CC      fs/generic_acl.o
+  CC      fs/nfs/symlink.o
+  CC      fs/proc/array.o
+  CC      fs/nfsd/nfscache.o
+  CC      fs/sysfs/symlink.o
+  CC      fs/dnotify.o
+  CC      fs/nfs/unlink.o
+  CC      fs/sysfs/mount.o
+  CC      fs/nfsd/nfsxdr.o
+  CC      fs/reiserfs/namei.o
+  CC      fs/dcookies.o
+  CC      fs/proc/proc_tty.o
+  CC      fs/sysfs/bin.o
+  CC      fs/nfs/write.o
+  CC      fs/proc/proc_misc.o
+  CC      fs/sysfs/group.o
+  CC      drivers/usb/class/usblp.o
+  CC      fs/nfsd/stats.o
+  CC      drivers/scsi/scsi_transport_fc.o
+  LD      fs/sysfs/built-in.o
+  CC      fs/reiserfs/inode.o
+  CC      fs/nfsd/nfs3proc.o
+  CC      fs/proc/proc_sysctl.o
+  CC      fs/nfs/namespace.o
+  LD      drivers/usb/class/built-in.o
+  CC      drivers/video/fb_notify.o
+  CC      drivers/usb/core/usb.o
+  CC      fs/nfsd/nfs3xdr.o
+  CC      fs/nfs/nfsroot.o
+  CC      fs/proc/kcore.o
+  CC      drivers/video/console/dummycon.o
+  CC      drivers/video/console/vgacon.o
+  CC      fs/nfs/mount_clnt.o
+  LD      drivers/net/built-in.o
+  CC      drivers/scsi/scsi_transport_sas.o
+  CC      drivers/usb/core/hub.o
+  CC      fs/proc/kmsg.o
+  CC      fs/nfs/nfs3proc.o
+  CC      fs/reiserfs/file.o
+  LD      fs/proc/proc.o
+  LD      fs/proc/built-in.o
+  CC      drivers/usb/host/pci-quirks.o
+  LD      fs/nfsd/nfsd.o
+  LD      fs/nfsd/built-in.o
+  CC      drivers/usb/core/hcd.o
+  CC      fs/nfs/nfs3xdr.o
+  LD      drivers/video/console/built-in.o
+  LD      drivers/video/built-in.o
+  CC      drivers/usb/host/ehci-hcd.o
+  CC      drivers/scsi/aic7xxx/aic79xx_core.o
+  CC      drivers/usb/mon/mon_main.o
+  CC      drivers/usb/core/urb.o
+  CC      fs/reiserfs/dir.o
+  CC      drivers/usb/core/message.o
+  CC      drivers/usb/mon/mon_stat.o
+  CC      drivers/scsi/aic7xxx/aic79xx_pci.o
+  CC      fs/nfs/sysctl.o
+  CC      drivers/usb/mon/mon_text.o
+  CC      drivers/usb/storage/scsiglue.o
+  CC      fs/reiserfs/fix_node.o
+  LD      fs/nfs/nfs.o
+  LD      fs/nfs/built-in.o
+  CC      drivers/scsi/megaraid/megaraid_mm.o
+  CC      drivers/usb/mon/mon_bin.o
+  CC      drivers/usb/storage/protocol.o
+  CC      drivers/usb/core/driver.o
+  CC      drivers/usb/host/ohci-hcd.o
+  CC      drivers/scsi/megaraid/megaraid_mbox.o
+  CC      drivers/usb/storage/transport.o
+  CC      fs/reiserfs/super.o
+  CC      drivers/usb/core/config.o
+  CC      drivers/usb/mon/mon_dma.o
+  LD      drivers/usb/mon/usbmon.o
+  LD      drivers/usb/mon/built-in.o
+  LD      drivers/scsi/sd_mod.o
+  LD      drivers/scsi/sr_mod.o
+  CC      fs/reiserfs/prints.o
+  CC      drivers/usb/storage/usb.o
+  CC      drivers/usb/host/uhci-hcd.o
+  CC      drivers/usb/core/file.o
+  CC      drivers/usb/core/buffer.o
+  CC      drivers/scsi/aic7xxx/aic79xx_osm.o
+  CC      drivers/usb/storage/initializers.o
+  CC      drivers/scsi/megaraid/megaraid_sas.o
+  CC      fs/reiserfs/objectid.o
+  CC      drivers/scsi/sg.o
+  CC      drivers/usb/core/sysfs.o
+  LD      drivers/usb/storage/usb-storage.o
+  LD      drivers/usb/storage/built-in.o
+  CC      drivers/scsi/aic7xxx/aic79xx_proc.o
+  CC      fs/reiserfs/lbalance.o
+  CC      drivers/usb/core/endpoint.o
+  CC      drivers/scsi/aic7xxx/aic79xx_osm_pci.o
+  CC      drivers/usb/core/devio.o
+  LD      drivers/usb/host/built-in.o
+  CC      fs/reiserfs/ibalance.o
+  LD      drivers/scsi/megaraid/built-in.o
+  CC      drivers/usb/core/notify.o
+  CC      fs/reiserfs/stree.o
+  CC      fs/reiserfs/hashes.o
+  CC [M]  drivers/scsi/scsi_wait_scan.o
+  CC      fs/reiserfs/tail_conversion.o
+  CC      drivers/usb/core/generic.o
+  LD      drivers/scsi/scsi_mod.o
+  CC      drivers/usb/core/quirks.o
+  CC      fs/reiserfs/journal.o
+  CC      drivers/usb/core/hcd-pci.o
+  CC      fs/reiserfs/resize.o
+  CC      drivers/usb/core/inode.o
+  CC      drivers/usb/core/devices.o
+  CC      fs/reiserfs/item_ops.o
+  CC      fs/reiserfs/ioctl.o
+  CC      fs/reiserfs/procfs.o
+  CC      fs/reiserfs/xattr.o
+  CC      fs/reiserfs/xattr_user.o
+  LD      drivers/usb/core/usbcore.o
+  LD      drivers/usb/core/built-in.o
+  CC      fs/reiserfs/xattr_trusted.o
+  LD      drivers/usb/built-in.o
+  CC      fs/reiserfs/xattr_acl.o
+  LD      fs/reiserfs/reiserfs.o
+  LD      fs/reiserfs/built-in.o
+  LD      fs/built-in.o
+  LD      drivers/scsi/aic7xxx/aic79xx.o
+  LD      drivers/scsi/aic7xxx/built-in.o
+  LD      drivers/scsi/built-in.o
+  LD      drivers/built-in.o
+  GEN     .version
+  CHK     include/linux/compile.h
+  UPD     include/linux/compile.h
+  CC      init/version.o
+  LD      init/built-in.o
+  LD      .tmp_vmlinux1
+  KSYM    .tmp_kallsyms1.S
+  AS      .tmp_kallsyms1.o
+  LD      .tmp_vmlinux2
+  KSYM    .tmp_kallsyms2.S
+  AS      .tmp_kallsyms2.o
+  LD      vmlinux
+  SYSMAP  System.map
+  SYSMAP  .tmp_System.map
+  MODPOST vmlinux
+  Building modules, stage 2.
+  AS      arch/x86_64/boot/bootsect.o
+  AS      arch/x86_64/boot/setup.o
+  HOSTCC  arch/x86_64/boot/tools/build
+  MODPOST 5 modules
+  AS      arch/x86_64/boot/compressed/head.o
+  CC      arch/x86_64/boot/compressed/misc.o
+  OBJCOPY arch/x86_64/boot/compressed/vmlinux.bin
+  LD      arch/x86_64/boot/bootsect
+  CC      drivers/hwmon/smsc47b397.mod.o
+  GZIP    arch/x86_64/boot/compressed/vmlinux.bin.gz
+  CC      drivers/i2c/i2c-core.mod.o
+  LD      arch/x86_64/boot/setup
+  CC      drivers/i2c/i2c-dev.mod.o
+  CC      drivers/net/s2io.mod.o
+  CC      drivers/scsi/scsi_wait_scan.mod.o
+  LD [M]  drivers/hwmon/smsc47b397.ko
+  LD [M]  drivers/scsi/scsi_wait_scan.ko
+  LD [M]  drivers/i2c/i2c-core.ko
+  LD [M]  drivers/i2c/i2c-dev.ko
+  LD [M]  drivers/net/s2io.ko
+  LD      arch/x86_64/boot/compressed/piggy.o
+  LD      arch/x86_64/boot/compressed/vmlinux
+  OBJCOPY arch/x86_64/boot/vmlinux.bin
+  BUILD   arch/x86_64/boot/bzImage
+Kernel: arch/x86_64/boot/bzImage is ready  (#2)
+  CHK     include/linux/version.h
+  CHK     include/linux/utsrelease.h
+  CALL    scripts/checksyscalls.sh
+  Building modules, stage 2.
+  MODPOST 5 modules
+scripts/kconfig/conf -d Config.in
+*
+* Busybox Configuration
+*
+*
+* Busybox Settings
+*
+*
+* General Configuration
+*
+Enable options for full-blown desktop systems (DESKTOP) [Y/n/?] (NEW) y
+Provide compatible behavior for rare corner cases (bigger code) (EXTRA_COMPAT) [N/y/?] (NEW) n
+Enable obsolete features removed before SUSv3 (INCLUDE_SUSv2) [Y/n/?] (NEW) y
+Avoid using GCC-specific code constructs (USE_PORTABLE_CODE) [N/y/?] (NEW) n
+Buffer allocation policy
+> 1. Allocate with Malloc (FEATURE_BUFFERS_USE_MALLOC) (NEW)
+  2. Allocate on the Stack (FEATURE_BUFFERS_GO_ON_STACK) (NEW)
+  3. Allocate in the .bss section (FEATURE_BUFFERS_GO_IN_BSS) (NEW)
+choice[1-3?]: 1
+Show terse applet usage messages (SHOW_USAGE) [Y/n/?] (NEW) y
+  Show verbose applet usage messages (FEATURE_VERBOSE_USAGE) [Y/n/?] (NEW) y
+  Store applet usage messages in compressed form (FEATURE_COMPRESS_USAGE) [Y/n/?] (NEW) y
+Support --install [-s] to install applet links at runtime (FEATURE_INSTALLER) [Y/n/?] (NEW) y
+Enable locale support (system needs locale for this to work) (LOCALE_SUPPORT) [N/y/?] (NEW) n
+Support Unicode (UNICODE_SUPPORT) [Y/n/?] (NEW) y
+  Check $LANG environment variable (FEATURE_CHECK_UNICODE_IN_ENV) [N/y/?] (NEW) n
+  Character code to substitute unprintable characters with (SUBST_WCHAR) [63] (NEW) 63
+  Range of supported Unicode characters (LAST_SUPPORTED_WCHAR) [767] (NEW) 767
+  Allow zero-width Unicode characters on output (UNICODE_COMBINING_WCHARS) [N/y/?] (NEW) n
+  Allow wide Unicode characters on output (UNICODE_WIDE_WCHARS) [N/y/?] (NEW) n
+  Bidirectional character-aware line input (UNICODE_BIDI_SUPPORT) [N/y/?] (NEW) n
+  Make it possible to enter sequences of chars which are not Unicode (UNICODE_PRESERVE_BROKEN) [N/y/?] (NEW) n
+Support for --long-options (LONG_OPTS) [Y/n/?] (NEW) y
+Use the devpts filesystem for Unix98 PTYs (FEATURE_DEVPTS) [Y/n/?] (NEW) y
+Clean up all memory before exiting (usually not needed) (FEATURE_CLEAN_UP) [N/y/?] (NEW) n
+Support utmp file (FEATURE_UTMP) [Y/?] (NEW) y
+Support wtmp file (FEATURE_WTMP) [Y/n/?] (NEW) y
+Support writing pidfiles (FEATURE_PIDFILE) [Y/n/?] (NEW) y
+Support for SUID/SGID handling (FEATURE_SUID) [Y/?] (NEW) y
+  Runtime SUID/SGID configuration via /etc/busybox.conf (FEATURE_SUID_CONFIG) [Y/n/?] (NEW) y
+    Suppress warning message if /etc/busybox.conf is not readable (FEATURE_SUID_CONFIG_QUIET) [Y/n/?] (NEW) y
+Support NSA Security Enhanced Linux (SELINUX) [N/y/?] (NEW) n
+exec prefers applets (FEATURE_PREFER_APPLETS) [N/y/?] (NEW) n
+Path to BusyBox executable (BUSYBOX_EXEC_PATH) [/proc/self/exe] (NEW) /proc/self/exe
+*
+* Build Options
+*
+Build BusyBox as a static binary (no shared libs) (STATIC) [N/y/?] (NEW) n
+  Build BusyBox as a position independent executable (PIE) [N/y/?] (NEW) n
+Force NOMMU build (NOMMU) [N/y/?] (NEW) n
+Build shared libbusybox (BUILD_LIBBUSYBOX) [N/y/?] (NEW) n
+Build with Large File Support (for accessing files > 2 GB) (LFS) [Y/n/?] (NEW) y
+Cross Compiler prefix (CROSS_COMPILER_PREFIX) [] (NEW) 
+Additional CFLAGS (EXTRA_CFLAGS) [] (NEW) 
+*
+* Debugging Options
+*
+Build BusyBox with extra Debugging symbols (DEBUG) [N/y/?] (NEW) n
+Abort compilation on any warning (WERROR) [N/y/?] (NEW) n
+Additional debugging library
+> 1. None (NO_DEBUG_LIB) (NEW)
+  2. Dmalloc (DMALLOC) (NEW)
+  3. Electric-fence (EFENCE) (NEW)
+choice[1-3?]: 1
+*
+* Installation Options
+*
+Don't use /usr (INSTALL_NO_USR) [N/y/?] (NEW) n
+Applets links
+> 1. as soft-links (INSTALL_APPLET_SYMLINKS) (NEW)
+  2. as hard-links (INSTALL_APPLET_HARDLINKS) (NEW)
+  3. as script wrappers (INSTALL_APPLET_SCRIPT_WRAPPERS) (NEW)
+  4. not installed (INSTALL_APPLET_DONT) (NEW)
+choice[1-4?]: 1
+BusyBox installation prefix (PREFIX) [./_install] (NEW) ./_install
+*
+* Busybox Library Tuning
+*
+Minimum password length (PASSWORD_MINLEN) [6] (NEW) 6
+MD5: Trade bytes for speed (0:fast, 3:slow) (MD5_SIZE_VS_SPEED) [2] (NEW) 2
+Faster /proc scanning code (+100 bytes) (FEATURE_FAST_TOP) [Y/n/?] (NEW) y
+Support for /etc/networks (FEATURE_ETC_NETWORKS) [N/y/?] (NEW) n
+Command line editing (FEATURE_EDITING) [Y/n/?] (NEW) y
+  Maximum length of input (FEATURE_EDITING_MAX_LEN) [1024] (NEW) 1024
+  vi-style line editing commands (FEATURE_EDITING_VI) [N/y/?] (NEW) n
+  History size (FEATURE_EDITING_HISTORY) [255] (NEW) 255
+  History saving (FEATURE_EDITING_SAVEHISTORY) [Y/n/?] (NEW) y
+  Tab completion (FEATURE_TAB_COMPLETION) [Y/n/?] (NEW) y
+    Username completion (FEATURE_USERNAME_COMPLETION) [N/y/?] (NEW) n
+  Fancy shell prompts (FEATURE_EDITING_FANCY_PROMPT) [Y/n/?] (NEW) y
+  Query cursor position from terminal (FEATURE_EDITING_ASK_TERMINAL) [N/y/?] (NEW) n
+Non-POSIX, but safer, copying to special nodes (FEATURE_NON_POSIX_CP) [Y/n/?] (NEW) y
+Give more precise messages when copy fails (cp, mv etc) (FEATURE_VERBOSE_CP_MESSAGE) [N/y/?] (NEW) n
+Copy buffer size, in kilobytes (FEATURE_COPYBUF_KB) [4] (NEW) 4
+Use clock_gettime(CLOCK_MONOTONIC) syscall (MONOTONIC_SYSCALL) [N/y/?] (NEW) n
+Use ioctl names rather than hex values in error messages (IOCTL_HEX2STR_ERROR) [Y/n/?] (NEW) y
+Support infiniband HW (FEATURE_HWIB) [Y/n/?] (NEW) y
+*
+* Applets
+*
+*
+* Archival Utilities
+*
+Make tar, rpm, modprobe etc understand .xz data (FEATURE_SEAMLESS_XZ) [Y/n/?] (NEW) y
+Make tar, rpm, modprobe etc understand .lzma data (FEATURE_SEAMLESS_LZMA) [Y/n/?] (NEW) y
+Make tar, rpm, modprobe etc understand .bz2 data (FEATURE_SEAMLESS_BZ2) [Y/n/?] (NEW) y
+Make tar, rpm, modprobe etc understand .gz data (FEATURE_SEAMLESS_GZ) [Y/n/?] (NEW) y
+Make tar and gunzip understand .Z data (FEATURE_SEAMLESS_Z) [N/y/?] (NEW) n
+ar (AR) [N/y/?] (NEW) n
+bunzip2 (BUNZIP2) [Y/n/?] (NEW) y
+bzip2 (BZIP2) [Y/n/?] (NEW) y
+cpio (CPIO) [Y/n/?] (NEW) y
+  Support for archive creation (FEATURE_CPIO_O) [Y/n/?] (NEW) y
+    Support for passthrough mode (FEATURE_CPIO_P) [Y/n/?] (NEW) y
+dpkg (DPKG) [N/y/?] (NEW) n
+dpkg_deb (DPKG_DEB) [N/y/?] (NEW) n
+gunzip (GUNZIP) [Y/n/?] (NEW) y
+gzip (GZIP) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_GZIP_LONG_OPTIONS) [Y/n/?] (NEW) y
+lzop (LZOP) [Y/n/?] (NEW) y
+  lzop complession levels 7,8,9 (not very useful) (LZOP_COMPR_HIGH) [N/y/?] (NEW) n
+rpm2cpio (RPM2CPIO) [Y/n/?] (NEW) y
+rpm (RPM) [Y/n/?] (NEW) y
+tar (TAR) [Y/n/?] (NEW) y
+  Enable archive creation (FEATURE_TAR_CREATE) [Y/n/?] (NEW) y
+  Autodetect compressed tarballs (FEATURE_TAR_AUTODETECT) [Y/n/?] (NEW) y
+  Enable -X (exclude from) and -T (include from) options) (FEATURE_TAR_FROM) [Y/n/?] (NEW) y
+  Support for old tar header format (FEATURE_TAR_OLDGNU_COMPATIBILITY) [Y/n/?] (NEW) y
+  Enable untarring of tarballs with checksums produced by buggy Sun tar (FEATURE_TAR_OLDSUN_COMPATIBILITY) [Y/n/?] (NEW) y
+  Support for GNU tar extensions (long filenames) (FEATURE_TAR_GNU_EXTENSIONS) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_TAR_LONG_OPTIONS) [Y/n/?] (NEW) y
+    Support for writing to an external program (FEATURE_TAR_TO_COMMAND) [Y/n/?] (NEW) y
+  Enable use of user and group names (FEATURE_TAR_UNAME_GNAME) [Y/n/?] (NEW) y
+  Enable -m (do not preserve time) option (FEATURE_TAR_NOPRESERVE_TIME) [Y/n/?] (NEW) y
+uncompress (UNCOMPRESS) [N/y/?] (NEW) n
+unlzma (UNLZMA) [Y/n/?] (NEW) y
+  Optimize unlzma for speed (FEATURE_LZMA_FAST) [Y/n/?] (NEW) y
+  Provide lzma alias which supports only unpacking (LZMA) [Y/n/?] (NEW) y
+unxz (UNXZ) [Y/n/?] (NEW) y
+  Provide xz alias which supports only unpacking (XZ) [Y/n/?] (NEW) y
+unzip (UNZIP) [Y/n/?] (NEW) y
+*
+* Coreutils
+*
+basename (BASENAME) [Y/n/?] (NEW) y
+cat (CAT) [Y/n/?] (NEW) y
+date (DATE) [Y/n/?] (NEW) y
+  Enable ISO date format output (-I) (FEATURE_DATE_ISOFMT) [Y/n/?] (NEW) y
+  Support %[num]N nanosecond format specifier (FEATURE_DATE_NANO) [N/y/?] (NEW) n
+  Support weird 'date MMDDhhmm[[YY]YY][.ss]' format (FEATURE_DATE_COMPAT) [Y/n/?] (NEW) y
+test (TEST) [Y/n/?] (NEW) y
+  Extend test to 64 bit (FEATURE_TEST_64) [Y/n/?] (NEW) y
+tr (TR) [Y/n/?] (NEW) y
+  Enable character classes (such as [:upper:]) (FEATURE_TR_CLASSES) [Y/n/?] (NEW) y
+  Enable equivalence classes (FEATURE_TR_EQUIV) [Y/n/?] (NEW) y
+cal (CAL) [Y/n/?] (NEW) y
+catv (CATV) [Y/n/?] (NEW) y
+chgrp (CHGRP) [Y/n/?] (NEW) y
+chmod (CHMOD) [Y/n/?] (NEW) y
+chown (CHOWN) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_CHOWN_LONG_OPTIONS) [Y/n/?] (NEW) y
+chroot (CHROOT) [Y/n/?] (NEW) y
+cksum (CKSUM) [Y/n/?] (NEW) y
+comm (COMM) [Y/n/?] (NEW) y
+cp (CP) [Y/n/?] (NEW) y
+  Enable long options for cp (FEATURE_CP_LONG_OPTIONS) [Y/n/?] (NEW) y
+cut (CUT) [Y/n/?] (NEW) y
+dd (DD) [Y/n/?] (NEW) y
+  Enable DD signal handling for status reporting (FEATURE_DD_SIGNAL_HANDLING) [Y/n/?] (NEW) y
+    Enable the third status line upon signal (FEATURE_DD_THIRD_STATUS_LINE) [Y/n/?] (NEW) y
+  Enable ibs, obs and conv options (FEATURE_DD_IBS_OBS) [Y/n/?] (NEW) y
+df (DF) [Y/n/?] (NEW) y
+  Enable -a, -i, -B (FEATURE_DF_FANCY) [Y/n/?] (NEW) y
+dirname (DIRNAME) [Y/n/?] (NEW) y
+dos2unix/unix2dos (DOS2UNIX) [Y/n/?] (NEW) y
+du (default blocksize of 512 bytes) (DU) [Y/n/?] (NEW) y
+  Use a default blocksize of 1024 bytes (1K) (FEATURE_DU_DEFAULT_BLOCKSIZE_1K) [Y/n/?] (NEW) y
+echo (basic SuSv3 version taking no options) (ECHO) [Y/n/?] (NEW) y
+  Enable echo options (-n and -e) (FEATURE_FANCY_ECHO) [Y/n/?] (NEW) y
+env (ENV) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_ENV_LONG_OPTIONS) [Y/n/?] (NEW) y
+expand (EXPAND) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_EXPAND_LONG_OPTIONS) [Y/n/?] (NEW) y
+expr (EXPR) [Y/n/?] (NEW) y
+  Extend Posix numbers support to 64 bit (EXPR_MATH_SUPPORT_64) [Y/n/?] (NEW) y
+false (FALSE) [Y/n/?] (NEW) y
+fold (FOLD) [Y/n/?] (NEW) y
+fsync (FSYNC) [Y/n/?] (NEW) y
+head (HEAD) [Y/n/?] (NEW) y
+  Enable head options (-c, -q, and -v) (FEATURE_FANCY_HEAD) [Y/n/?] (NEW) y
+hostid (HOSTID) [Y/n/?] (NEW) y
+id (ID) [Y/n/?] (NEW) y
+install (INSTALL) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_INSTALL_LONG_OPTIONS) [Y/n/?] (NEW) y
+length (LENGTH) [Y/n/?] (NEW) y
+ln (LN) [Y/n/?] (NEW) y
+logname (LOGNAME) [Y/n/?] (NEW) y
+ls (LS) [Y/n/?] (NEW) y
+  Enable filetyping options (-p and -F) (FEATURE_LS_FILETYPES) [Y/n/?] (NEW) y
+  Enable symlinks dereferencing (-L) (FEATURE_LS_FOLLOWLINKS) [Y/n/?] (NEW) y
+  Enable recursion (-R) (FEATURE_LS_RECURSIVE) [Y/n/?] (NEW) y
+  Sort the file names (FEATURE_LS_SORTFILES) [Y/n/?] (NEW) y
+  Show file timestamps (FEATURE_LS_TIMESTAMPS) [Y/n/?] (NEW) y
+  Show username/groupnames (FEATURE_LS_USERNAME) [Y/n/?] (NEW) y
+  Allow use of color to identify file types (FEATURE_LS_COLOR) [Y/n/?] (NEW) y
+    Produce colored ls output by default (FEATURE_LS_COLOR_IS_DEFAULT) [Y/n/?] (NEW) y
+md5sum (MD5SUM) [Y/n/?] (NEW) y
+mkdir (MKDIR) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_MKDIR_LONG_OPTIONS) [Y/n/?] (NEW) y
+mkfifo (MKFIFO) [Y/n/?] (NEW) y
+mknod (MKNOD) [Y/n/?] (NEW) y
+mv (MV) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_MV_LONG_OPTIONS) [Y/n/?] (NEW) y
+nice (NICE) [Y/n/?] (NEW) y
+nohup (NOHUP) [Y/n/?] (NEW) y
+od (OD) [Y/n/?] (NEW) y
+printenv (PRINTENV) [Y/n/?] (NEW) y
+printf (PRINTF) [Y/n/?] (NEW) y
+pwd (PWD) [Y/n/?] (NEW) y
+readlink (READLINK) [Y/n/?] (NEW) y
+  Enable canonicalization by following all symlinks (-f) (FEATURE_READLINK_FOLLOW) [Y/n/?] (NEW) y
+realpath (REALPATH) [Y/n/?] (NEW) y
+rm (RM) [Y/n/?] (NEW) y
+rmdir (RMDIR) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_RMDIR_LONG_OPTIONS) [Y/n/?] (NEW) y
+seq (SEQ) [Y/n/?] (NEW) y
+sha1sum (SHA1SUM) [Y/n/?] (NEW) y
+sha256sum (SHA256SUM) [Y/n/?] (NEW) y
+sha512sum (SHA512SUM) [Y/n/?] (NEW) y
+sleep (SLEEP) [Y/n/?] (NEW) y
+  Enable multiple arguments and s/m/h/d suffixes (FEATURE_FANCY_SLEEP) [Y/n/?] (NEW) y
+    Enable fractional arguments (FEATURE_FLOAT_SLEEP) [Y/n/?] (NEW) y
+sort (SORT) [Y/n/?] (NEW) y
+  Full SuSv3 compliant sort (support -ktcsbdfiozgM) (FEATURE_SORT_BIG) [Y/n/?] (NEW) y
+split (SPLIT) [Y/n/?] (NEW) y
+  Fancy extensions (FEATURE_SPLIT_FANCY) [Y/n/?] (NEW) y
+stat (STAT) [Y/n/?] (NEW) y
+  Enable custom formats (-c) (FEATURE_STAT_FORMAT) [Y/n/?] (NEW) y
+stty (STTY) [Y/n/?] (NEW) y
+sum (SUM) [Y/n/?] (NEW) y
+sync (SYNC) [Y/n/?] (NEW) y
+tac (TAC) [Y/n/?] (NEW) y
+tail (TAIL) [Y/n/?] (NEW) y
+  Enable extra tail options (-q, -s, -v, and -F) (FEATURE_FANCY_TAIL) [Y/n/?] (NEW) y
+tee (TEE) [Y/n/?] (NEW) y
+  Enable block I/O (larger/faster) instead of byte I/O (FEATURE_TEE_USE_BLOCK_IO) [Y/n/?] (NEW) y
+touch (TOUCH) [Y/n/?] (NEW) y
+true (TRUE) [Y/n/?] (NEW) y
+tty (TTY) [Y/n/?] (NEW) y
+uname (UNAME) [Y/n/?] (NEW) y
+unexpand (UNEXPAND) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_UNEXPAND_LONG_OPTIONS) [Y/n/?] (NEW) y
+uniq (UNIQ) [Y/n/?] (NEW) y
+usleep (USLEEP) [Y/n/?] (NEW) y
+uudecode (UUDECODE) [Y/n/?] (NEW) y
+uuencode (UUENCODE) [Y/n/?] (NEW) y
+wc (WC) [Y/n/?] (NEW) y
+  Support very large files in wc (FEATURE_WC_LARGE) [Y/n/?] (NEW) y
+who (WHO) [Y/n/?] (NEW) y
+whoami (WHOAMI) [Y/n/?] (NEW) y
+yes (YES) [Y/n/?] (NEW) y
+*
+* Common options for cp and mv
+*
+Preserve hard links (FEATURE_PRESERVE_HARDLINKS) [Y/n/?] (NEW) y
+*
+* Common options for ls, more and telnet
+*
+Calculate terminal & column widths (FEATURE_AUTOWIDTH) [Y/n/?] (NEW) y
+*
+* Common options for df, du, ls
+*
+Support for human readable output (example 13k, 23M, 235G) (FEATURE_HUMAN_READABLE) [Y/n/?] (NEW) y
+*
+* Common options for md5sum, sha1sum, sha256sum, sha512sum
+*
+Enable -c, -s and -w options (FEATURE_MD5_SHA1_SUM_CHECK) [Y/n/?] (NEW) y
+*
+* Console Utilities
+*
+chvt (CHVT) [Y/n/?] (NEW) y
+fgconsole (FGCONSOLE) [Y/n/?] (NEW) y
+clear (CLEAR) [Y/n/?] (NEW) y
+deallocvt (DEALLOCVT) [Y/n/?] (NEW) y
+dumpkmap (DUMPKMAP) [Y/n/?] (NEW) y
+kbd_mode (KBD_MODE) [Y/n/?] (NEW) y
+loadfont (LOADFONT) [Y/n/?] (NEW) y
+loadkmap (LOADKMAP) [Y/n/?] (NEW) y
+openvt (OPENVT) [Y/n/?] (NEW) y
+reset (RESET) [Y/n/?] (NEW) y
+resize (RESIZE) [Y/n/?] (NEW) y
+  Print environment variables (FEATURE_RESIZE_PRINT) [Y/n/?] (NEW) y
+setconsole (SETCONSOLE) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_SETCONSOLE_LONG_OPTIONS) [Y/n/?] (NEW) y
+setfont (SETFONT) [Y/n/?] (NEW) y
+  Support reading textual screen maps (FEATURE_SETFONT_TEXTUAL_MAP) [Y/n/?] (NEW) y
+  Default directory for console-tools files (DEFAULT_SETFONT_DIR) [] (NEW) 
+setkeycodes (SETKEYCODES) [Y/n/?] (NEW) y
+setlogcons (SETLOGCONS) [Y/n/?] (NEW) y
+showkey (SHOWKEY) [Y/n/?] (NEW) y
+*
+* Common options for loadfont and setfont
+*
+Support for PSF2 console fonts (FEATURE_LOADFONT_PSF2) [Y/n/?] (NEW) y
+Support for old (raw) console fonts (FEATURE_LOADFONT_RAW) [Y/n/?] (NEW) y
+*
+* Debian Utilities
+*
+mktemp (MKTEMP) [Y/n/?] (NEW) y
+pipe_progress (PIPE_PROGRESS) [Y/n/?] (NEW) y
+run-parts (RUN_PARTS) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_RUN_PARTS_LONG_OPTIONS) [Y/n/?] (NEW) y
+  Support additional arguments (FEATURE_RUN_PARTS_FANCY) [Y/n/?] (NEW) y
+start-stop-daemon (START_STOP_DAEMON) [Y/n/?] (NEW) y
+  Support additional arguments (FEATURE_START_STOP_DAEMON_FANCY) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_START_STOP_DAEMON_LONG_OPTIONS) [Y/n/?] (NEW) y
+which (WHICH) [Y/n/?] (NEW) y
+*
+* Editors
+*
+awk (AWK) [Y/n/?] (NEW) y
+  Enable math functions (requires libm) (FEATURE_AWK_LIBM) [Y/n/?] (NEW) y
+cmp (CMP) [Y/n/?] (NEW) y
+diff (DIFF) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_DIFF_LONG_OPTIONS) [Y/n/?] (NEW) y
+  Enable directory support (FEATURE_DIFF_DIR) [Y/n/?] (NEW) y
+ed (ED) [Y/n/?] (NEW) y
+patch (PATCH) [Y/n/?] (NEW) y
+sed (SED) [Y/n/?] (NEW) y
+vi (VI) [Y/n/?] (NEW) y
+  Maximum screen width in vi (FEATURE_VI_MAX_LEN) [4096] (NEW) 4096
+  Allow vi to display 8-bit chars (otherwise shows dots) (FEATURE_VI_8BIT) [N/y/?] (NEW) n
+  Enable ":" colon commands (no "ex" mode) (FEATURE_VI_COLON) [Y/n/?] (NEW) y
+  Enable yank/put commands and mark cmds (FEATURE_VI_YANKMARK) [Y/n/?] (NEW) y
+  Enable search and replace cmds (FEATURE_VI_SEARCH) [Y/n/?] (NEW) y
+  Catch signals (FEATURE_VI_USE_SIGNALS) [Y/n/?] (NEW) y
+  Remember previous cmd and "." cmd (FEATURE_VI_DOT_CMD) [Y/n/?] (NEW) y
+  Enable -R option and "view" mode (FEATURE_VI_READONLY) [Y/n/?] (NEW) y
+  Enable set-able options, ai ic showmatch (FEATURE_VI_SETOPTS) [Y/n/?] (NEW) y
+  Support for :set (FEATURE_VI_SET) [Y/n/?] (NEW) y
+  Handle window resize (FEATURE_VI_WIN_RESIZE) [Y/n/?] (NEW) y
+  Use 'tell me cursor position' ESC sequence to measure window (FEATURE_VI_ASK_TERMINAL) [Y/n/?] (NEW) y
+  Optimize cursor movement (FEATURE_VI_OPTIMIZE_CURSOR) [Y/n/?] (NEW) y
+  Allow vi and awk to execute shell commands (FEATURE_ALLOW_EXEC) [Y/n/?] (NEW) y
+*
+* Finding Utilities
+*
+find (FIND) [Y/n/?] (NEW) y
+  Enable -print0: NUL-terminated output (FEATURE_FIND_PRINT0) [Y/n/?] (NEW) y
+  Enable -mtime: modified time matching (FEATURE_FIND_MTIME) [Y/n/?] (NEW) y
+  Enable -mmin: modified time matching by minutes (FEATURE_FIND_MMIN) [Y/n/?] (NEW) y
+  Enable -perm: permissions matching (FEATURE_FIND_PERM) [Y/n/?] (NEW) y
+  Enable -type: file type matching (file/dir/link/...) (FEATURE_FIND_TYPE) [Y/n/?] (NEW) y
+  Enable -xdev: 'stay in filesystem' (FEATURE_FIND_XDEV) [Y/n/?] (NEW) y
+  Enable -maxdepth N (FEATURE_FIND_MAXDEPTH) [Y/n/?] (NEW) y
+  Enable -newer: compare file modification times (FEATURE_FIND_NEWER) [Y/n/?] (NEW) y
+  Enable -inum: inode number matching (FEATURE_FIND_INUM) [Y/n/?] (NEW) y
+  Enable -exec: execute commands (FEATURE_FIND_EXEC) [Y/n/?] (NEW) y
+  Enable -user: username/uid matching (FEATURE_FIND_USER) [Y/n/?] (NEW) y
+  Enable -group: group/gid matching (FEATURE_FIND_GROUP) [Y/n/?] (NEW) y
+  Enable the 'not' (!) operator (FEATURE_FIND_NOT) [Y/n/?] (NEW) y
+  Enable -depth (FEATURE_FIND_DEPTH) [Y/n/?] (NEW) y
+  Enable parens in options (FEATURE_FIND_PAREN) [Y/n/?] (NEW) y
+  Enable -size: file size matching (FEATURE_FIND_SIZE) [Y/n/?] (NEW) y
+  Enable -prune: exclude subdirectories (FEATURE_FIND_PRUNE) [Y/n/?] (NEW) y
+  Enable -delete: delete files/dirs (FEATURE_FIND_DELETE) [Y/n/?] (NEW) y
+  Enable -path: match pathname with shell pattern (FEATURE_FIND_PATH) [Y/n/?] (NEW) y
+  Enable -regex: match pathname with regex (FEATURE_FIND_REGEX) [Y/n/?] (NEW) y
+  Enable -links: link count matching (FEATURE_FIND_LINKS) [Y/n/?] (NEW) y
+grep (GREP) [Y/n/?] (NEW) y
+  Enable extended regular expressions (egrep & grep -E) (FEATURE_GREP_EGREP_ALIAS) [Y/n/?] (NEW) y
+  Alias fgrep to grep -F (FEATURE_GREP_FGREP_ALIAS) [Y/n/?] (NEW) y
+  Enable before and after context flags (-A, -B and -C) (FEATURE_GREP_CONTEXT) [Y/n/?] (NEW) y
+xargs (XARGS) [Y/n/?] (NEW) y
+  Enable -p: prompt and confirmation (FEATURE_XARGS_SUPPORT_CONFIRMATION) [Y/n/?] (NEW) y
+  Enable single and double quotes and backslash (FEATURE_XARGS_SUPPORT_QUOTES) [Y/n/?] (NEW) y
+  Enable -x: exit if -s or -n is exceeded (FEATURE_XARGS_SUPPORT_TERMOPT) [Y/n/?] (NEW) y
+  Enable -0: NUL-terminated input (FEATURE_XARGS_SUPPORT_ZERO_TERM) [Y/n/?] (NEW) y
+*
+* Init Utilities
+*
+bootchartd (BOOTCHARTD) [Y/n/?] (NEW) y
+  Compatible, bloated header (FEATURE_BOOTCHARTD_BLOATED_HEADER) [Y/n/?] (NEW) y
+  Support bootchartd.conf (FEATURE_BOOTCHARTD_CONFIG_FILE) [Y/n/?] (NEW) y
+init (INIT) [Y/n/?] (NEW) y
+  Support reading an inittab file (FEATURE_USE_INITTAB) [Y/n/?] (NEW) y
+    Support killing processes that have been removed from inittab (FEATURE_KILL_REMOVED) [N/y/?] (NEW) n
+  Run commands with leading dash with controlling tty (FEATURE_INIT_SCTTY) [Y/n/?] (NEW) y
+  Enable init to write to syslog (FEATURE_INIT_SYSLOG) [Y/n] (NEW) y
+  Be _extra_ quiet on boot (FEATURE_EXTRA_QUIET) [Y/n/?] (NEW) y
+  Support dumping core for child processes (debugging only) (FEATURE_INIT_COREDUMPS) [Y/n/?] (NEW) y
+  Support running init from within an initrd (not initramfs) (FEATURE_INITRD) [Y/n/?] (NEW) y
+poweroff, halt, and reboot (HALT) [Y/n/?] (NEW) y
+mesg (MESG) [Y/n/?] (NEW) y
+*
+* Login/Password Management Utilities
+*
+Support for shadow passwords (FEATURE_SHADOWPASSWDS) [Y/n/?] (NEW) y
+Use internal password and group functions rather than system functions (USE_BB_PWD_GRP) [Y/n/?] (NEW) y
+  Use internal shadow password functions (USE_BB_SHADOW) [Y/n/?] (NEW) y
+Use internal crypt functions (USE_BB_CRYPT) [Y/n/?] (NEW) y
+  Enable SHA256/512 crypt functions (USE_BB_CRYPT_SHA) [Y/n/?] (NEW) y
+addgroup (ADDGROUP) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_ADDGROUP_LONG_OPTIONS) [Y/n/?] (NEW) y
+  Support for adding users to groups (FEATURE_ADDUSER_TO_GROUP) [Y/n/?] (NEW) y
+delgroup (DELGROUP) [Y/n/?] (NEW) y
+  Support for removing users from groups (FEATURE_DEL_USER_FROM_GROUP) [Y/n/?] (NEW) y
+Enable sanity check on user/group names in adduser and addgroup (FEATURE_CHECK_NAMES) [N/y/?] (NEW) n
+adduser (ADDUSER) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_ADDUSER_LONG_OPTIONS) [Y/n/?] (NEW) y
+  First valid system uid or gid for adduser and addgroup (FIRST_SYSTEM_ID) [100] (NEW) 100
+  Last valid system uid or gid for adduser and addgroup (LAST_SYSTEM_ID) [999] (NEW) 999
+deluser (DELUSER) [Y/n/?] (NEW) y
+getty (GETTY) [Y/n/?] (NEW) y
+login (LOGIN) [Y/n/?] (NEW) y
+  Support for PAM (Pluggable Authentication Modules) (PAM) [N/y/?] (NEW) n
+  Support for login scripts (LOGIN_SCRIPTS) [Y/n/?] (NEW) y
+  Support for /etc/nologin (FEATURE_NOLOGIN) [Y/n/?] (NEW) y
+  Support for /etc/securetty (FEATURE_SECURETTY) [Y/n/?] (NEW) y
+passwd (PASSWD) [Y/n/?] (NEW) y
+  Check new passwords for weakness (FEATURE_PASSWD_WEAK_CHECK) [Y/n/?] (NEW) y
+cryptpw (CRYPTPW) [Y/n/?] (NEW) y
+chpasswd (CHPASSWD) [Y/n/?] (NEW) y
+su (SU) [Y/n/?] (NEW) y
+  Enable su to write to syslog (FEATURE_SU_SYSLOG) [Y/n] (NEW) y
+  Enable su to check user's shell to be listed in /etc/shells (FEATURE_SU_CHECKS_SHELLS) [Y/n] (NEW) y
+sulogin (SULOGIN) [Y/n/?] (NEW) y
+vlock (VLOCK) [Y/n/?] (NEW) y
+*
+* Linux Ext2 FS Progs
+*
+chattr (CHATTR) [Y/n/?] (NEW) y
+fsck (FSCK) [Y/n/?] (NEW) y
+lsattr (LSATTR) [Y/n/?] (NEW) y
+tune2fs (TUNE2FS) [N/y/?] (NEW) n
+*
+* Linux Module Utilities
+*
+modinfo (MODINFO) [Y/n/?] (NEW) y
+Simplified modutils (MODPROBE_SMALL) [Y/n/?] (NEW) y
+  Accept module options on modprobe command line (FEATURE_MODPROBE_SMALL_OPTIONS_ON_CMDLINE) [Y/n/?] (NEW) y
+  Skip loading of already loaded modules (FEATURE_MODPROBE_SMALL_CHECK_ALREADY_LOADED) [Y/n/?] (NEW) y
+*
+* Options common to multiple modutils
+*
+Try to load module from a mmap'ed area (FEATURE_INSMOD_TRY_MMAP) [N/y/?] (NEW) n
+Default directory containing modules (DEFAULT_MODULES_DIR) [/lib/modules] (NEW) /lib/modules
+Default name of modules.dep (DEFAULT_DEPMOD_FILE) [modules.dep] (NEW) modules.dep
+*
+* Linux System Utilities
+*
+rev (REV) [Y/n/?] (NEW) y
+acpid (ACPID) [Y/n/?] (NEW) y
+  Accept and ignore redundant options (FEATURE_ACPID_COMPAT) [Y/n/?] (NEW) y
+blkid (BLKID) [Y/n/?] (NEW) y
+dmesg (DMESG) [Y/n/?] (NEW) y
+  Pretty dmesg output (FEATURE_DMESG_PRETTY) [Y/n/?] (NEW) y
+fbset (FBSET) [Y/n/?] (NEW) y
+  Turn on extra fbset options (FEATURE_FBSET_FANCY) [Y/n/?] (NEW) y
+  Turn on fbset readmode support (FEATURE_FBSET_READMODE) [Y/n/?] (NEW) y
+fdflush (FDFLUSH) [Y/n/?] (NEW) y
+fdformat (FDFORMAT) [Y/n/?] (NEW) y
+fdisk (FDISK) [Y/n/?] (NEW) y
+  Support over 4GB disks (FDISK_SUPPORT_LARGE_DISKS) [Y/?] (NEW) y
+  Write support (FEATURE_FDISK_WRITABLE) [Y/n/?] (NEW) y
+    Support AIX disklabels (FEATURE_AIX_LABEL) [N/y/?] (NEW) n
+    Support SGI disklabels (FEATURE_SGI_LABEL) [N/y/?] (NEW) n
+    Support SUN disklabels (FEATURE_SUN_LABEL) [N/y/?] (NEW) n
+    Support BSD disklabels (FEATURE_OSF_LABEL) [N/y/?] (NEW) n
+    Support expert mode (FEATURE_FDISK_ADVANCED) [Y/n/?] (NEW) y
+findfs (FINDFS) [Y/n/?] (NEW) y
+flock (FLOCK) [Y/n/?] (NEW) y
+freeramdisk (FREERAMDISK) [Y/n/?] (NEW) y
+fsck_minix (FSCK_MINIX) [Y/n/?] (NEW) y
+mkfs_ext2 (MKFS_EXT2) [Y/n/?] (NEW) y
+mkfs_minix (MKFS_MINIX) [Y/n/?] (NEW) y
+  Support Minix fs v2 (fsck_minix/mkfs_minix) (FEATURE_MINIX2) [Y/n/?] (NEW) y
+mkfs_reiser (MKFS_REISER) [N/y/?] (NEW) n
+mkfs_vfat (MKFS_VFAT) [Y/n/?] (NEW) y
+getopt (GETOPT) [Y/n/?] (NEW) y
+  Support option -l (FEATURE_GETOPT_LONG) [Y/n/?] (NEW) y
+hexdump (HEXDUMP) [Y/n/?] (NEW) y
+  Support -R, reverse of 'hexdump -Cv' (FEATURE_HEXDUMP_REVERSE) [Y/n/?] (NEW) y
+  hd (HD) [Y/n/?] (NEW) y
+hwclock (HWCLOCK) [Y/n/?] (NEW) y
+  Support long options (--hctosys,...) (FEATURE_HWCLOCK_LONG_OPTIONS) [Y/n/?] (NEW) y
+  Use FHS /var/lib/hwclock/adjtime (FEATURE_HWCLOCK_ADJTIME_FHS) [Y/n/?] (NEW) y
+ipcrm (IPCRM) [Y/n/?] (NEW) y
+ipcs (IPCS) [Y/n/?] (NEW) y
+losetup (LOSETUP) [Y/n/?] (NEW) y
+lspci (LSPCI) [Y/n/?] (NEW) y
+lsusb (LSUSB) [Y/n/?] (NEW) y
+mdev (MDEV) [Y/n/?] (NEW) y
+  Support /etc/mdev.conf (FEATURE_MDEV_CONF) [Y/n/?] (NEW) y
+    Support subdirs/symlinks (FEATURE_MDEV_RENAME) [Y/n/?] (NEW) y
+      Support regular expressions substitutions when renaming device (FEATURE_MDEV_RENAME_REGEXP) [Y/n/?] (NEW) y
+    Support command execution at device addition/removal (FEATURE_MDEV_EXEC) [Y/n/?] (NEW) y
+  Support loading of firmwares (FEATURE_MDEV_LOAD_FIRMWARE) [Y/n/?] (NEW) y
+mkswap (MKSWAP) [Y/n/?] (NEW) y
+  UUID support (FEATURE_MKSWAP_UUID) [Y/n/?] (NEW) y
+more (MORE) [Y/n/?] (NEW) y
+  Use termios to manipulate the screen (FEATURE_USE_TERMIOS) [Y/n/?] (NEW) y
+mount (MOUNT) [Y/n/?] (NEW) y
+  Support option -f (FEATURE_MOUNT_FAKE) [Y/n/?] (NEW) y
+  Support option -v (FEATURE_MOUNT_VERBOSE) [Y/n/?] (NEW) y
+  Support mount helpers (FEATURE_MOUNT_HELPERS) [N/y/?] (NEW) n
+  Support specifying devices by label or UUID (FEATURE_MOUNT_LABEL) [Y/n/?] (NEW) y
+  Support mounting NFS file systems (FEATURE_MOUNT_NFS) [Y/n/?] (NEW) y
+  Support mounting CIFS/SMB file systems (FEATURE_MOUNT_CIFS) [Y/n/?] (NEW) y
+  Support lots of -o flags in mount (FEATURE_MOUNT_FLAGS) [Y/n/?] (NEW) y
+  Support /etc/fstab and -a (FEATURE_MOUNT_FSTAB) [Y/n/?] (NEW) y
+pivot_root (PIVOT_ROOT) [Y/n/?] (NEW) y
+rdate (RDATE) [Y/n/?] (NEW) y
+rdev (RDEV) [Y/n/?] (NEW) y
+readprofile (READPROFILE) [Y/n/?] (NEW) y
+rtcwake (RTCWAKE) [Y/n/?] (NEW) y
+script (SCRIPT) [Y/n/?] (NEW) y
+scriptreplay (SCRIPTREPLAY) [Y/n/?] (NEW) y
+setarch (SETARCH) [Y/n/?] (NEW) y
+swaponoff (SWAPONOFF) [Y/n/?] (NEW) y
+  Support priority option -p (FEATURE_SWAPON_PRI) [Y/n/?] (NEW) y
+switch_root (SWITCH_ROOT) [Y/n/?] (NEW) y
+umount (UMOUNT) [Y/n/?] (NEW) y
+  Support option -a (FEATURE_UMOUNT_ALL) [Y/n/?] (NEW) y
+  *
+  * Common options for mount/umount
+  *
+  Support loopback mounts (FEATURE_MOUNT_LOOP) [Y/n/?] (NEW) y
+    Create new loopback devices if needed (FEATURE_MOUNT_LOOP_CREATE) [Y/n/?] (NEW) y
+  Support for the old /etc/mtab file (FEATURE_MTAB_SUPPORT) [N/y/?] (NEW) n
+*
+* Filesystem/Volume identification
+*
+Ext filesystem (FEATURE_VOLUMEID_EXT) [Y/n/?] (NEW) y
+btrfs filesystem (FEATURE_VOLUMEID_BTRFS) [Y/n/?] (NEW) y
+Reiser filesystem (FEATURE_VOLUMEID_REISERFS) [Y/n/?] (NEW) y
+fat filesystem (FEATURE_VOLUMEID_FAT) [Y/n/?] (NEW) y
+hfs filesystem (FEATURE_VOLUMEID_HFS) [Y/n/?] (NEW) y
+jfs filesystem (FEATURE_VOLUMEID_JFS) [Y/n/?] (NEW) y
+xfs filesystem (FEATURE_VOLUMEID_XFS) [Y/n/?] (NEW) y
+ntfs filesystem (FEATURE_VOLUMEID_NTFS) [Y/n/?] (NEW) y
+iso9660 filesystem (FEATURE_VOLUMEID_ISO9660) [Y/n/?] (NEW) y
+udf filesystem (FEATURE_VOLUMEID_UDF) [Y/n/?] (NEW) y
+luks filesystem (FEATURE_VOLUMEID_LUKS) [Y/n/?] (NEW) y
+linux swap filesystem (FEATURE_VOLUMEID_LINUXSWAP) [Y/n/?] (NEW) y
+cramfs filesystem (FEATURE_VOLUMEID_CRAMFS) [Y/n/?] (NEW) y
+romfs filesystem (FEATURE_VOLUMEID_ROMFS) [Y/n/?] (NEW) y
+sysv filesystem (FEATURE_VOLUMEID_SYSV) [Y/n/?] (NEW) y
+ocfs2 filesystem (FEATURE_VOLUMEID_OCFS2) [Y/n/?] (NEW) y
+linuxraid (FEATURE_VOLUMEID_LINUXRAID) [Y/n/?] (NEW) y
+*
+* Miscellaneous Utilities
+*
+conspy (CONSPY) [N/y/?] (NEW) n
+ubiattach (UBIATTACH) [N/y/?] (NEW) n
+ubidetach (UBIDETACH) [N/y/?] (NEW) n
+adjtimex (ADJTIMEX) [Y/n/?] (NEW) y
+bbconfig (BBCONFIG) [N/y/?] (NEW) n
+beep (BEEP) [Y/n/?] (NEW) y
+  default frequency (FEATURE_BEEP_FREQ) [4000] (NEW) 4000
+  default length (FEATURE_BEEP_LENGTH_MS) [30] (NEW) 30
+chat (CHAT) [Y/n/?] (NEW) y
+  Enable NOFAIL expect strings (FEATURE_CHAT_NOFAIL) [Y/n/?] (NEW) y
+  Force STDIN to be a TTY (FEATURE_CHAT_TTY_HIFI) [N/y/?] (NEW) n
+  Enable implicit Carriage Return (FEATURE_CHAT_IMPLICIT_CR) [Y/n/?] (NEW) y
+  Swallow options (FEATURE_CHAT_SWALLOW_OPTS) [Y/n/?] (NEW) y
+  Support weird SEND escapes (FEATURE_CHAT_SEND_ESCAPES) [Y/n/?] (NEW) y
+  Support variable-length ABORT conditions (FEATURE_CHAT_VAR_ABORT_LEN) [Y/n/?] (NEW) y
+  Support revoking of ABORT conditions (FEATURE_CHAT_CLR_ABORT) [Y/n/?] (NEW) y
+chrt (CHRT) [Y/n/?] (NEW) y
+crond (CROND) [Y/n/?] (NEW) y
+  Support option -d to redirect output to stderr (FEATURE_CROND_D) [Y/n/?] (NEW) y
+  Report command output via email (using sendmail) (FEATURE_CROND_CALL_SENDMAIL) [Y/n/?] (NEW) y
+  crond spool directory (FEATURE_CROND_DIR) [/var/spool/cron] (NEW) /var/spool/cron
+crontab (CRONTAB) [Y/n/?] (NEW) y
+dc (DC) [Y/n/?] (NEW) y
+  Enable power and exp functions (requires libm) (FEATURE_DC_LIBM) [Y/n/?] (NEW) y
+devfsd (obsolete) (DEVFSD) [N/y/?] (NEW) n
+Use devfs names for all devices (obsolete) (FEATURE_DEVFS) [N/y/?] (NEW) n
+devmem (DEVMEM) [Y/n/?] (NEW) y
+eject (EJECT) [Y/n/?] (NEW) y
+  SCSI support (FEATURE_EJECT_SCSI) [Y/n/?] (NEW) y
+fbsplash (FBSPLASH) [Y/n/?] (NEW) y
+flashcp (FLASHCP) [N/y/?] (NEW) n
+flash_lock (FLASH_LOCK) [N/y/?] (NEW) n
+flash_unlock (FLASH_UNLOCK) [N/y/?] (NEW) n
+flash_eraseall (FLASH_ERASEALL) [N/y/?] (NEW) n
+ionice (IONICE) [Y/n/?] (NEW) y
+inotifyd (INOTIFYD) [N/y/?] (NEW) n
+last (LAST) [Y/n/?] (NEW) y
+  Choose last implementation
+    1. small (FEATURE_LAST_SMALL) (NEW)
+  > 2. huge (FEATURE_LAST_FANCY) (NEW)
+  choice[1-2]: 2
+less (LESS) [Y/n/?] (NEW) y
+  Max number of input lines less will try to eat (FEATURE_LESS_MAXLINES) [9999999] (NEW) 9999999
+  Enable bracket searching (FEATURE_LESS_BRACKETS) [Y/n/?] (NEW) y
+  Enable extra flags (FEATURE_LESS_FLAGS) [Y/n/?] (NEW) y
+  Enable marks (FEATURE_LESS_MARKS) [Y/n/?] (NEW) y
+  Enable regular expressions (FEATURE_LESS_REGEXP) [Y/n/?] (NEW) y
+  Enable automatic resizing on window size changes (FEATURE_LESS_WINCH) [Y/n/?] (NEW) y
+  Enable flag changes ('-' command) (FEATURE_LESS_DASHCMD) [Y/n/?] (NEW) y
+    Enable dynamic switching of line numbers (FEATURE_LESS_LINENUMS) [Y/n/?] (NEW) y
+hdparm (HDPARM) [Y/n/?] (NEW) y
+  Support obtaining detailed information directly from drives (FEATURE_HDPARM_GET_IDENTITY) [Y/n/?] (NEW) y
+  Register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_SCAN_HWIF) [Y/n/?] (NEW) y
+  Un-register an IDE interface (DANGEROUS) (FEATURE_HDPARM_HDIO_UNREGISTER_HWIF) [Y/n/?] (NEW) y
+  Perform device reset (DANGEROUS) (FEATURE_HDPARM_HDIO_DRIVE_RESET) [Y/n/?] (NEW) y
+  Tristate device for hotswap (DANGEROUS) (FEATURE_HDPARM_HDIO_TRISTATE_HWIF) [Y/n/?] (NEW) y
+  Get/set using_dma flag (FEATURE_HDPARM_HDIO_GETSET_DMA) [Y/n/?] (NEW) y
+makedevs (MAKEDEVS) [Y/n/?] (NEW) y
+  Choose makedevs behaviour
+    1. leaf (FEATURE_MAKEDEVS_LEAF) (NEW)
+  > 2. table (FEATURE_MAKEDEVS_TABLE) (NEW)
+  choice[1-2]: 2
+man (MAN) [Y/n/?] (NEW) y
+microcom (MICROCOM) [Y/n/?] (NEW) y
+mountpoint (MOUNTPOINT) [Y/n/?] (NEW) y
+mt (MT) [Y/n/?] (NEW) y
+raidautorun (RAIDAUTORUN) [Y/n/?] (NEW) y
+readahead (READAHEAD) [Y/n/?] (NEW) y
+rfkill (RFKILL) [N/y/?] (NEW) n
+runlevel (RUNLEVEL) [Y/n/?] (NEW) y
+rx (RX) [Y/n/?] (NEW) y
+setsid (SETSID) [Y/n/?] (NEW) y
+strings (STRINGS) [Y/n/?] (NEW) y
+taskset (TASKSET) [N/y/?] (NEW) n
+time (TIME) [Y/n/?] (NEW) y
+timeout (TIMEOUT) [Y/n/?] (NEW) y
+ttysize (TTYSIZE) [Y/n/?] (NEW) y
+volname (VOLNAME) [Y/n/?] (NEW) y
+wall (WALL) [Y/n/?] (NEW) y
+watchdog (WATCHDOG) [Y/n/?] (NEW) y
+*
+* Networking Utilities
+*
+nc (NC) [Y/n/?] (NEW) y
+  Netcat server options (-l) (NC_SERVER) [Y/n/?] (NEW) y
+  Netcat extensions (-eiw and filename) (NC_EXTRA) [Y/n/?] (NEW) y
+  Netcat 1.10 compatibility (+2.5k) (NC_110_COMPAT) [N/y/?] (NEW) n
+Enable IPv6 support (FEATURE_IPV6) [Y/n/?] (NEW) y
+Enable Unix domain socket support (usually not needed) (FEATURE_UNIX_LOCAL) [N/y/?] (NEW) n
+Prefer IPv4 addresses from DNS queries (FEATURE_PREFER_IPV4_ADDRESS) [Y/n/?] (NEW) y
+Verbose resolution errors (VERBOSE_RESOLUTION_ERRORS) [N/y/?] (NEW) n
+arp (ARP) [Y/n/?] (NEW) y
+arping (ARPING) [Y/n/?] (NEW) y
+brctl (BRCTL) [Y/n/?] (NEW) y
+  Fancy options (FEATURE_BRCTL_FANCY) [Y/n/?] (NEW) y
+    Support show, showmac and showstp (FEATURE_BRCTL_SHOW) [Y/n/?] (NEW) y
+dnsd (DNSD) [Y/n/?] (NEW) y
+ether-wake (ETHER_WAKE) [Y/n/?] (NEW) y
+fakeidentd (FAKEIDENTD) [Y/n/?] (NEW) y
+ftpd (FTPD) [Y/n/?] (NEW) y
+  Enable upload commands (FEATURE_FTP_WRITE) [Y/n/?] (NEW) y
+  Enable workaround for RFC-violating clients (FEATURE_FTPD_ACCEPT_BROKEN_LIST) [Y/n/?] (NEW) y
+ftpget (FTPGET) [Y/n/?] (NEW) y
+ftpput (FTPPUT) [Y/n/?] (NEW) y
+  Enable long options in ftpget/ftpput (FEATURE_FTPGETPUT_LONG_OPTIONS) [Y/n/?] (NEW) y
+hostname (HOSTNAME) [Y/n/?] (NEW) y
+httpd (HTTPD) [Y/n/?] (NEW) y
+  Support 'Ranges:' header (FEATURE_HTTPD_RANGES) [Y/n/?] (NEW) y
+  Use sendfile system call (FEATURE_HTTPD_USE_SENDFILE) [Y/n/?] (NEW) y
+  Enable -u <user> option (FEATURE_HTTPD_SETUID) [Y/n/?] (NEW) y
+  Enable Basic http Authentication (FEATURE_HTTPD_BASIC_AUTH) [Y/n/?] (NEW) y
+    Support MD5 crypted passwords for http Authentication (FEATURE_HTTPD_AUTH_MD5) [Y/n/?] (NEW) y
+  Support Common Gateway Interface (CGI) (FEATURE_HTTPD_CGI) [Y/n/?] (NEW) y
+    Support for running scripts through an interpreter (FEATURE_HTTPD_CONFIG_WITH_SCRIPT_INTERPR) [Y/n/?] (NEW) y
+    Set REMOTE_PORT environment variable for CGI (FEATURE_HTTPD_SET_REMOTE_PORT_TO_ENV) [Y/n/?] (NEW) y
+  Enable -e option (useful for CGIs written as shell scripts) (FEATURE_HTTPD_ENCODE_URL_STR) [Y/n/?] (NEW) y
+  Support for custom error pages (FEATURE_HTTPD_ERROR_PAGES) [Y/n/?] (NEW) y
+  Support for reverse proxy (FEATURE_HTTPD_PROXY) [Y/n/?] (NEW) y
+ifconfig (IFCONFIG) [Y/n/?] (NEW) y
+  Enable status reporting output (+7k) (FEATURE_IFCONFIG_STATUS) [Y/n/?] (NEW) y
+  Enable slip-specific options "keepalive" and "outfill" (FEATURE_IFCONFIG_SLIP) [Y/n/?] (NEW) y
+  Enable options "mem_start", "io_addr", and "irq" (FEATURE_IFCONFIG_MEMSTART_IOADDR_IRQ) [Y/n/?] (NEW) y
+  Enable option "hw" (ether only) (FEATURE_IFCONFIG_HW) [Y/n/?] (NEW) y
+  Set the broadcast automatically (FEATURE_IFCONFIG_BROADCAST_PLUS) [Y/n/?] (NEW) y
+ifenslave (IFENSLAVE) [Y/n/?] (NEW) y
+ifplugd (IFPLUGD) [Y/n/?] (NEW) y
+ifupdown (IFUPDOWN) [Y/n/?] (NEW) y
+  Absolute path to ifstate file (IFUPDOWN_IFSTATE_PATH) [/var/run/ifstate] (NEW) /var/run/ifstate
+  Use ip applet (FEATURE_IFUPDOWN_IP) [Y/n/?] (NEW) y
+    Use busybox ip applet (FEATURE_IFUPDOWN_IP_BUILTIN) [Y/n/?] (NEW) y
+  Support for IPv4 (FEATURE_IFUPDOWN_IPV4) [Y/n/?] (NEW) y
+  Support for IPv6 (FEATURE_IFUPDOWN_IPV6) [Y/n/?] (NEW) y
+  Enable mapping support (FEATURE_IFUPDOWN_MAPPING) [Y/n/?] (NEW) y
+  Support for external dhcp clients (FEATURE_IFUPDOWN_EXTERNAL_DHCP) [N/y/?] (NEW) n
+inetd (INETD) [Y/n/?] (NEW) y
+  Support echo service (FEATURE_INETD_SUPPORT_BUILTIN_ECHO) [Y/n/?] (NEW) y
+  Support discard service (FEATURE_INETD_SUPPORT_BUILTIN_DISCARD) [Y/n/?] (NEW) y
+  Support time service (FEATURE_INETD_SUPPORT_BUILTIN_TIME) [Y/n/?] (NEW) y
+  Support daytime service (FEATURE_INETD_SUPPORT_BUILTIN_DAYTIME) [Y/n/?] (NEW) y
+  Support chargen service (FEATURE_INETD_SUPPORT_BUILTIN_CHARGEN) [Y/n/?] (NEW) y
+  Support RPC services (FEATURE_INETD_RPC) [Y/n/?] (NEW) y
+ip (IP) [Y/?] (NEW) y
+  ip address (FEATURE_IP_ADDRESS) [Y/?] (NEW) y
+  ip link (FEATURE_IP_LINK) [Y/?] (NEW) y
+  ip route (FEATURE_IP_ROUTE) [Y/?] (NEW) y
+  ip tunnel (FEATURE_IP_TUNNEL) [Y/n/?] (NEW) y
+  ip rule (FEATURE_IP_RULE) [Y/n/?] (NEW) y
+  Support short forms of ip commands (FEATURE_IP_SHORT_FORMS) [Y/n/?] (NEW) y
+  Support displaying rarely used link types (FEATURE_IP_RARE_PROTOCOLS) [N/y/?] (NEW) n
+ipcalc (IPCALC) [Y/n/?] (NEW) y
+  Fancy IPCALC, more options, adds 1 kbyte (FEATURE_IPCALC_FANCY) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_IPCALC_LONG_OPTIONS) [Y/n/?] (NEW) y
+nameif (NAMEIF) [Y/n/?] (NEW) y
+  Extended nameif (FEATURE_NAMEIF_EXTENDED) [Y/n/?] (NEW) y
+netstat (NETSTAT) [Y/n/?] (NEW) y
+  Enable wide netstat output (FEATURE_NETSTAT_WIDE) [Y/n/?] (NEW) y
+  Enable PID/Program name output (FEATURE_NETSTAT_PRG) [Y/n/?] (NEW) y
+nslookup (NSLOOKUP) [Y/n/?] (NEW) y
+ntpd (NTPD) [Y/n/?] (NEW) y
+  Make ntpd usable as a NTP server (FEATURE_NTPD_SERVER) [Y/n/?] (NEW) y
+ping (PING) [Y/n/?] (NEW) y
+  ping6 (PING6) [Y/n/?] (NEW) y
+  Enable fancy ping output (FEATURE_FANCY_PING) [Y/n/?] (NEW) y
+pscan (PSCAN) [Y/n/?] (NEW) y
+route (ROUTE) [Y/n/?] (NEW) y
+slattach (SLATTACH) [Y/n/?] (NEW) y
+tcpsvd (TCPSVD) [Y/n/?] (NEW) y
+telnet (TELNET) [Y/n/?] (NEW) y
+  Pass TERM type to remote host (FEATURE_TELNET_TTYPE) [Y/n/?] (NEW) y
+  Pass USER type to remote host (FEATURE_TELNET_AUTOLOGIN) [Y/n/?] (NEW) y
+telnetd (TELNETD) [Y/n/?] (NEW) y
+  Support standalone telnetd (not inetd only) (FEATURE_TELNETD_STANDALONE) [Y/n/?] (NEW) y
+    Support -w SEC option (inetd wait mode) (FEATURE_TELNETD_INETD_WAIT) [Y/n/?] (NEW) y
+tftp (TFTP) [Y/n/?] (NEW) y
+tftpd (TFTPD) [Y/n/?] (NEW) y
+  *
+  * Common options for tftp/tftpd
+  *
+  Enable 'tftp get' and/or tftpd upload code (FEATURE_TFTP_GET) [Y/n/?] (NEW) y
+  Enable 'tftp put' and/or tftpd download code (FEATURE_TFTP_PUT) [Y/n/?] (NEW) y
+  Enable 'blksize' and 'tsize' protocol options (FEATURE_TFTP_BLOCKSIZE) [Y/n/?] (NEW) y
+    Enable tftp progress meter (FEATURE_TFTP_PROGRESS_BAR) [Y/n/?] (NEW) y
+  Enable debug (TFTP_DEBUG) [N/y/?] (NEW) n
+traceroute (TRACEROUTE) [Y/n/?] (NEW) y
+  traceroute6 (TRACEROUTE6) [Y/n/?] (NEW) y
+  Enable verbose output (FEATURE_TRACEROUTE_VERBOSE) [Y/n/?] (NEW) y
+  Enable loose source route (FEATURE_TRACEROUTE_SOURCE_ROUTE) [N/y/?] (NEW) n
+  Use ICMP instead of UDP (FEATURE_TRACEROUTE_USE_ICMP) [N/y/?] (NEW) n
+tunctl (TUNCTL) [Y/n/?] (NEW) y
+  Support owner:group assignment (FEATURE_TUNCTL_UG) [Y/n/?] (NEW) y
+udhcp server (udhcpd) (UDHCPD) [Y/n/?] (NEW) y
+  dhcprelay (DHCPRELAY) [Y/n/?] (NEW) y
+  Lease display utility (dumpleases) (DUMPLEASES) [Y/n/?] (NEW) y
+  Rewrite the lease file at every new acknowledge (FEATURE_UDHCPD_WRITE_LEASES_EARLY) [Y/n/?] (NEW) y
+  Absolute path to lease file (DHCPD_LEASES_FILE) [/var/lib/misc/udhcpd.leases] (NEW) /var/lib/misc/udhcpd.leases
+udhcp client (udhcpc) (UDHCPC) [Y/n/?] (NEW) y
+  Verify that the offered address is free, using ARP ping (FEATURE_UDHCPC_ARPING) [Y/n/?] (NEW) y
+  Enable '-P port' option for udhcpd and udhcpc (FEATURE_UDHCP_PORT) [Y/n/?] (NEW) y
+  Maximum verbosity level for udhcp applets (0..9) (UDHCP_DEBUG) [9] (NEW) 9
+  Support for RFC3397 domain search (experimental) (FEATURE_UDHCP_RFC3397) [Y/n/?] (NEW) y
+  Absolute path to config script (UDHCPC_DEFAULT_SCRIPT) [/usr/share/udhcpc/default.script] (NEW) /usr/share/udhcpc/default.script
+  DHCP options slack buffer size (UDHCPC_SLACK_FOR_BUGGY_SERVERS) [80] (NEW) 80
+  ifup udhcpc command line options (IFUPDOWN_UDHCPC_CMD_OPTIONS) [-R -n] (NEW) -R -n
+udpsvd (UDPSVD) [Y/n/?] (NEW) y
+vconfig (VCONFIG) [Y/n/?] (NEW) y
+wget (WGET) [Y/n/?] (NEW) y
+  Enable a nifty process meter (+2k) (FEATURE_WGET_STATUSBAR) [Y/n/?] (NEW) y
+  Enable HTTP authentication (FEATURE_WGET_AUTHENTICATION) [Y/n/?] (NEW) y
+  Enable long options (FEATURE_WGET_LONG_OPTIONS) [Y/n/?] (NEW) y
+zcip (ZCIP) [Y/n/?] (NEW) y
+*
+* Print Utilities
+*
+lpd (LPD) [Y/n/?] (NEW) y
+lpr (LPR) [Y/n/?] (NEW) y
+lpq (LPQ) [Y/n/?] (NEW) y
+*
+* Mail Utilities
+*
+makemime (MAKEMIME) [Y/n/?] (NEW) y
+  Default charset (FEATURE_MIME_CHARSET) [us-ascii] (NEW) us-ascii
+popmaildir (POPMAILDIR) [Y/n/?] (NEW) y
+  Allow message filters and custom delivery program (FEATURE_POPMAILDIR_DELIVERY) [Y/n/?] (NEW) y
+reformime (REFORMIME) [Y/n/?] (NEW) y
+  Accept and ignore options other than -x and -X (FEATURE_REFORMIME_COMPAT) [Y/n/?] (NEW) y
+sendmail (SENDMAIL) [Y/n/?] (NEW) y
+*
+* Process Utilities
+*
+smemcap (SMEMCAP) [Y/n/?] (NEW) y
+free (FREE) [Y/n/?] (NEW) y
+fuser (FUSER) [Y/n/?] (NEW) y
+kill (KILL) [Y/n/?] (NEW) y
+  killall (KILLALL) [Y/n/?] (NEW) y
+  killall5 (KILLALL5) [Y/n] (NEW) y
+nmeter (NMETER) [Y/n/?] (NEW) y
+pgrep (PGREP) [Y/n/?] (NEW) y
+pidof (PIDOF) [Y/n/?] (NEW) y
+  Enable argument for single shot (-s) (FEATURE_PIDOF_SINGLE) [Y/n/?] (NEW) y
+  Enable argument for omitting pids (-o) (FEATURE_PIDOF_OMIT) [Y/n/?] (NEW) y
+pkill (PKILL) [Y/n/?] (NEW) y
+ps (PS) [Y/n/?] (NEW) y
+  Enable wide output option (-w) (FEATURE_PS_WIDE) [Y/n/?] (NEW) y
+  Enable time and elapsed time output (FEATURE_PS_TIME) [Y/n/?] (NEW) y
+  Enable additional ps columns (FEATURE_PS_ADDITIONAL_COLUMNS) [Y/n/?] (NEW) y
+Support Linux prior to 2.4.0 and non-ELF systems (FEATURE_PS_UNUSUAL_SYSTEMS) [N/y/?] (NEW) n
+renice (RENICE) [Y/n/?] (NEW) y
+sysctl (BB_SYSCTL) [Y/n/?] (NEW) y
+top (TOP) [Y/n/?] (NEW) y
+  Show CPU per-process usage percentage (FEATURE_TOP_CPU_USAGE_PERCENTAGE) [Y/n/?] (NEW) y
+    Show CPU global usage percentage (FEATURE_TOP_CPU_GLOBAL_PERCENTS) [Y/n/?] (NEW) y
+      SMP CPU usage display ('c' key) (FEATURE_TOP_SMP_CPU) [Y/n/?] (NEW) y
+    Show 1/10th of a percent in CPU/mem statistics (FEATURE_TOP_DECIMALS) [Y/n/?] (NEW) y
+  Show CPU process runs on ('j' field) (FEATURE_TOP_SMP_PROCESS) [Y/n/?] (NEW) y
+  Topmem command ('s' key) (FEATURE_TOPMEM) [Y/n/?] (NEW) y
+  Support for showing threads in ps/top (FEATURE_SHOW_THREADS) [Y/n/?] (NEW) y
+uptime (UPTIME) [Y/n/?] (NEW) y
+watch (WATCH) [Y/n/?] (NEW) y
+*
+* Runit Utilities
+*
+runsv (RUNSV) [Y/n/?] (NEW) y
+runsvdir (RUNSVDIR) [Y/n/?] (NEW) y
+  Enable scrolling argument log (FEATURE_RUNSVDIR_LOG) [N/y/?] (NEW) n
+sv (SV) [Y/n/?] (NEW) y
+  Default directory for services (SV_DEFAULT_SERVICE_DIR) [/var/service] (NEW) /var/service
+svlogd (SVLOGD) [Y/n/?] (NEW) y
+chpst (CHPST) [Y/n/?] (NEW) y
+setuidgid (SETUIDGID) [Y/n/?] (NEW) y
+envuidgid (ENVUIDGID) [Y/n/?] (NEW) y
+envdir (ENVDIR) [Y/n/?] (NEW) y
+softlimit (SOFTLIMIT) [Y/n/?] (NEW) y
+*
+* Shells
+*
+ash (ASH) [Y/n/?] (NEW) y
+  bash-compatible extensions (ASH_BASH_COMPAT) [Y/n/?] (NEW) y
+  Job control (ASH_JOB_CONTROL) [Y/n/?] (NEW) y
+  alias support (ASH_ALIAS) [Y/n/?] (NEW) y
+  Builtin getopt to parse positional parameters (ASH_GETOPTS) [Y/n/?] (NEW) y
+  Builtin version of 'echo' (ASH_BUILTIN_ECHO) [Y/n/?] (NEW) y
+  Builtin version of 'printf' (ASH_BUILTIN_PRINTF) [Y/n/?] (NEW) y
+  Builtin version of 'test' (ASH_BUILTIN_TEST) [Y/n/?] (NEW) y
+  'command' command to override shell builtins (ASH_CMDCMD) [Y/n/?] (NEW) y
+  Check for new mail on interactive shells (ASH_MAIL) [N/y/?] (NEW) n
+  Optimize for size instead of speed (ASH_OPTIMIZE_FOR_SIZE) [Y/n/?] (NEW) y
+  Pseudorandom generator and $RANDOM variable (ASH_RANDOM_SUPPORT) [Y/n/?] (NEW) y
+  Expand prompt string (ASH_EXPAND_PRMT) [Y/n/?] (NEW) y
+hush (HUSH) [Y/n/?] (NEW) y
+  bash-compatible extensions (HUSH_BASH_COMPAT) [Y/n/?] (NEW) y
+  help builtin (HUSH_HELP) [Y/n/?] (NEW) y
+  Interactive mode (HUSH_INTERACTIVE) [Y/n/?] (NEW) y
+    Job control (HUSH_JOB) [Y/n/?] (NEW) y
+  Process substitution (HUSH_TICK) [Y/n/?] (NEW) y
+  Support if/then/elif/else/fi (HUSH_IF) [Y/n/?] (NEW) y
+  Support for, while and until loops (HUSH_LOOPS) [Y/n/?] (NEW) y
+  Support case ... esac statement (HUSH_CASE) [Y/n/?] (NEW) y
+  Support funcname() { commands; } syntax (HUSH_FUNCTIONS) [Y/n/?] (NEW) y
+    Support local builtin (HUSH_LOCAL) [Y/n/?] (NEW) y
+  Support export '-n' option (HUSH_EXPORT_N) [Y/n/?] (NEW) y
+  Pseudorandom generator and $RANDOM variable (HUSH_RANDOM_SUPPORT) [Y/n/?] (NEW) y
+Choose which shell is aliased to 'sh' name
+> 1. ash (FEATURE_SH_IS_ASH) (NEW)
+  2. hush (FEATURE_SH_IS_HUSH) (NEW)
+  3. none (FEATURE_SH_IS_NONE) (NEW)
+choice[1-3?]: 1
+Choose which shell is aliased to 'bash' name
+  1. ash (FEATURE_BASH_IS_ASH) (NEW)
+  2. hush (FEATURE_BASH_IS_HUSH) (NEW)
+> 3. none (FEATURE_BASH_IS_NONE) (NEW)
+choice[1-3?]: 3
+lash (deprecated: aliased to hush) (LASH) [N/y/?] (NEW) n
+msh (deprecated: please use hush) (MSH) [N/y/?] (NEW) n
+POSIX math support (SH_MATH_SUPPORT) [Y/n/?] (NEW) y
+  Extend POSIX math support to 64 bit (SH_MATH_SUPPORT_64) [Y/n/?] (NEW) y
+Hide message on interactive shell startup (FEATURE_SH_EXTRA_QUIET) [Y/n/?] (NEW) y
+cttyhack (CTTYHACK) [Y/n/?] (NEW) y
+*
+* System Logging Utilities
+*
+syslogd (SYSLOGD) [Y/n/?] (NEW) y
+  Rotate message files (FEATURE_ROTATE_LOGFILE) [Y/n/?] (NEW) y
+  Remote Log support (FEATURE_REMOTE_LOG) [Y/n/?] (NEW) y
+  Support -D (drop dups) option (FEATURE_SYSLOGD_DUP) [Y/n/?] (NEW) y
+  Read buffer size in bytes (FEATURE_SYSLOGD_READ_BUFFER_SIZE) [256] (NEW) 256
+  Circular Buffer support (FEATURE_IPC_SYSLOG) [Y/n/?] (NEW) y
+    Circular buffer size in Kbytes (minimum 4KB) (FEATURE_IPC_SYSLOG_BUFFER_SIZE) [16] (NEW) 16
+    logread (LOGREAD) [Y/n/?] (NEW) y
+      Double buffering (FEATURE_LOGREAD_REDUCED_LOCKING) [Y/n/?] (NEW) y
+klogd (KLOGD) [Y/n/?] (NEW) y
+logger (LOGGER) [Y/n/?] (NEW) y
+scripts/kconfig/conf -s Config.in
+#
+# using defaults found in .config
+#
+  SPLIT   include/autoconf.h -> include/config/*
+  HOSTCC  applets/usage
+  HOSTCC  applets/applet_tables
+  GEN     include/bbconfigopts.h
+  GEN     include/usage_compressed.h
+  GEN     include/applet_tables.h
+  HOSTCC  applets/usage_pod
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     BusyBox.1
+  DOC     BusyBox.html
+  CC      libbb/appletlib.o
+  AR      libbb/lib.a
+  LINK    busybox_unstripped
+Trying libraries: crypt m
+ Library crypt is not needed, excluding it
+ Library m is needed, can't exclude it (yet)
+Final link with: m
+  ./_install/bin/addgroup -> busybox
+  ./_install/bin/adduser -> busybox
+  ./_install/bin/ash -> busybox
+  ./_install/bin/cat -> busybox
+  ./_install/bin/catv -> busybox
+  ./_install/bin/chattr -> busybox
+  ./_install/bin/chgrp -> busybox
+  ./_install/bin/chmod -> busybox
+  ./_install/bin/chown -> busybox
+  ./_install/bin/cp -> busybox
+  ./_install/bin/cpio -> busybox
+  ./_install/bin/cttyhack -> busybox
+  ./_install/bin/date -> busybox
+  ./_install/bin/dd -> busybox
+  ./_install/bin/delgroup -> busybox
+  ./_install/bin/deluser -> busybox
+  ./_install/bin/df -> busybox
+  ./_install/bin/dmesg -> busybox
+  ./_install/bin/dnsdomainname -> busybox
+  ./_install/bin/dumpkmap -> busybox
+  ./_install/bin/echo -> busybox
+  ./_install/bin/ed -> busybox
+  ./_install/bin/egrep -> busybox
+  ./_install/bin/false -> busybox
+  ./_install/bin/fdflush -> busybox
+  ./_install/bin/fgrep -> busybox
+  ./_install/bin/fsync -> busybox
+  ./_install/bin/getopt -> busybox
+  ./_install/bin/grep -> busybox
+  ./_install/bin/gunzip -> busybox
+  ./_install/bin/gzip -> busybox
+  ./_install/bin/hostname -> busybox
+  ./_install/bin/hush -> busybox
+  ./_install/bin/ionice -> busybox
+  ./_install/bin/ip -> busybox
+  ./_install/bin/ipaddr -> busybox
+  ./_install/bin/ipcalc -> busybox
+  ./_install/bin/iplink -> busybox
+  ./_install/bin/iproute -> busybox
+  ./_install/bin/iprule -> busybox
+  ./_install/bin/iptunnel -> busybox
+  ./_install/bin/kill -> busybox
+  ./_install/bin/linux32 -> busybox
+  ./_install/bin/linux64 -> busybox
+  ./_install/bin/ln -> busybox
+  ./_install/bin/login -> busybox
+  ./_install/bin/ls -> busybox
+  ./_install/bin/lsattr -> busybox
+  ./_install/bin/lzop -> busybox
+  ./_install/bin/makemime -> busybox
+  ./_install/bin/mkdir -> busybox
+  ./_install/bin/mknod -> busybox
+  ./_install/bin/mktemp -> busybox
+  ./_install/bin/more -> busybox
+  ./_install/bin/mount -> busybox
+  ./_install/bin/mountpoint -> busybox
+  ./_install/bin/mt -> busybox
+  ./_install/bin/mv -> busybox
+  ./_install/bin/netstat -> busybox
+  ./_install/bin/nice -> busybox
+  ./_install/bin/pidof -> busybox
+  ./_install/bin/ping -> busybox
+  ./_install/bin/ping6 -> busybox
+  ./_install/bin/pipe_progress -> busybox
+  ./_install/bin/printenv -> busybox
+  ./_install/bin/ps -> busybox
+  ./_install/bin/pwd -> busybox
+  ./_install/bin/reformime -> busybox
+  ./_install/bin/rev -> busybox
+  ./_install/bin/rm -> busybox
+  ./_install/bin/rmdir -> busybox
+  ./_install/bin/rpm -> busybox
+  ./_install/bin/run-parts -> busybox
+  ./_install/bin/scriptreplay -> busybox
+  ./_install/bin/sed -> busybox
+  ./_install/bin/setarch -> busybox
+  ./_install/bin/sh -> busybox
+  ./_install/bin/sleep -> busybox
+  ./_install/bin/stat -> busybox
+  ./_install/bin/stty -> busybox
+  ./_install/bin/su -> busybox
+  ./_install/bin/sync -> busybox
+  ./_install/bin/tar -> busybox
+  ./_install/bin/touch -> busybox
+  ./_install/bin/true -> busybox
+  ./_install/bin/umount -> busybox
+  ./_install/bin/uname -> busybox
+  ./_install/bin/usleep -> busybox
+  ./_install/bin/vi -> busybox
+  ./_install/bin/watch -> busybox
+  ./_install/bin/zcat -> busybox
+  ./_install/linuxrc -> bin/busybox
+  ./_install/sbin/acpid -> ../bin/busybox
+  ./_install/sbin/adjtimex -> ../bin/busybox
+  ./_install/sbin/arp -> ../bin/busybox
+  ./_install/sbin/blkid -> ../bin/busybox
+  ./_install/sbin/bootchartd -> ../bin/busybox
+  ./_install/sbin/depmod -> ../bin/busybox
+  ./_install/sbin/devmem -> ../bin/busybox
+  ./_install/sbin/fbsplash -> ../bin/busybox
+  ./_install/sbin/fdisk -> ../bin/busybox
+  ./_install/sbin/findfs -> ../bin/busybox
+  ./_install/sbin/freeramdisk -> ../bin/busybox
+  ./_install/sbin/fsck -> ../bin/busybox
+  ./_install/sbin/fsck.minix -> ../bin/busybox
+  ./_install/sbin/getty -> ../bin/busybox
+  ./_install/sbin/halt -> ../bin/busybox
+  ./_install/sbin/hdparm -> ../bin/busybox
+  ./_install/sbin/hwclock -> ../bin/busybox
+  ./_install/sbin/ifconfig -> ../bin/busybox
+  ./_install/sbin/ifdown -> ../bin/busybox
+  ./_install/sbin/ifenslave -> ../bin/busybox
+  ./_install/sbin/ifup -> ../bin/busybox
+  ./_install/sbin/init -> ../bin/busybox
+  ./_install/sbin/insmod -> ../bin/busybox
+  ./_install/sbin/klogd -> ../bin/busybox
+  ./_install/sbin/loadkmap -> ../bin/busybox
+  ./_install/sbin/logread -> ../bin/busybox
+  ./_install/sbin/losetup -> ../bin/busybox
+  ./_install/sbin/lsmod -> ../bin/busybox
+  ./_install/sbin/makedevs -> ../bin/busybox
+  ./_install/sbin/man -> ../bin/busybox
+  ./_install/sbin/mdev -> ../bin/busybox
+  ./_install/sbin/mkdosfs -> ../bin/busybox
+  ./_install/sbin/mke2fs -> ../bin/busybox
+  ./_install/sbin/mkfs.ext2 -> ../bin/busybox
+  ./_install/sbin/mkfs.minix -> ../bin/busybox
+  ./_install/sbin/mkfs.vfat -> ../bin/busybox
+  ./_install/sbin/mkswap -> ../bin/busybox
+  ./_install/sbin/modinfo -> ../bin/busybox
+  ./_install/sbin/modprobe -> ../bin/busybox
+  ./_install/sbin/nameif -> ../bin/busybox
+  ./_install/sbin/pivot_root -> ../bin/busybox
+  ./_install/sbin/poweroff -> ../bin/busybox
+  ./_install/sbin/raidautorun -> ../bin/busybox
+  ./_install/sbin/reboot -> ../bin/busybox
+  ./_install/sbin/rmmod -> ../bin/busybox
+  ./_install/sbin/route -> ../bin/busybox
+  ./_install/sbin/runlevel -> ../bin/busybox
+  ./_install/sbin/setconsole -> ../bin/busybox
+  ./_install/sbin/slattach -> ../bin/busybox
+  ./_install/sbin/start-stop-daemon -> ../bin/busybox
+  ./_install/sbin/sulogin -> ../bin/busybox
+  ./_install/sbin/swapoff -> ../bin/busybox
+  ./_install/sbin/swapon -> ../bin/busybox
+  ./_install/sbin/switch_root -> ../bin/busybox
+  ./_install/sbin/sysctl -> ../bin/busybox
+  ./_install/sbin/syslogd -> ../bin/busybox
+  ./_install/sbin/tunctl -> ../bin/busybox
+  ./_install/sbin/udhcpc -> ../bin/busybox
+  ./_install/sbin/vconfig -> ../bin/busybox
+  ./_install/sbin/watchdog -> ../bin/busybox
+  ./_install/sbin/zcip -> ../bin/busybox
+  ./_install/usr/bin/[ -> ../../bin/busybox
+  ./_install/usr/bin/[[ -> ../../bin/busybox
+  ./_install/usr/bin/arping -> ../../bin/busybox
+  ./_install/usr/bin/awk -> ../../bin/busybox
+  ./_install/usr/bin/basename -> ../../bin/busybox
+  ./_install/usr/bin/beep -> ../../bin/busybox
+  ./_install/usr/bin/bunzip2 -> ../../bin/busybox
+  ./_install/usr/bin/bzcat -> ../../bin/busybox
+  ./_install/usr/bin/bzip2 -> ../../bin/busybox
+  ./_install/usr/bin/cal -> ../../bin/busybox
+  ./_install/usr/bin/chat -> ../../bin/busybox
+  ./_install/usr/bin/chpst -> ../../bin/busybox
+  ./_install/usr/bin/chrt -> ../../bin/busybox
+  ./_install/usr/bin/chvt -> ../../bin/busybox
+  ./_install/usr/bin/cksum -> ../../bin/busybox
+  ./_install/usr/bin/clear -> ../../bin/busybox
+  ./_install/usr/bin/cmp -> ../../bin/busybox
+  ./_install/usr/bin/comm -> ../../bin/busybox
+  ./_install/usr/bin/crontab -> ../../bin/busybox
+  ./_install/usr/bin/cryptpw -> ../../bin/busybox
+  ./_install/usr/bin/cut -> ../../bin/busybox
+  ./_install/usr/bin/dc -> ../../bin/busybox
+  ./_install/usr/bin/deallocvt -> ../../bin/busybox
+  ./_install/usr/bin/diff -> ../../bin/busybox
+  ./_install/usr/bin/dirname -> ../../bin/busybox
+  ./_install/usr/bin/dos2unix -> ../../bin/busybox
+  ./_install/usr/bin/du -> ../../bin/busybox
+  ./_install/usr/bin/dumpleases -> ../../bin/busybox
+  ./_install/usr/bin/eject -> ../../bin/busybox
+  ./_install/usr/bin/env -> ../../bin/busybox
+  ./_install/usr/bin/envdir -> ../../bin/busybox
+  ./_install/usr/bin/envuidgid -> ../../bin/busybox
+  ./_install/usr/bin/ether-wake -> ../../bin/busybox
+  ./_install/usr/bin/expand -> ../../bin/busybox
+  ./_install/usr/bin/expr -> ../../bin/busybox
+  ./_install/usr/bin/fdformat -> ../../bin/busybox
+  ./_install/usr/bin/fgconsole -> ../../bin/busybox
+  ./_install/usr/bin/find -> ../../bin/busybox
+  ./_install/usr/bin/flock -> ../../bin/busybox
+  ./_install/usr/bin/fold -> ../../bin/busybox
+  ./_install/usr/bin/free -> ../../bin/busybox
+  ./_install/usr/bin/ftpget -> ../../bin/busybox
+  ./_install/usr/bin/ftpput -> ../../bin/busybox
+  ./_install/usr/bin/fuser -> ../../bin/busybox
+  ./_install/usr/bin/hd -> ../../bin/busybox
+  ./_install/usr/bin/head -> ../../bin/busybox
+  ./_install/usr/bin/hexdump -> ../../bin/busybox
+  ./_install/usr/bin/hostid -> ../../bin/busybox
+  ./_install/usr/bin/id -> ../../bin/busybox
+  ./_install/usr/bin/ifplugd -> ../../bin/busybox
+  ./_install/usr/bin/install -> ../../bin/busybox
+  ./_install/usr/bin/ipcrm -> ../../bin/busybox
+  ./_install/usr/bin/ipcs -> ../../bin/busybox
+  ./_install/usr/bin/kbd_mode -> ../../bin/busybox
+  ./_install/usr/bin/killall -> ../../bin/busybox
+  ./_install/usr/bin/killall5 -> ../../bin/busybox
+  ./_install/usr/bin/last -> ../../bin/busybox
+  ./_install/usr/bin/length -> ../../bin/busybox
+  ./_install/usr/bin/less -> ../../bin/busybox
+  ./_install/usr/bin/logger -> ../../bin/busybox
+  ./_install/usr/bin/logname -> ../../bin/busybox
+  ./_install/usr/bin/lpq -> ../../bin/busybox
+  ./_install/usr/bin/lpr -> ../../bin/busybox
+  ./_install/usr/bin/lspci -> ../../bin/busybox
+  ./_install/usr/bin/lsusb -> ../../bin/busybox
+  ./_install/usr/bin/lzcat -> ../../bin/busybox
+  ./_install/usr/bin/lzma -> ../../bin/busybox
+  ./_install/usr/bin/lzopcat -> ../../bin/busybox
+  ./_install/usr/bin/md5sum -> ../../bin/busybox
+  ./_install/usr/bin/mesg -> ../../bin/busybox
+  ./_install/usr/bin/microcom -> ../../bin/busybox
+  ./_install/usr/bin/mkfifo -> ../../bin/busybox
+  ./_install/usr/bin/mkpasswd -> ../../bin/busybox
+  ./_install/usr/bin/nc -> ../../bin/busybox
+  ./_install/usr/bin/nmeter -> ../../bin/busybox
+  ./_install/usr/bin/nohup -> ../../bin/busybox
+  ./_install/usr/bin/nslookup -> ../../bin/busybox
+  ./_install/usr/bin/od -> ../../bin/busybox
+  ./_install/usr/bin/openvt -> ../../bin/busybox
+  ./_install/usr/bin/passwd -> ../../bin/busybox
+  ./_install/usr/bin/patch -> ../../bin/busybox
+  ./_install/usr/bin/pgrep -> ../../bin/busybox
+  ./_install/usr/bin/pkill -> ../../bin/busybox
+  ./_install/usr/bin/printf -> ../../bin/busybox
+  ./_install/usr/bin/pscan -> ../../bin/busybox
+  ./_install/usr/bin/readahead -> ../../bin/busybox
+  ./_install/usr/bin/readlink -> ../../bin/busybox
+  ./_install/usr/bin/realpath -> ../../bin/busybox
+  ./_install/usr/bin/renice -> ../../bin/busybox
+  ./_install/usr/bin/reset -> ../../bin/busybox
+  ./_install/usr/bin/resize -> ../../bin/busybox
+  ./_install/usr/bin/rpm2cpio -> ../../bin/busybox
+  ./_install/usr/bin/rtcwake -> ../../bin/busybox
+  ./_install/usr/bin/runsv -> ../../bin/busybox
+  ./_install/usr/bin/runsvdir -> ../../bin/busybox
+  ./_install/usr/bin/rx -> ../../bin/busybox
+  ./_install/usr/bin/script -> ../../bin/busybox
+  ./_install/usr/bin/seq -> ../../bin/busybox
+  ./_install/usr/bin/setkeycodes -> ../../bin/busybox
+  ./_install/usr/bin/setsid -> ../../bin/busybox
+  ./_install/usr/bin/setuidgid -> ../../bin/busybox
+  ./_install/usr/bin/sha1sum -> ../../bin/busybox
+  ./_install/usr/bin/sha256sum -> ../../bin/busybox
+  ./_install/usr/bin/sha512sum -> ../../bin/busybox
+  ./_install/usr/bin/showkey -> ../../bin/busybox
+  ./_install/usr/bin/smemcap -> ../../bin/busybox
+  ./_install/usr/bin/softlimit -> ../../bin/busybox
+  ./_install/usr/bin/sort -> ../../bin/busybox
+  ./_install/usr/bin/split -> ../../bin/busybox
+  ./_install/usr/bin/strings -> ../../bin/busybox
+  ./_install/usr/bin/sum -> ../../bin/busybox
+  ./_install/usr/bin/sv -> ../../bin/busybox
+  ./_install/usr/bin/tac -> ../../bin/busybox
+  ./_install/usr/bin/tail -> ../../bin/busybox
+  ./_install/usr/bin/tcpsvd -> ../../bin/busybox
+  ./_install/usr/bin/tee -> ../../bin/busybox
+  ./_install/usr/bin/telnet -> ../../bin/busybox
+  ./_install/usr/bin/test -> ../../bin/busybox
+  ./_install/usr/bin/tftp -> ../../bin/busybox
+  ./_install/usr/bin/tftpd -> ../../bin/busybox
+  ./_install/usr/bin/time -> ../../bin/busybox
+  ./_install/usr/bin/timeout -> ../../bin/busybox
+  ./_install/usr/bin/top -> ../../bin/busybox
+  ./_install/usr/bin/tr -> ../../bin/busybox
+  ./_install/usr/bin/traceroute -> ../../bin/busybox
+  ./_install/usr/bin/traceroute6 -> ../../bin/busybox
+  ./_install/usr/bin/tty -> ../../bin/busybox
+  ./_install/usr/bin/ttysize -> ../../bin/busybox
+  ./_install/usr/bin/udpsvd -> ../../bin/busybox
+  ./_install/usr/bin/unexpand -> ../../bin/busybox
+  ./_install/usr/bin/uniq -> ../../bin/busybox
+  ./_install/usr/bin/unix2dos -> ../../bin/busybox
+  ./_install/usr/bin/unlzma -> ../../bin/busybox
+  ./_install/usr/bin/unlzop -> ../../bin/busybox
+  ./_install/usr/bin/unxz -> ../../bin/busybox
+  ./_install/usr/bin/unzip -> ../../bin/busybox
+  ./_install/usr/bin/uptime -> ../../bin/busybox
+  ./_install/usr/bin/uudecode -> ../../bin/busybox
+  ./_install/usr/bin/uuencode -> ../../bin/busybox
+  ./_install/usr/bin/vlock -> ../../bin/busybox
+  ./_install/usr/bin/volname -> ../../bin/busybox
+  ./_install/usr/bin/wall -> ../../bin/busybox
+  ./_install/usr/bin/wc -> ../../bin/busybox
+  ./_install/usr/bin/wget -> ../../bin/busybox
+  ./_install/usr/bin/which -> ../../bin/busybox
+  ./_install/usr/bin/who -> ../../bin/busybox
+  ./_install/usr/bin/whoami -> ../../bin/busybox
+  ./_install/usr/bin/xargs -> ../../bin/busybox
+  ./_install/usr/bin/xz -> ../../bin/busybox
+  ./_install/usr/bin/xzcat -> ../../bin/busybox
+  ./_install/usr/bin/yes -> ../../bin/busybox
+  ./_install/usr/sbin/brctl -> ../../bin/busybox
+  ./_install/usr/sbin/chpasswd -> ../../bin/busybox
+  ./_install/usr/sbin/chroot -> ../../bin/busybox
+  ./_install/usr/sbin/crond -> ../../bin/busybox
+  ./_install/usr/sbin/dhcprelay -> ../../bin/busybox
+  ./_install/usr/sbin/dnsd -> ../../bin/busybox
+  ./_install/usr/sbin/fakeidentd -> ../../bin/busybox
+  ./_install/usr/sbin/fbset -> ../../bin/busybox
+  ./_install/usr/sbin/ftpd -> ../../bin/busybox
+  ./_install/usr/sbin/httpd -> ../../bin/busybox
+  ./_install/usr/sbin/inetd -> ../../bin/busybox
+  ./_install/usr/sbin/loadfont -> ../../bin/busybox
+  ./_install/usr/sbin/lpd -> ../../bin/busybox
+  ./_install/usr/sbin/ntpd -> ../../bin/busybox
+  ./_install/usr/sbin/popmaildir -> ../../bin/busybox
+  ./_install/usr/sbin/rdate -> ../../bin/busybox
+  ./_install/usr/sbin/rdev -> ../../bin/busybox
+  ./_install/usr/sbin/readprofile -> ../../bin/busybox
+  ./_install/usr/sbin/sendmail -> ../../bin/busybox
+  ./_install/usr/sbin/setfont -> ../../bin/busybox
+  ./_install/usr/sbin/setlogcons -> ../../bin/busybox
+  ./_install/usr/sbin/svlogd -> ../../bin/busybox
+  ./_install/usr/sbin/telnetd -> ../../bin/busybox
+  ./_install/usr/sbin/udhcpd -> ../../bin/busybox
+
+
+--------------------------------------------------
+You will probably need to make your busybox binary
+setuid root to ensure all configured applets will
+work properly.
+--------------------------------------------------
+
+ubuntu_terminal
+c[?7l[2J[0mSeaBIOS (version ?-20200516_175120-felixonmars2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+07F92850+07EF2850 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from ROM..[    0.000000] Linux version 2.6.22 (root@096a804d3837) (gcc version 4.4.3 (Ubuntu 4.4.3-4ubuntu5.1) ) #2 SMP Sun Sep 20 15:47:06 UTC 2020
+[    0.000000] Command line: console=ttyS0
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+[    0.000000]  BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 0000000007fe0000 (usable)
+[    0.000000]  BIOS-e820: 0000000007fe0000 - 0000000008000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fffc0000 - 0000000100000000 (reserved)
+[    0.000000] end_pfn_map = 1048576
+[    0.000000] DMI 2.8 present.
+[    0.000000] ACPI: RSDP 000F5B10, 0014 (r0 BOCHS )
+[    0.000000] ACPI: RSDT 07FE156F, 0030 (r1 BOCHS  BXPCRSDT        1 BXPC        1)
+[    0.000000] ACPI: FACP 07FE144B, 0074 (r1 BOCHS  BXPCFACP        1 BXPC        1)
+[    0.000000] ACPI: DSDT 07FE0040, 140B (r1 BOCHS  BXPCDSDT        1 BXPC        1)
+[    0.000000] ACPI: FACS 07FE0000, 0040
+[    0.000000] ACPI: APIC 07FE14BF, 0078 (r1 BOCHS  BXPCAPIC        1 BXPC        1)
+[    0.000000] ACPI: HPET 07FE1537, 0038 (r1 BOCHS  BXPCHPET        1 BXPC        1)
+[    0.000000] No NUMA configuration found
+[    0.000000] Faking a node at 0000000000000000-0000000007fe0000
+[    0.000000] Bootmem setup node 0 0000000000000000-0000000007fe0000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA             0 ->     4096
+[    0.000000]   DMA32        4096 ->  1048576
+[    0.000000]   Normal    1048576 ->  1048576
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0:        0 ->      159
+[    0.000000]     0:      256 ->    32736
+[    0.000000] ACPI: PM-Timer IO Port: 0x608
+[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+[    0.000000] Processor #0 (Bootup-CPU)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x00] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 0, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.000000] Setting APIC routing to flat
+[    0.000000] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] swsusp: Registered nosave memory region: 000000000009f000 - 00000000000a0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000a0000 - 00000000000f0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000f0000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at 10000000 (gap: 8000000:f7fc0000)
+[    0.000000] SMP: Allowing 1 CPUs, 0 hotplug CPUs
+[    0.000000] PERCPU: Allocating 37216 bytes of per cpu data
+[    0.000000] Built 1 zonelists.  Total pages: 30563
+[    0.000000] Kernel command line: console=ttyS0
+[    0.000000] Initializing CPU#0
+[    0.000000] PID hash table entries: 512 (order: 9, 4096 bytes)
+[    0.412073] time.c: Detected 1799.725 MHz processor.
+[    0.417475] Console: colour VGA+ 80x25
+[    0.417907] Checking aperture...
+[    0.420146] Memory: 118868k/130944k available (3396k kernel code, 11688k reserved, 1876k data, 328k init)
+[    0.500180] Calibrating delay using timer specific routine.. 3611.98 BogoMIPS (lpj=7223973)
+[    0.501744] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.501963] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.502318] Mount-cache hash table entries: 256
+[    0.510196] CPU: L1 I Cache: 64K (64 bytes/line), D cache 64K (64 bytes/line)
+[    0.510228] CPU: L2 Cache: 512K (64 bytes/line)
+[    0.510344] CPU 0/0 -> Node 0
+[    0.510436] MCE: warning: using only 10 banks
+[    0.511029] SMP alternatives: switching to UP code
+[    0.511794] Freeing SMP alternatives: 36k freed
+[    0.512498] ACPI: Core revision 20070126
+[    0.567681] Using local APIC timer interrupts.
+[    0.623259] result 62504336
+[    0.623282] Detected 62.504 MHz APIC timer.
+[    0.625789] Brought up 1 CPUs
+[    0.630502] NET: Registered protocol family 16
+[    0.639006] ACPI: bus type pci registered
+[    0.639642] PCI: Using configuration type 1
+[    0.656814] ACPI: Interpreter enabled
+[    0.656927] ACPI: (supports S3 S4 S5)
+[    0.657314] ACPI: Using IOAPIC for interrupt routing
+[    0.679231] ACPI: PCI Root Bridge [PCI0] (0000:00)
+[    0.681826] PCI quirk: region 0600-063f claimed by PIIX4 ACPI
+[    0.681849] PCI quirk: region 0700-070f claimed by PIIX4 SMB
+[    1.307165] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+[    1.309636] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+[    1.342315] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+[    1.344271] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+[    1.345024] ACPI: PCI Interrupt Link [LNKS] (IRQs *9)
+[    1.346589] Linux Plug and Play Support v0.97 (c) Adam Belay
+[    1.346796] pnp: PnP ACPI init
+[    1.347287] ACPI: bus type pnp registered
+[    1.367237] pnp: PnP ACPI: found 11 devices
+[    1.367383] ACPI: ACPI bus type pnp unregistered
+[    1.369414] SCSI subsystem initialized
+[    1.370907] usbcore: registered new interface driver usbfs
+[    1.371668] usbcore: registered new interface driver hub
+[    1.372272] usbcore: registered new device driver usb
+[    1.372779] PCI: Using ACPI for IRQ routing
+[    1.372925] PCI: If a device doesn't work, try "pci=routeirq".  If it helps, post a report
+[    1.374662] PCI-GART: No AMD northbridge found.
+[    1.375106] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.375178] hpet0: 3 64-bit timers, 100000000 Hz
+[    1.378909] Time: tsc clocksource has been installed.
+[    1.381051] NET: Registered protocol family 2
+[    1.452589] IP route cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    1.457267] TCP established hash table entries: 4096 (order: 4, 98304 bytes)
+[    1.457795] TCP bind hash table entries: 4096 (order: 4, 65536 bytes)
+[    1.458489] TCP: Hash tables configured (established 4096 bind 4096)
+[    1.458829] TCP reno registered
+[    1.487370] checking if image is initramfs... it is
+[    2.199182] Freeing initrd memory: 3038k freed
+[    2.206913] Total HugeTLB memory allocated, 0
+[    2.209139] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[    2.211715] io scheduler noop registered
+[    2.211754] io scheduler deadline registered
+[    2.211856] io scheduler cfq registered (default)
+[    2.211923] Limiting direct PCI/PCI transfers.
+[    2.211985] PCI: PIIX3: Enabling Passive Release on 0000:00:01.0
+[    2.212131] Activating ISA DMA hang workarounds.
+[    2.214632] input: Power Button (FF) as /class/input/input0
+[    2.214681] ACPI: Power Button (FF) [PWRF]
+[    2.345901] Real Time Clock Driver v1.12ac
+[    2.347013] Linux agpgart interface v0.102 (c) Dave Jones
+[    2.347349] Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+[    2.352721] 00:06: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.380040] Floppy drive(s): fd0 is 2.88M AMI BIOS
+[    2.394419] FDC 0 is a S82078B
+[    2.397929] RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+[    2.399272] loop: module loaded
+[    2.399383] Intel(R) PRO/1000 Network Driver - version 7.3.20-k2
+[    2.399565] Copyright (c) 1999-2006 Intel Corporation.
+[    2.401709] ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 11
+[    2.401972] ACPI: PCI Interrupt 0000:00:03.0[A] -> Link [LNKC] -> GSI 11 (level, high) -> IRQ 11
+[    2.700965] e1000: 0000:00:03.0: e1000_probe: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    2.755148] e1000: eth0: e1000_probe: Intel(R) PRO/1000 Network Connection
+[    2.756034] e100: Intel(R) PRO/100 Network Driver, 3.5.17-k4-NAPI
+[    2.756299] e100: Copyright(c) 1999-2006 Intel Corporation
+[    2.757760] forcedeth.c: Reverse Engineered nForce ethernet driver. Version 0.60.
+[    2.758489] tun: Universal TUN/TAP device driver, 1.6
+[    2.758694] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    2.759312] netconsole: not configured, aborting
+[    2.759630] Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+[    2.760023] ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+[    2.760918] PIIX3: IDE controller at PCI slot 0000:00:01.1
+[    2.761366] PIIX3: chipset revision 0
+[    2.761561] PIIX3: not 100% native mode: will probe irqs later
+[    2.762415]     ide0: BM-DMA at 0xc040-0xc047, BIOS settings: hda:pio, hdb:pio
+[    2.763261]     ide1: BM-DMA at 0xc048-0xc04f, BIOS settings: hdc:pio, hdd:pio

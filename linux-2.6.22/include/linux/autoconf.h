@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.22
- * Sun Sep 20 15:38:59 2020
+ * Sun Sep 20 15:54:07 2020
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_BLK_DEV_FD 1

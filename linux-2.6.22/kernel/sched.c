@@ -775,6 +775,7 @@ static inline int __normal_prio(struct task_struct *p)
 		prio = MAX_PRIO-1;
 
 	printk("pid = %d prio=%d, bonus = %d\n",current->pid,prio,bonus);
+
 	return prio;
 }
 
@@ -3660,9 +3661,8 @@ need_resched_nonpreemptible:
 		rq->expired_timestamp = 0;
 		rq->best_expired_prio = MAX_PRIO;
 	}
-
 	printk("%d pid has %d prio\n", current->pid, current->prio);
-	
+
 	idx = sched_find_first_bit(array->bitmap);
 	queue = array->queue + idx;
 	next = list_entry(queue->next, struct task_struct, run_list);
