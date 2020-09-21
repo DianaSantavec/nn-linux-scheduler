@@ -9,8 +9,8 @@ chmod +x background
 ./background &
 ./background &
 ./background &
-#./background &
-#./background &
+./background &
+./background &
 
 time ./test1 0
 time ./test2 1
@@ -25,13 +25,13 @@ do
     echo prolaz $counter_a
     while [ "$counter_b" -lt 10 ]
     do
-        ./test1 $counter_b &
-        ./test2 $counter_b &
+        time ./test1 $counter_b &
+        time ./test2 $counter_b &
         
         if [ $counter_b -eq 9 ]; then
-            ./test3 $counter_b
+            time ./test3 $counter_b
         else
-            ./test3 $counter_b &
+            time ./test3 $counter_b &
         fi
 
         counter_b=$((counter_b+1))
@@ -41,4 +41,3 @@ do
 done
 
 echo my cpu_test is over
-sleep 100000000
