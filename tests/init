@@ -9,12 +9,12 @@ chmod +x background
 ./background &
 ./background &
 ./background &
-#./background &
-#./background &
+./background &
+./background &
 
 time ./test1 0
-time ./test2 1
-time ./test3 2
+#time ./test2 1
+#time ./test3 2
 
 counter_a=0
 counter_b=0
@@ -25,13 +25,13 @@ do
     echo prolaz $counter_a
     while [ "$counter_b" -lt 10 ]
     do
-        ./test1 $counter_b &
-        ./test2 $counter_b &
-        
+        time ./test1 $counter_b 
+        time ./test2 $counter_b &
+    
         if [ $counter_b -eq 9 ]; then
-            ./test3 $counter_b
+            time ./test3 $counter_b
         else
-            ./test3 $counter_b &
+            time ./test3 $counter_b &
         fi
 
         counter_b=$((counter_b+1))
@@ -40,4 +40,3 @@ do
     counter_a=$((counter_a+1))
 done
 
-sleep 100000000

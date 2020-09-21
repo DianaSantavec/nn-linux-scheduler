@@ -773,32 +773,41 @@ static inline int __normal_prio(struct task_struct *p)
 		double my_bonus = (double) current->my_average_time / current->my_value_n;
 		printk("for pid: %d, n = %d and avg = %u ", current->pid, current->my_value_n, current->my_average_time);
 		if(my_bonus < 0.47){
-			bonus = 5;
+			bonus += 5;
+			printk("my bonus is 5\n");
 		}
 		else if( my_bonus < 4.7){
 			bonus += 3;
+			printk("my bonus is 3\n");
 		}
-		else if( my_bonus < 47){
+		else if( (my_bonus > 4.7 || my_bonus == 4.7) && my_bonus < 47){
 			bonus += 1;
+			printk("my bonus is 1\n");
 		}
-		else if( my_bonus < 470){
+		else if( (my_bonus > 47 || my_bonus == 47) && my_bonus < 470){
 			bonus += 0;
+			printk("my bonus is 0\n");
 		}
-		else if( my_bonus < 4700){
+		else if( (my_bonus > 470 || my_bonus == 470) && my_bonus < 4700){
 			bonus += -1;
+			printk("my bonus is -1\n");
 		}
-		else if( my_bonus < 47000){
+		else if( (my_bonus > 4700 || my_bonus == 4700) && my_bonus < 47000){
 			bonus += -2;
+			printk("my bonus is -2\n");
 		}
-		else if( my_bonus < 470000){
+		else if( (my_bonus > 47000 || my_bonus == 47000) && my_bonus < 470000){
 			bonus += -3;
+			printk("my bonus is -3\n");
 		}
-		else if( my_bonus < 4700000){
+		else if( (my_bonus > 470000 || my_bonus == 470000) && my_bonus < 4700000){
 			bonus += -4;
+			printk("my bonus is -4\n");
 		}
 		
 		else {
 			bonus += 5;
+			printk("my bonus is -5\n");
 		}
 		
 	}
