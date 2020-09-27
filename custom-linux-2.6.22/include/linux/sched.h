@@ -1076,10 +1076,10 @@ struct task_struct 	{
 #ifdef CONFIG_FAULT_INJECTION
 	int make_it_fail;
 #endif
-	unsigned int my_run_time;
-	int my_read_from_hash_table;
+	//unsigned int my_run_time;
+	//int my_read_from_hash_table;
 	int my_value_n;
-	double my_average_time;
+	unsigned int my_average_time;
 	int my_key;
 	struct HashTable *pointer_to_table;
 };

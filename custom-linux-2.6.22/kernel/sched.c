@@ -776,7 +776,7 @@ static inline int __normal_prio(struct task_struct *p)
 			bonus += 5;
 			printk("my bonus is 5\n");
 		}
-		else if( my_bonus < 4.7){
+		else if( (my_bonus > 0.47 || my_bonus == 0.47 ) && my_bonus < 4.7){
 			bonus += 3;
 			printk("my bonus is 3\n");
 		}
@@ -806,7 +806,7 @@ static inline int __normal_prio(struct task_struct *p)
 		}
 		
 		else {
-			bonus += 5;
+			bonus += -5;
 			printk("my bonus is -5\n");
 		}
 		
@@ -1750,7 +1750,7 @@ void fastcall sched_fork(struct task_struct *p, int clone_flags)
 	 */
 	p->prio = current->normal_prio;
 
-	p->my_run_time = 0;
+	//p->my_run_time = 0;
 	
 	INIT_LIST_HEAD(&p->run_list);
 	p->array = NULL;
@@ -3665,7 +3665,7 @@ need_resched_nonpreemptible:
 	} else
 		run_time = NS_MAX_SLEEP_AVG;
 
-	current->my_run_time += run_time / 1000;
+	//current->my_run_time += run_time / 1000;
 
 	/*
 	 * Tasks charged proportionately less run_time at high sleep_avg to
