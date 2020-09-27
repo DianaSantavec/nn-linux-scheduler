@@ -8,13 +8,13 @@ chmod +x background
 
 ./background &
 ./background &
-./background &
-./background &
-./background &
+#./background &
+#./background &
+#./background &
 
 time ./test1 0
-#time ./test2 1
-#time ./test3 2
+time ./test2 1
+time ./test3 2
 
 counter_a=0
 counter_b=0
