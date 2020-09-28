@@ -5,7 +5,7 @@ int main(int argc, char *argv[]){
     int j;
     unsigned int sum = 0;
     
-    for (j=0;j<3;j++){
+    for (j=0;j<5;j++){
         sum = 0;
         for (i=0;i<2200000000;i++){
             sum += 1;
