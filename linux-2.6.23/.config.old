@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.23
-# Wed Aug 26 09:13:05 2020
+# Mon Sep 28 10:28:10 2020
 #
 CONFIG_X86_64=y
 CONFIG_64BIT=y
@@ -1304,7 +1304,7 @@ CONFIG_KPROBES=y
 # Kernel hacking
 #
 CONFIG_TRACE_IRQFLAGS_SUPPORT=y
-# CONFIG_PRINTK_TIME is not set
+CONFIG_PRINTK_TIME=y
 # CONFIG_ENABLE_MUST_CHECK is not set
 CONFIG_MAGIC_SYSRQ=y
 CONFIG_UNUSED_SYMBOLS=y
