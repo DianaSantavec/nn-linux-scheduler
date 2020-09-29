@@ -40,3 +40,6 @@ do
     counter_a=$((counter_a+1))
 done
 
+time ./test1 0
+time ./test2 1
+time ./test3 2
