@@ -1,0 +1,1423 @@
+ubuntu_terminal
+ubuntu_terminal
+c[?7l[2J[0mSeaBIOS (version ?-20200516_175120-felixonmars2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+07F92850+07EF2850 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from ROM..[    0.000000] Linux version 2.6.23 (root@096a804d3837) (gcc version 4.4.3 (Ubuntu 4.4.3-4ubuntu5.1) ) #14 SMP Tue Sep 29 22:51:31 UTC 2020
+[    0.000000] Command line: console=ttyS0
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+[    0.000000]  BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 0000000007fe0000 (usable)
+[    0.000000]  BIOS-e820: 0000000007fe0000 - 0000000008000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fffc0000 - 0000000100000000 (reserved)
+[    0.000000] end_pfn_map = 1048576
+[    0.000000] DMI 2.8 present.
+[    0.000000] ACPI: RSDP 000F5B10, 0014 (r0 BOCHS )
+[    0.000000] ACPI: RSDT 07FE156F, 0030 (r1 BOCHS  BXPCRSDT        1 BXPC        1)
+[    0.000000] ACPI: FACP 07FE144B, 0074 (r1 BOCHS  BXPCFACP        1 BXPC        1)
+[    0.000000] ACPI: DSDT 07FE0040, 140B (r1 BOCHS  BXPCDSDT        1 BXPC        1)
+[    0.000000] ACPI: FACS 07FE0000, 0040
+[    0.000000] ACPI: APIC 07FE14BF, 0078 (r1 BOCHS  BXPCAPIC        1 BXPC        1)
+[    0.000000] ACPI: HPET 07FE1537, 0038 (r1 BOCHS  BXPCHPET        1 BXPC        1)
+[    0.000000] No NUMA configuration found
+[    0.000000] Faking a node at 0000000000000000-0000000007fe0000
+[    0.000000] Bootmem setup node 0 0000000000000000-0000000007fe0000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA             0 ->     4096
+[    0.000000]   DMA32        4096 ->  1048576
+[    0.000000]   Normal    1048576 ->  1048576
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0:        0 ->      159
+[    0.000000]     0:      256 ->    32736
+[    0.000000] ACPI: PM-Timer IO Port: 0x608
+[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+[    0.000000] Processor #0 (Bootup-CPU)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x00] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 0, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.000000] Setting APIC routing to flat
+[    0.000000] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] swsusp: Registered nosave memory region: 000000000009f000 - 00000000000a0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000a0000 - 00000000000f0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000f0000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at 10000000 (gap: 8000000:f7fc0000)
+[    0.000000] SMP: Allowing 1 CPUs, 0 hotplug CPUs
+[    0.000000] PERCPU: Allocating 34664 bytes of per cpu data
+[    0.000000] Built 1 zonelists in Node order.  Total pages: 30525
+[    0.000000] Policy zone: DMA32
+[    0.000000] Kernel command line: console=ttyS0
+[    0.000000] Initializing CPU#0
+[    0.000000] PID hash table entries: 512 (order: 9, 4096 bytes)
+[    0.438587] time.c: Detected 1799.720 MHz processor.
+[    0.444525] Console: colour VGA+ 80x25
+[    0.445403] console [ttyS0] enabled
+[    0.454410] Checking aperture...
+[    0.456713] Memory: 118412k/130944k available (3411k kernel code, 12144k reserved, 1890k data, 332k init)
+[    0.538683] Calibrating delay using timer specific routine.. 3615.29 BogoMIPS (lpj=7230591)
+[    0.540549] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.540974] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.541546] Mount-cache hash table entries: 256
+[    0.547657] CPU: L1 I Cache: 64K (64 bytes/line), D cache 64K (64 bytes/line)
+[    0.547889] CPU: L2 Cache: 512K (64 bytes/line)
+[    0.548146] CPU 0/0 -> Node 0
+[    0.548362] MCE: warning: using only 10 banks
+[    0.549194] SMP alternatives: switching to UP code
+[    0.550193] Freeing SMP alternatives: 36k freed
+[    0.551204] ACPI: Core revision 20070126
+[    0.608269] Using local APIC timer interrupts.
+[    0.664004] result 62504541
+[    0.664133] Detected 62.504 MHz APIC timer.
+[    0.668672] Brought up 1 CPUs
+[    0.678892] NET: Registered protocol family 16
+[    0.681948] ACPI: bus type pci registered
+[    0.683829] PCI: Using configuration type 1
+[    0.708721] ACPI: Interpreter enabled
+[    0.708993] ACPI: (supports S0 S3 S4 S5)
+[    0.709561] ACPI: Using IOAPIC for interrupt routing
+[    0.729797] ACPI: PCI Root Bridge [PCI0] (0000:00)
+[    0.733772] PCI quirk: region 0600-063f claimed by PIIX4 ACPI
+[    0.733977] PCI quirk: region 0700-070f claimed by PIIX4 SMB
+[    1.609283] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+[    1.610158] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+[    1.610772] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+[    1.611385] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+[    1.611812] ACPI: PCI Interrupt Link [LNKS] (IRQs *9)
+[    1.612709] Linux Plug and Play Support v0.97 (c) Adam Belay
+[    1.613089] pnp: PnP ACPI init
+[    1.613278] ACPI: bus type pnp registered
+[    1.619332] pnp: PnP ACPI: found 11 devices
+[    1.619541] ACPI: ACPI bus type pnp unregistered
+[    1.621219] SCSI subsystem initialized
+[    1.622357] usbcore: registered new interface driver usbfs
+[    1.622954] usbcore: registered new interface driver hub
+[    1.623529] usbcore: registered new device driver usb
+[    1.624277] PCI: Using ACPI for IRQ routing
+[    1.624556] PCI: If a device doesn't work, try "pci=routeirq".  If it helps, post a report
+[    1.677614] PCI-GART: No AMD northbridge found.
+[    1.677980] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.678217] hpet0: 3 64-bit timers, 100000000 Hz
+[    1.680988] Time: tsc clocksource has been installed.
+[    1.691267] NET: Registered protocol family 2
+[    1.726074] IP route cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    1.727427] TCP established hash table entries: 4096 (order: 4, 98304 bytes)
+[    1.727761] TCP bind hash table entries: 4096 (order: 4, 65536 bytes)
+[    1.728163] TCP: Hash tables configured (established 4096 bind 4096)
+[    1.728403] TCP reno registered
+[    1.777322] checking if image is initramfs... it is
+[    2.358517] Freeing initrd memory: 3354k freed
+[    2.381646] Total HugeTLB memory allocated, 0
+[    2.384445] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[    2.385896] io scheduler noop registered
+[    2.386074] io scheduler deadline registered
+[    2.386302] io scheduler cfq registered (default)
+[    2.386587] Limiting direct PCI/PCI transfers.
+[    2.386809] PCI: PIIX3: Enabling Passive Release on 0000:00:01.0
+[    2.387174] Activating ISA DMA hang workarounds.
+[    2.390561] input: Power Button (FF) as /class/input/input0
+[    2.390822] ACPI: Power Button (FF) [PWRF]
+[    2.485924] Real Time Clock Driver v1.12ac
+[    2.487006] Linux agpgart interface v0.102
+[    2.487449] Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+[    2.488750] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.491747] 00:06: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.493458] Floppy drive(s): fd0 is 2.88M AMI BIOS
+[    2.508853] FDC 0 is a S82078B
+[    2.512400] RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+[    2.513769] loop: module loaded
+[    2.513887] Intel(R) PRO/1000 Network Driver - version 7.3.20-k2
+[    2.514064] Copyright (c) 1999-2006 Intel Corporation.
+[    2.516122] ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 11
+[    2.516385] ACPI: PCI Interrupt 0000:00:03.0[A] -> Link [LNKC] -> GSI 11 (level, high) -> IRQ 11
+[    2.793906] e1000: 0000:00:03.0: e1000_probe: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    2.832423] e1000: eth0: e1000_probe: Intel(R) PRO/1000 Network Connection
+[    2.833293] e100: Intel(R) PRO/100 Network Driver, 3.5.23-k4-NAPI
+[    2.833533] e100: Copyright(c) 1999-2006 Intel Corporation
+[    2.834770] forcedeth.c: Reverse Engineered nForce ethernet driver. Version 0.60.
+[    2.835454] tun: Universal TUN/TAP device driver, 1.6
+[    2.835613] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    2.836228] netconsole: not configured, aborting
+[    2.836504] Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+[    2.836832] ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+[    2.837733] PIIX3: IDE controller at PCI slot 0000:00:01.1
+[    2.838029] PIIX3: chipset revision 0
+[    2.838174] PIIX3: not 100% native mode: will probe irqs later
+[    2.838911]     ide0: BM-DMA at 0xc040-0xc047, BIOS settings: hda:pio, hdb:pio
+[    2.839701]     ide1: BM-DMA at 0xc048-0xc04f, BIOS settings: hdc:pio, hdd:pio
+[    4.149730] hdc: QEMU DVD-ROM, ATAPI CD/DVD-ROM drive
+[    4.822007] ide1 at 0x170-0x177,0x376 on irq 15
+[    5.394571] hdc: ATAPI 4X DVD-ROM drive, 512kB Cache, (U)DMA
+[    5.395012] Uniform CD-ROM driver Revision: 3.20
+[    5.399215] Fusion MPT base driver 3.04.05
+[    5.399343] Copyright (c) 1999-2007 LSI Logic Corporation
+[    5.399635] Fusion MPT SPI Host driver 3.04.05
+[    5.401520] ieee1394: raw1394: /dev/raw1394 device initialized
+[    5.403355] USB Universal Host Controller Interface driver v3.0
+[    5.404069] usbcore: registered new interface driver usblp
+[    5.404304] Initializing USB Mass Storage driver...
+[    5.404685] usbcore: registered new interface driver usb-storage
+[    5.404940] USB Mass Storage support registered.
+[    5.405992] PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    5.408810] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    5.409198] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    5.410989] mice: PS/2 mouse device common for all mice
+[    5.414627] input: AT Translated Set 2 keyboard as /class/input/input1
+[    5.418541] device-mapper: ioctl: 4.11.0-ioctl (2006-10-12) initialised: dm-devel@redhat.com
+[    5.419580] usbcore: registered new interface driver usbhid
+[    5.419834] drivers/hid/usbhid/hid-core.c: v2.6:USB HID core driver
+[    5.420708] oprofile: using NMI interrupt.
+[    5.421244] TCP cubic registered
+[    5.421444] NET: Registered protocol family 1
+[    5.422008] NET: Registered protocol family 10
+[    5.425704] IPv6 over IPv4 tunneling driver
+[    5.426735] NET: Registered protocol family 17
+[    5.427769] powernow-k8: Processor cpuid 663 not supported
+[    5.430674] Freeing unused kernel memory: 332k freed
+[    5.617390] input: ImExPS/2 Generic Explorer Mouse as /class/input/input2
+0 is done
+real	0m 10.19s
+user	0m 2.76s
+sys	0m 0.00s
+1 is done
+real	0m 57.73s
+user	0m 15.04s
+sys	0m 0.01s
+2 is done
+real	5m 6.61s
+user	1m 19.84s
+sys	0m 0.10s
+prolaz 0
+0 is done
+real	0m 13.17s
+user	0m 3.44s
+sys	0m 0.00s
+1 is done
+real	0m 21.68s
+user	0m 3.40s
+sys	0m 0.00s
+2 is done
+real	0m 29.46s
+user	0m 3.29s
+sys	0m 0.00s
+3 is done
+real	0m 37.25s
+user	0m 3.23s
+sys	0m 0.00s
+4 is done
+real	0m 47.57s
+user	0m 3.38s
+sys	0m 0.00s
+5 is done
+real	0m 53.12s
+user	0m 3.19s
+sys	0m 0.01s
+0 is done
+real	3m 37.29s
+user	0m 17.95s
+sys	0m 0.03s
+6 is done
+real	1m 0.15s
+user	0m 3.26s
+sys	0m 0.00s
+1 is done
+real	4m 18.06s
+user	0m 17.84s
+sys	0m 0.02s
+7 is done
+real	1m 4.83s
+user	0m 3.28s
+sys	0m 0.00s
+2 is done
+real	4m 58.72s
+user	0m 18.00s
+sys	0m 0.01s
+8 is done
+real	1m 11.85s
+user	0m 3.40s
+sys	0m 0.01s
+3 is done
+real	5m 33.44s
+user	0m 18.08s
+sys	0m 0.02s
+9 is done
+real	1m 11.06s
+user	0m 3.18s
+sys	0m 0.00s
+4 is done
+real	5m 56.85s
+user	0m 17.86s
+sys	0m 0.04s
+5 is done
+real	6m 14.63s
+user	0m 17.94s
+sys	0m 0.02s
+6 is done
+real	6m 21.20s
+user	0m 17.94s
+sys	0m 0.02s
+7 is done
+real	6m 20.21s
+user	0m 17.97s
+sys	0m 0.04s
+8 is done
+real	6m 2.21s
+user	0m 17.58s
+sys	0m 0.03s
+9 is done
+real	5m 46.21s
+user	0m 17.73s
+sys	0m 0.02s
+0 is done
+real	23m 46.99s
+user	1m 27.87s
+sys	0m 0.18s
+1 is done
+real	24m 9.82s
+user	1m 27.70s
+sys	0m 0.12s
+2 is done
+real	24m 20.15s
+user	1m 27.52s
+sys	0m 0.14s
+3 is done
+real	24m 18.68s
+user	1m 27.41s
+sys	0m 0.13s
+4 is done
+real	24m 2.24s
+user	1m 27.11s
+sys	0m 0.09s
+5 is done
+real	23m 40.22s
+user	1m 27.35s
+sys	0m 0.13s
+6 is done
+real	23m 4.51s
+user	1m 27.26s
+sys	0m 0.15s
+7 is done
+real	22m 19.09s
+user	1m 26.97s
+sys	0m 0.15s
+9 is done
+real	20m 27.71s
+user	1m 26.63s
+sys	0m 0.14s
+prolaz 1
+0 is done
+real	0m 16.56s
+user	0m 3.25s
+sys	0m 0.00s
+1 is done
+real	0m 23.24s
+user	0m 3.03s
+sys	0m 0.00s
+2 is done
+real	0m 31.20s
+user	0m 3.04s
+sys	0m 0.01s
+3 is done
+real	0m 39.87s
+user	0m 3.12s
+sys	0m 0.00s
+8 is done
+real	24m 5.46s
+user	1m 44.60s
+sys	0m 0.12s
+4 is done
+real	0m 48.10s
+user	0m 3.22s
+sys	0m 0.00s
+5 is done
+real	0m 53.10s
+user	0m 3.18s
+sys	0m 0.01s
+0 is done
+real	3m 45.32s
+user	0m 17.14s
+sys	0m 0.03s
+6 is done
+real	0m 59.01s
+user	0m 3.19s
+sys	0m 0.00s
+1 is done
+real	4m 21.25s
+user	0m 17.21s
+sys	0m 0.02s
+7 is done
+real	1m 2.70s
+user	0m 3.17s
+sys	0m 0.00s
+2 is done
+real	4m 53.58s
+user	0m 17.28s
+sys	0m 0.03s
+8 is done
+real	1m 6.25s
+user	0m 3.16s
+sys	0m 0.00s
+3 is done
+real	5m 20.36s
+user	0m 17.23s
+sys	0m 0.05s
+9 is done
+real	1m 10.83s
+user	0m 3.18s
+sys	0m 0.00s
+4 is done
+real	5m 41.49s
+user	0m 17.14s
+sys	0m 0.01s
+5 is done
+real	5m 59.02s
+user	0m 17.21s
+sys	0m 0.02s
+6 is done
+real	6m 4.94s
+user	0m 17.20s
+sys	0m 0.01s
+7 is done
+real	6m 3.56s
+user	0m 17.24s
+sys	0m 0.01s
+8 is done
+real	5m 53.31s
+user	0m 17.22s
+sys	0m 0.01s
+9 is done
+real	5m 38.28s
+user	0m 17.38s
+sys	0m 0.02s
+0 is done
+real	23m 36.42s
+user	1m 26.26s
+sys	0m 0.14s
+1 is done
+real	24m 0.16s
+user	1m 26.63s
+sys	0m 0.10s
+2 is done
+real	24m 10.53s
+user	1m 26.80s
+sys	0m 0.12s
+3 is done
+real	24m 6.64s
+user	1m 26.77s
+sys	0m 0.17s
+4 is done
+real	23m 48.78s
+user	1m 26.54s
+sys	0m 0.12s
+5 is done
+real	23m 28.78s
+user	1m 27.06s
+sys	0m 0.14s
+6 is done
+real	22m 54.26s
+user	1m 27.10s
+sys	0m 0.10s
+7 is done
+real	22m 11.87s
+user	1m 27.08s
+sys	0m 0.13s
+8 is done
+real	21m 20.25s
+user	1m 26.78s
+sys	0m 0.16s
+9 is done
+real	20m 22.65s
+user	1m 27.08s
+sys	0m 0.17s
+prolaz 2
+0 is done
+real	0m 12.02s
+user	0m 3.13s
+sys	0m 0.00s
+1 is done
+real	0m 19.64s
+user	0m 3.07s
+sys	0m 0.00s
+2 is done
+real	0m 28.38s
+user	0m 3.16s
+sys	0m 0.00s
+3 is done
+real	0m 36.04s
+user	0m 3.13s
+sys	0m 0.00s
+4 is done
+real	0m 55.35s
+user	0m 3.94s
+sys	0m 0.00s
+5 is done
+real	0m 52.97s
+user	0m 3.19s
+sys	0m 0.00s
+0 is done
+real	3m 29.09s
+user	0m 17.33s
+sys	0m 0.02s
+6 is done
+real	0m 58.62s
+user	0m 3.22s
+sys	0m 0.00s
+1 is done
+real	4m 6.56s
+user	0m 17.35s
+sys	0m 0.03s
+7 is done
+real	1m 2.17s
+user	0m 3.19s
+sys	0m 0.00s
+2 is done
+real	4m 41.23s
+user	0m 17.39s
+sys	0m 0.02s
+8 is done
+real	1m 5.55s
+user	0m 3.16s
+sys	0m 0.00s
+3 is done
+real	5m 11.22s
+user	0m 17.37s
+sys	0m 0.05s
+9 is done
+real	1m 10.51s
+user	0m 3.20s
+sys	0m 0.00s
+4 is done
+real	5m 44.30s
+user	0m 17.44s
+sys	0m 0.01s
+5 is done
+real	5m 58.02s
+user	0m 17.33s
+sys	0m 0.02s
+6 is done
+real	6m 6.25s
+user	0m 17.38s
+sys	0m 0.02s
+7 is done
+real	6m 2.29s
+user	0m 17.22s
+sys	0m 0.02s
+8 is done
+real	5m 54.77s
+user	0m 17.32s
+sys	0m 0.00s
+9 is done
+real	5m 36.64s
+user	0m 17.25s
+sys	0m 0.02s
+0 is done
+real	23m 10.09s
+user	1m 25.86s
+sys	0m 0.08s
+1 is done
+real	23m 40.85s
+user	1m 26.32s
+sys	0m 0.14s
+2 is done
+real	23m 56.23s
+user	1m 26.60s
+sys	0m 0.12s
+3 is done
+real	23m 53.25s
+user	1m 26.35s
+sys	0m 0.13s
+4 is done
+real	23m 38.25s
+user	1m 26.33s
+sys	0m 0.16s
+5 is done
+real	23m 14.63s
+user	1m 26.39s
+sys	0m 0.20s
+6 is done
+real	22m 40.16s
+user	1m 26.38s
+sys	0m 0.14s
+7 is done
+real	21m 57.94s
+user	1m 26.30s
+sys	0m 0.12s
+8 is done
+real	21m 9.40s
+user	1m 26.52s
+sys	0m 0.13s
+9 is done
+real	20m 11.34s
+user	1m 26.53s
+sys	0m 0.10s
+prolaz 3
+0 is done
+real	0m 12.26s
+user	0m 3.20s
+sys	0m 0.00s
+1 is done
+real	0m 20.53s
+user	0m 3.20s
+sys	0m 0.01s
+2 is done
+real	0m 28.34s
+user	0m 3.17s
+sys	0m 0.00s
+3 is done
+real	0m 36.51s
+user	0m 3.17s
+sys	0m 0.00s
+4 is done
+real	0m 44.41s
+user	0m 3.17s
+sys	0m 0.00s
+5 is done
+real	0m 53.22s
+user	0m 3.19s
+sys	0m 0.01s
+0 is done
+real	3m 30.45s
+user	0m 17.32s
+sys	0m 0.02s
+6 is done
+real	0m 58.25s
+user	0m 3.15s
+sys	0m 0.01s
+1 is done
+real	4m 9.55s
+user	0m 17.25s
+sys	0m 0.03s
+7 is done
+real	1m 3.78s
+user	0m 3.24s
+sys	0m 0.00s
+2 is done
+real	4m 48.77s
+user	0m 17.42s
+sys	0m 0.00s
+8 is done
+real	1m 7.80s
+user	0m 3.22s
+sys	0m 0.00s
+3 is done
+real	5m 19.09s
+user	0m 17.32s
+sys	0m 0.03s
+9 is done
+real	1m 11.49s
+user	0m 3.21s
+sys	0m 0.00s
+4 is done
+real	5m 44.02s
+user	0m 17.28s
+sys	0m 0.02s
+5 is done
+real	6m 2.92s
+user	0m 17.40s
+sys	0m 0.02s
+6 is done
+real	6m 11.66s
+user	0m 17.51s
+sys	0m 0.02s
+7 is done
+real	6m 6.87s
+user	0m 17.35s
+sys	0m 0.03s
+8 is done
+real	5m 54.16s
+user	0m 17.22s
+sys	0m 0.02s
+9 is done
+real	5m 34.47s
+user	0m 17.12s
+sys	0m 0.03s
+0 is done
+real	23m 17.95s
+user	1m 26.10s
+sys	0m 0.16s
+1 is done
+real	23m 45.51s
+user	1m 26.30s
+sys	0m 0.16s
+2 is done
+real	23m 52.89s
+user	1m 25.96s
+sys	0m 0.14s
+3 is done
+real	23m 56.15s
+user	1m 26.31s
+sys	0m 0.08s
+4 is done
+real	23m 44.89s
+user	1m 26.32s
+sys	0m 0.15s
+5 is done
+real	23m 19.08s
+user	1m 26.21s
+sys	0m 0.13s
+6 is done
+real	22m 47.20s
+user	1m 26.42s
+sys	0m 0.20s
+7 is done
+real	22m 1.53s
+user	1m 26.05s
+sys	0m 0.16s
+8 is done
+real	21m 8.20s
+user	1m 25.76s
+sys	0m 0.11s
+9 is done
+real	20m 8.46s
+user	1m 25.61s
+sys	0m 0.11s
+prolaz 4
+0 is done
+real	0m 11.79s
+user	0m 3.07s
+sys	0m 0.01s
+1 is done
+real	0m 19.59s
+user	0m 3.08s
+sys	0m 0.00s
+2 is done
+real	0m 28.73s
+user	0m 3.21s
+sys	0m 0.00s
+3 is done
+real	0m 37.07s
+user	0m 3.22s
+sys	0m 0.00s
+4 is done
+real	0m 44.47s
+user	0m 3.17s
+sys	0m 0.00s
+5 is done
+real	0m 51.55s
+user	0m 3.10s
+sys	0m 0.00s
+0 is done
+real	3m 32.26s
+user	0m 17.36s
+sys	0m 0.02s
+6 is done
+real	0m 58.97s
+user	0m 3.18s
+sys	0m 0.00s
+1 is done
+real	4m 8.87s
+user	0m 17.22s
+sys	0m 0.02s
+7 is done
+real	1m 2.70s
+user	0m 3.17s
+sys	0m 0.00s
+2 is done
+real	4m 45.36s
+user	0m 17.22s
+sys	0m 0.02s
+8 is done
+real	1m 7.21s
+user	0m 3.19s
+sys	0m 0.01s
+3 is done
+real	5m 18.33s
+user	0m 17.25s
+sys	0m 0.02s
+9 is done
+real	1m 9.81s
+user	0m 3.12s
+sys	0m 0.01s
+4 is done
+real	5m 44.00s
+user	0m 17.23s
+sys	0m 0.03s
+5 is done
+real	6m 1.29s
+user	0m 17.29s
+sys	0m 0.02s
+6 is done
+real	6m 9.11s
+user	0m 17.36s
+sys	0m 0.04s
+7 is done
+real	6m 7.39s
+user	0m 17.40s
+sys	0m 0.02s
+8 is done
+real	5m 56.82s
+user	0m 17.35s
+sys	0m 0.04s
+9 is done
+real	5m 37.81s
+user	0m 17.32s
+sys	0m 0.01s
+0 is done
+real	23m 19.15s
+user	1m 26.14s
+sys	0m 0.12s
+1 is done
+real	23m 44.62s
+user	1m 26.30s
+sys	0m 0.12s
+2 is done
+real	23m 53.78s
+user	1m 26.06s
+sys	0m 0.11s
+3 is done
+real	23m 51.65s
+user	1m 25.84s
+sys	0m 0.15s
+4 is done
+real	23m 42.44s
+user	1m 26.10s
+sys	0m 0.13s
+5 is done
+real	23m 18.77s
+user	1m 26.13s
+sys	0m 0.12s
+6 is done
+real	22m 43.52s
+user	1m 26.02s
+sys	0m 0.14s
+7 is done
+real	22m 0.53s
+user	1m 25.99s
+sys	0m 0.08s
+8 is done
+real	21m 8.42s
+user	1m 25.71s
+sys	0m 0.13s
+9 is done
+real	20m 11.75s
+user	1m 26.07s
+sys	0m 0.11s
+prolaz 5
+0 is done
+real	0m 11.78s
+user	0m 3.06s
+sys	0m 0.01s
+1 is done
+real	0m 19.33s
+user	0m 3.03s
+sys	0m 0.00s
+2 is done
+real	0m 28.46s
+user	0m 3.18s
+sys	0m 0.00s
+3 is done
+real	0m 37.64s
+user	0m 3.28s
+sys	0m 0.00s
+4 is done
+real	0m 44.77s
+user	0m 3.17s
+sys	0m 0.00s
+5 is done
+real	0m 53.47s
+user	0m 3.21s
+sys	0m 0.00s
+6 is done
+real	1m 0.59s
+user	0m 3.15s
+sys	0m 0.01s
+1 is done
+real	4m 17.48s
+user	0m 17.49s
+sys	0m 0.01s
+0 is done
+real	4m 58.78s
+user	0m 21.58s
+sys	0m 0.02s
+7 is done
+real	1m 6.01s
+user	0m 3.18s
+sys	0m 0.00s
+2 is done
+real	4m 54.43s
+user	0m 17.45s
+sys	0m 0.02s
+8 is done
+real	1m 6.99s
+user	0m 3.18s
+sys	0m 0.01s
+3 is done
+real	5m 25.91s
+user	0m 17.36s
+sys	0m 0.02s
+9 is done
+real	1m 10.78s
+user	0m 3.17s
+sys	0m 0.00s
+4 is done
+real	5m 50.22s
+user	0m 17.29s
+sys	0m 0.01s
+5 is done
+real	6m 8.01s
+user	0m 17.35s
+sys	0m 0.02s
+6 is done
+real	6m 13.05s
+user	0m 17.37s
+sys	0m 0.04s
+7 is done
+real	6m 5.21s
+user	0m 17.25s
+sys	0m 0.02s
+8 is done
+real	5m 55.95s
+user	0m 17.30s
+sys	0m 0.02s
+9 is done
+real	5m 36.30s
+user	0m 17.21s
+sys	0m 0.02s
+0 is done
+real	23m 33.89s
+user	1m 26.67s
+sys	0m 0.17s
+1 is done
+real	23m 58.92s
+user	1m 26.88s
+sys	0m 0.11s
+2 is done
+real	24m 10.90s
+user	1m 26.74s
+sys	0m 0.16s
+3 is done
+real	24m 5.90s
+user	1m 26.42s
+sys	0m 0.09s
+4 is done
+real	23m 56.38s
+user	1m 26.69s
+sys	0m 0.12s
+5 is done
+real	23m 30.35s
+user	1m 26.54s
+sys	0m 0.13s
+6 is done
+real	22m 54.14s
+user	1m 26.58s
+sys	0m 0.11s
+7 is done
+real	22m 8.27s
+user	1m 26.52s
+sys	0m 0.15s
+8 is done
+real	21m 18.76s
+user	1m 26.78s
+sys	0m 0.14s
+9 is done
+real	20m 19.61s
+user	1m 26.66s
+sys	0m 0.15s
+prolaz 6
+0 is done
+real	0m 12.35s
+user	0m 3.23s
+sys	0m 0.00s
+1 is done
+real	0m 19.54s
+user	0m 3.06s
+sys	0m 0.00s
+2 is done
+real	0m 28.63s
+user	0m 3.20s
+sys	0m 0.00s
+3 is done
+real	0m 36.26s
+user	0m 3.14s
+sys	0m 0.01s
+4 is done
+real	0m 44.12s
+user	0m 3.13s
+sys	0m 0.01s
+5 is done
+real	0m 53.64s
+user	0m 3.23s
+sys	0m 0.00s
+0 is done
+real	3m 30.79s
+user	0m 17.23s
+sys	0m 0.05s
+6 is done
+real	0m 59.61s
+user	0m 3.22s
+sys	0m 0.01s
+1 is done
+real	4m 10.83s
+user	0m 17.31s
+sys	0m 0.03s
+7 is done
+real	1m 3.57s
+user	0m 3.23s
+sys	0m 0.00s
+2 is done
+real	4m 46.23s
+user	0m 17.30s
+sys	0m 0.02s
+8 is done
+real	1m 6.97s
+user	0m 3.19s
+sys	0m 0.00s
+3 is done
+real	5m 20.12s
+user	0m 17.39s
+sys	0m 0.03s
+9 is done
+real	1m 11.97s
+user	0m 3.24s
+sys	0m 0.00s
+5 is done
+real	6m 6.22s
+user	0m 17.40s
+sys	0m 0.02s
+4 is done
+real	7m 26.84s
+user	0m 21.82s
+sys	0m 0.06s
+6 is done
+real	6m 15.56s
+user	0m 17.46s
+sys	0m 0.02s
+7 is done
+real	6m 12.82s
+user	0m 17.42s
+sys	0m 0.01s
+8 is done
+real	6m 3.14s
+user	0m 17.39s
+sys	0m 0.04s
+9 is done
+real	5m 46.29s
+user	0m 17.48s
+sys	0m 0.03s
+0 is done
+real	23m 32.11s
+user	1m 26.60s
+sys	0m 0.14s
+2 is done
+real	24m 12.44s
+user	1m 26.65s
+sys	0m 0.12s
+1 is done
+real	25m 7.27s
+user	1m 31.90s
+sys	0m 0.10s
+3 is done
+real	24m 12.14s
+user	1m 26.38s
+sys	0m 0.14s
+4 is done
+real	24m 5.24s
+user	1m 26.86s
+sys	0m 0.16s
+5 is done
+real	23m 36.25s
+user	1m 26.44s
+sys	0m 0.13s
+6 is done
+real	23m 0.78s
+user	1m 26.38s
+sys	0m 0.12s
+7 is done
+real	22m 17.77s
+user	1m 26.31s
+sys	0m 0.16s
+8 is done
+real	21m 26.94s
+user	1m 26.31s
+sys	0m 0.10s
+9 is done
+real	20m 27.50s
+user	1m 26.34s
+sys	0m 0.16s
+prolaz 7
+0 is done
+real	0m 11.85s
+user	0m 3.09s
+sys	0m 0.01s
+1 is done
+real	0m 20.30s
+user	0m 3.18s
+sys	0m 0.00s
+2 is done
+real	0m 28.67s
+user	0m 3.20s
+sys	0m 0.01s
+3 is done
+real	0m 35.49s
+user	0m 3.08s
+sys	0m 0.00s
+4 is done
+real	0m 43.96s
+user	0m 3.13s
+sys	0m 0.00s
+5 is done
+real	0m 51.79s
+user	0m 3.11s
+sys	0m 0.00s
+0 is done
+real	3m 25.19s
+user	0m 16.99s
+sys	0m 0.03s
+6 is done
+real	0m 58.05s
+user	0m 3.15s
+sys	0m 0.00s
+1 is done
+real	4m 10.03s
+user	0m 17.23s
+sys	0m 0.03s
+7 is done
+real	1m 3.91s
+user	0m 3.22s
+sys	0m 0.00s
+2 is done
+real	4m 41.95s
+user	0m 17.00s
+sys	0m 0.02s
+8 is done
+real	1m 4.47s
+user	0m 3.07s
+sys	0m 0.00s
+3 is done
+real	5m 17.14s
+user	0m 17.18s
+sys	0m 0.02s
+9 is done
+real	1m 12.09s
+user	0m 3.22s
+sys	0m 0.01s
+4 is done
+real	5m 45.01s
+user	0m 17.25s
+sys	0m 0.03s
+5 is done
+real	6m 3.27s
+user	0m 17.38s
+sys	0m 0.02s
+6 is done
+real	6m 10.78s
+user	0m 17.43s
+sys	0m 0.02s
+7 is done
+real	6m 9.10s
+user	0m 17.47s
+sys	0m 0.02s
+8 is done
+real	6m 1.14s
+user	0m 17.54s
+sys	0m 0.02s
+9 is done
+real	5m 40.82s
+user	0m 17.44s
+sys	0m 0.02s
+0 is done
+real	23m 35.41s
+user	1m 27.17s
+sys	0m 0.12s
+1 is done
+real	24m 5.30s
+user	1m 27.53s
+sys	0m 0.16s
+2 is done
+real	24m 18.47s
+user	1m 27.63s
+sys	0m 0.12s
+4 is done
+real	24m 16.85s
+user	1m 28.15s
+sys	0m 0.14s
+5 is done
+real	23m 56.18s
+user	1m 28.11s
+sys	0m 0.15s
+3 is done
+real	25m 54.42s
+user	1m 36.89s
+sys	0m 0.12s
+6 is done
+real	23m 26.40s
+user	1m 28.21s
+sys	0m 0.17s
+7 is done
+real	22m 42.80s
+user	1m 28.25s
+sys	0m 0.10s
+8 is done
+real	21m 54.19s
+user	1m 28.23s
+sys	0m 0.15s
+9 is done
+real	21m 4.89s
+user	1m 30.90s
+sys	0m 0.15s
+prolaz 8
+0 is done
+real	0m 20.52s
+user	0m 5.28s
+sys	0m 0.01s
+1 is done
+real	0m 43.19s
+user	0m 6.64s
+sys	0m 0.03s
+2 is done
+real	0m 54.04s
+user	0m 5.93s
+sys	0m 0.03s
+3 is done
+real	1m 10.64s
+user	0m 6.02s
+sys	0m 0.03s
+4 is done
+real	1m 26.18s
+user	0m 6.02s
+sys	0m 0.04s
+5 is done
+real	1m 43.06s
+user	0m 6.10s
+sys	0m 0.03s
+0 is done
+real	6m 42.67s
+user	0m 33.13s
+sys	0m 0.10s
+6 is done
+real	1m 43.19s
+user	0m 5.51s
+sys	0m 0.01s
+1 is done
+real	7m 51.73s
+user	0m 32.27s
+sys	0m 0.16s
+7 is done
+real	1m 57.67s
+user	0m 5.87s
+sys	0m 0.02s
+2 is done
+real	8m 57.43s
+user	0m 32.15s
+sys	0m 0.13s
+8 is done
+real	2m 7.30s
+user	0m 5.93s
+sys	0m 0.06s
+3 is done
+real	9m 59.64s
+user	0m 32.15s
+sys	0m 0.12s
+9 is done
+real	2m 14.92s
+user	0m 5.96s
+sys	0m 0.02s
+4 is done
+real	10m 41.73s
+user	0m 31.76s
+sys	0m 0.15s
+5 is done
+real	11m 7.83s
+user	0m 31.52s
+sys	0m 0.14s
+6 is done
+real	11m 14.24s
+user	0m 31.26s
+sys	0m 0.17s
+7 is done
+real	11m 6.70s
+user	0m 31.10s
+sys	0m 0.12s
+8 is done
+real	10m 53.04s
+user	0m 31.37s
+sys	0m 0.14s
+9 is done
+real	10m 2.75s
+user	0m 30.45s
+sys	0m 0.13s
+0 is done
+real	43m 13.44s
+user	2m 38.39s
+sys	0m 0.66s
+1 is done
+real	43m 51.33s
+user	2m 37.38s
+sys	0m 0.74s
+2 is done
+real	44m 22.04s
+user	2m 38.04s
+sys	0m 0.66s
+3 is done
+real	44m 23.81s
+user	2m 38.10s
+sys	0m 0.78s
+4 is done
+real	44m 2.53s
+user	2m 38.37s
+sys	0m 0.71s
+5 is done
+real	43m 12.66s
+user	2m 38.11s
+sys	0m 0.60s
+6 is done
+real	42m 5.07s
+user	2m 37.15s
+sys	0m 0.65s
+7 is done
+real	40m 44.43s
+user	2m 37.10s
+sys	0m 0.62s
+8 is done
+real	39m 11.35s
+user	2m 37.73s
+sys	0m 0.63s
+9 is done
+real	37m 19.54s
+user	2m 37.66s
+sys	0m 0.61s
+prolaz 9
+0 is done
+real	0m 18.67s
+user	0m 4.80s
+sys	0m 0.02s
+1 is done
+real	0m 38.22s
+user	0m 5.89s
+sys	0m 0.02s
+2 is done
+real	0m 52.20s
+user	0m 5.77s
+sys	0m 0.01s
+3 is done
+real	1m 12.77s
+user	0m 6.20s
+sys	0m 0.04s
+4 is done
+real	1m 17.31s
+user	0m 5.42s
+sys	0m 0.02s
+5 is done
+real	1m 22.34s
+user	0m 4.89s
+sys	0m 0.02s
+0 is done
+real	6m 7.72s
+user	0m 30.51s
+sys	0m 0.10s
+6 is done
+real	1m 49.48s
+user	0m 5.86s
+sys	0m 0.02s
+1 is done
+real	7m 17.23s
+user	0m 30.21s
+sys	0m 0.13s
+7 is done
+real	1m 49.41s
+user	0m 5.48s
+sys	0m 0.03s
+2 is done
+real	8m 27.89s
+user	0m 30.38s
+sys	0m 0.17s
+8 is done
+real	1m 59.86s
+user	0m 5.62s
+sys	0m 0.02s
+3 is done
+real	9m 17.59s
+user	0m 29.78s
+sys	0m 0.14s
+9 is done
+real	2m 6.91s
+user	0m 5.61s
+sys	0m 0.02s
+4 is done
+real	10m 8.15s
+user	0m 30.00s
+sys	0m 0.14s
+5 is done
+real	10m 52.79s
+user	0m 30.82s
+sys	0m 0.18s
+6 is done
+real	11m 2.80s
+user	0m 30.79s
+sys	0m 0.12s
+7 is done
+real	11m 7.02s
+user	0m 31.16s
+sys	0m 0.10s
+8 is done
+real	11m 2.09s
+user	0m 31.82s
+sys	0m 0.16s
+9 is done
+real	10m 27.58s
+user	0m 31.74s
+sys	0m 0.12s
+0 is done
+real	42m 6.34s
+user	2m 33.85s
+sys	0m 0.62s
+1 is done
+real	42m 51.59s
+user	2m 33.76s
+sys	0m 0.62s
+2 is done
+real	43m 8.43s
+user	2m 33.22s
+sys	0m 0.65s
+3 is done
+real	42m 58.33s
+user	2m 32.41s
+sys	0m 0.68s
+4 is done
+real	42m 47.61s
+user	2m 33.58s
+sys	0m 0.56s
+5 is done
+real	42m 22.84s
+user	2m 34.91s
+sys	0m 0.66s
+6 is done
+real	41m 14.05s
+user	2m 34.24s
+sys	0m 0.75s
+7 is done
+real	40m 0.95s
+user	2m 34.41s
+sys	0m 0.66s
+8 is done
+real	38m 33.78s
+user	2m 35.15s
+sys	0m 0.58s
+9 is done
+real	36m 45.50s
+user	2m 34.29s
+sys	0m 0.66s
+0 is done
+real	0m 20.16s
+user	0m 5.18s
+sys	0m 0.02s
+1 is done
+real	2m 4.40s
+user	0m 31.98s
+sys	0m 0.08s
+2 is done
+real	15m 18.11s
+user	3m 54.88s
+sys	0m 0.88s
+[20993.723000] Kernel panic - not syncing: Attempted to kill init!
