@@ -4,8 +4,8 @@ set -e
 set -u
 set -o pipefail
 
-CUSTOMD=/home/dianas/project/nn-linux-scheduler/custom-2-linux-2.6.22
-CUSTOMBZ=/home/dianas/project/nn-linux-scheduler/custom-2-linux-2.6.22/arch/x86_64/boot
+CUSTOMD=/home/dianas/project/nn-linux-scheduler/custom-3-linux-2.6.22
+CUSTOMBZ=/home/dianas/project/nn-linux-scheduler/custom-3-linux-2.6.22/arch/x86_64/boot
 IMAGES=/home/dianas/project/images
 TESTS=/home/dianas/project/nn-linux-scheduler/tests
 DOCKER=/home/dianas/project/docker
