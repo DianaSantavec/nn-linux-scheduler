@@ -1158,6 +1158,7 @@ int do_execve(char * filename,
 	int i;
 
 	current->last_file_counting = 0;
+	current->my_bonus = -1;
 
 	retval = -ENOMEM;
 	bprm = kzalloc(sizeof(*bprm), GFP_KERNEL);

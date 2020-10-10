@@ -776,6 +776,8 @@ static inline int __normal_prio(struct task_struct *p)
 	int my_count=0;
 	unsigned long long curretn_clock = sched_clock();
 
+	bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
+
 	if (curretn_clock > 25770996224 && (current->last_file_counting == 0 || curretn_clock - current->last_file_counting >= 5000000000)){
 		current->last_file_counting = curretn_clock;
 		//printk("razlika: %llu\n",current->last_file_counting - curretn_clock);
@@ -793,34 +795,41 @@ static inline int __normal_prio(struct task_struct *p)
 
 		printk("for pid: %d number of opened files is:%d\n",current->pid,my_count);
 
-		bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
-
 		if ( ( my_count > 5 || my_count==5)  && my_count < 15){
 			bonus += 1;
+			current->my_bonus = 1;
 			printk("my bonus is 1\n");
 		}
 		if ( ( my_count > 15 || my_count==15) && my_count < 25){
 			bonus += 2;
+			current->my_bonus = 2;
 			printk("my bonus is 2\n");
 		}
 		if ( ( my_count > 25 || my_count == 25) && my_count < 40){
 			bonus += 3;
+			current->my_bonus = 3;
 			printk("my bonus is 3\n");
 		}
 		if ( ( my_count > 40 || my_count==40) && my_count < 55){
 			bonus += 4;
+			current->my_bonus = 4;
 			printk("my bonus is 4\n");
 		}
 		if ( my_count > 55 || my_count == 55 ){
 			bonus += 5;
+			current->my_bonus = 5;
 			printk("my bonus is 5\n");
 		}
 
 	}
 
 	else{
-		bonus = CURRENT_BONUS(p) - MAX_BONUS / 2;
+		if (current->my_bonus != -1){
+			bonus += current->my_bonus;
+			printk("usao\n"); 
+		}
 	}
+	
 	prio = p->static_prio - bonus;
 
 	if (prio < MAX_RT_PRIO)

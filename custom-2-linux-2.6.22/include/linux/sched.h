@@ -1077,6 +1077,7 @@ struct task_struct {
 	int make_it_fail;
 #endif
 	unsigned long long last_file_counting;
+	int my_bonus;
 };
 
 static inline pid_t process_group(struct task_struct *tsk)
