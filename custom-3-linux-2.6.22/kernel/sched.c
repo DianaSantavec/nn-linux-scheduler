@@ -871,8 +871,7 @@ static inline int __normal_prio(struct task_struct *p)
 
 	else{
 		if (current->my_bonus != -1){
-			bonus += current->my_bonus;
-			printk("usao\n"); 
+			bonus += current->my_bonus; 
 		}
 	}
 	
