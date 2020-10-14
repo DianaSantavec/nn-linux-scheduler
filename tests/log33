@@ -1,0 +1,608 @@
+ubuntu_terminal
+ubuntu_terminal
+c[?7l[2J[0mSeaBIOS (version ?-20200516_175120-felixonmars2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+07F92850+07EF2850 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from ROM...
+[    0.000000] Linux version 2.6.23 (root@096a804d3837) (gcc version 4.4.3 (Ubuntu 4.4.3-4ubuntu5.1) ) #16 SMP Wed Oct 14 20:04:58 UTC 2020
+[    0.000000] Command line: console=ttyS0
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+[    0.000000]  BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 0000000007fe0000 (usable)
+[    0.000000]  BIOS-e820: 0000000007fe0000 - 0000000008000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fffc0000 - 0000000100000000 (reserved)
+[    0.000000] end_pfn_map = 1048576
+[    0.000000] DMI 2.8 present.
+[    0.000000] ACPI: RSDP 000F5B10, 0014 (r0 BOCHS )
+[    0.000000] ACPI: RSDT 07FE156F, 0030 (r1 BOCHS  BXPCRSDT        1 BXPC        1)
+[    0.000000] ACPI: FACP 07FE144B, 0074 (r1 BOCHS  BXPCFACP        1 BXPC        1)
+[    0.000000] ACPI: DSDT 07FE0040, 140B (r1 BOCHS  BXPCDSDT        1 BXPC        1)
+[    0.000000] ACPI: FACS 07FE0000, 0040
+[    0.000000] ACPI: APIC 07FE14BF, 0078 (r1 BOCHS  BXPCAPIC        1 BXPC        1)
+[    0.000000] ACPI: HPET 07FE1537, 0038 (r1 BOCHS  BXPCHPET        1 BXPC        1)
+[    0.000000] No NUMA configuration found
+[    0.000000] Faking a node at 0000000000000000-0000000007fe0000
+[    0.000000] Bootmem setup node 0 0000000000000000-0000000007fe0000
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA             0 ->     4096
+[    0.000000]   DMA32        4096 ->  1048576
+[    0.000000]   Normal    1048576 ->  1048576
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[2] active PFN ranges
+[    0.000000]     0:        0 ->      159
+[    0.000000]     0:      256 ->    32736
+[    0.000000] ACPI: PM-Timer IO Port: 0x608
+[    0.000000] ACPI: LAPIC (acpi_id[0x00] lapic_id[0x00] enabled)
+[    0.000000] Processor #0 (Bootup-CPU)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x00] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 0, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.000000] Setting APIC routing to flat
+[    0.000000] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] swsusp: Registered nosave memory region: 000000000009f000 - 00000000000a0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000a0000 - 00000000000f0000
+[    0.000000] swsusp: Registered nosave memory region: 00000000000f0000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at 10000000 (gap: 8000000:f7fc0000)
+[    0.000000] SMP: Allowing 1 CPUs, 0 hotplug CPUs
+[    0.000000] PERCPU: Allocating 34664 bytes of per cpu data
+[    0.000000] Built 1 zonelists in Node order.  Total pages: 30525
+[    0.000000] Policy zone: DMA32
+[    0.000000] Kernel command line: console=ttyS0
+[    0.000000] Initializing CPU#0
+[    0.000000] PID hash table entries: 512 (order: 9, 4096 bytes)
+[    0.478318] time.c: Detected 1799.709 MHz processor.
+[    0.483877] Console: colour VGA+ 80x25
+[    0.484705] console [ttyS0] enabled
+[    0.493381] Checking aperture...
+[    0.495555] Memory: 116508k/130944k available (3411k kernel code, 14048k reserved, 1890k data, 332k init)
+[    0.578429] Calibrating delay using timer specific routine.. 3614.98 BogoMIPS (lpj=7229967)
+[    0.580276] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.580690] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.581229] Mount-cache hash table entries: 256
+[    0.586602] CPU: L1 I Cache: 64K (64 bytes/line), D cache 64K (64 bytes/line)
+[    0.586818] CPU: L2 Cache: 512K (64 bytes/line)
+[    0.587063] CPU 0/0 -> Node 0
+[    0.587269] MCE: warning: using only 10 banks
+[    0.588055] SMP alternatives: switching to UP code
+[    0.588994] Freeing SMP alternatives: 36k freed
+[    0.589972] ACPI: Core revision 20070126
+[    0.652992] Using local APIC timer interrupts.
+[    0.708755] result 62504107
+[    0.708896] Detected 62.504 MHz APIC timer.
+[    0.712252] Brought up 1 CPUs
+[    0.720998] NET: Registered protocol family 16
+[    0.723901] ACPI: bus type pci registered
+[    0.725421] PCI: Using configuration type 1
+[    0.758906] ACPI: Interpreter enabled
+[    0.759178] ACPI: (supports S0 S3 S4 S5)
+[    0.759746] ACPI: Using IOAPIC for interrupt routing
+[    0.779020] ACPI: PCI Root Bridge [PCI0] (0000:00)
+[    0.781959] PCI quirk: region 0600-063f claimed by PIIX4 ACPI
+[    0.782438] PCI quirk: region 0700-070f claimed by PIIX4 SMB
+[    1.960539] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+[    1.961617] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+[    1.962328] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+[    1.963024] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+[    1.963496] ACPI: PCI Interrupt Link [LNKS] (IRQs *9)
+[    1.964737] Linux Plug and Play Support v0.97 (c) Adam Belay
+[    1.965146] pnp: PnP ACPI init
+[    1.965368] ACPI: bus type pnp registered
+[    1.973783] pnp: PnP ACPI: found 11 devices
+[    1.974025] ACPI: ACPI bus type pnp unregistered
+[    1.976159] SCSI subsystem initialized
+[    1.977871] usbcore: registered new interface driver usbfs
+[    1.978611] usbcore: registered new interface driver hub
+[    1.979269] usbcore: registered new device driver usb
+[    1.980169] PCI: Using ACPI for IRQ routing
+[    1.980594] PCI: If a device doesn't work, try "pci=routeirq".  If it helps, post a report
+[    1.997299] PCI-GART: No AMD northbridge found.
+[    1.997790] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.998074] hpet0: 3 64-bit timers, 100000000 Hz
+[    2.000333] Time: tsc clocksource has been installed.
+[    2.047124] NET: Registered protocol family 2
+[    2.082397] IP route cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    2.084560] TCP established hash table entries: 4096 (order: 4, 98304 bytes)
+[    2.085006] TCP bind hash table entries: 4096 (order: 4, 65536 bytes)
+[    2.085529] TCP: Hash tables configured (established 4096 bind 4096)
+[    2.085828] TCP reno registered
+[    2.102338] checking if image is initramfs... it is
+[    3.201890] Freeing initrd memory: 5259k freed
+[    3.246100] Total HugeTLB memory allocated, 0
+[    3.250118] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[    3.252100] io scheduler noop registered
+[    3.252287] io scheduler deadline registered
+[    3.252525] io scheduler cfq registered (default)
+[    3.252845] Limiting direct PCI/PCI transfers.
+[    3.253076] PCI: PIIX3: Enabling Passive Release on 0000:00:01.0
+[    3.253456] Activating ISA DMA hang workarounds.
+[    3.257573] input: Power Button (FF) as /class/input/input0
+[    3.257919] ACPI: Power Button (FF) [PWRF]
+[    3.404127] Real Time Clock Driver v1.12ac
+[    3.405525] Linux agpgart interface v0.102
+[    3.406108] Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+[    3.407765] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    3.446131] 00:06: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    3.448701] Floppy drive(s): fd0 is 2.88M AMI BIOS
+[    3.463758] FDC 0 is a S82078B
+[    3.469033] RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+[    3.471129] loop: module loaded
+[    3.471316] Intel(R) PRO/1000 Network Driver - version 7.3.20-k2
+[    3.471591] Copyright (c) 1999-2006 Intel Corporation.
+[    3.474560] ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 11
+[    3.474970] ACPI: PCI Interrupt 0000:00:03.0[A] -> Link [LNKC] -> GSI 11 (level, high) -> IRQ 11
+[    3.865920] e1000: 0000:00:03.0: e1000_probe: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    3.907360] e1000: eth0: e1000_probe: Intel(R) PRO/1000 Network Connection
+[    3.908405] e100: Intel(R) PRO/100 Network Driver, 3.5.23-k4-NAPI
+[    3.908631] e100: Copyright(c) 1999-2006 Intel Corporation
+[    3.910437] forcedeth.c: Reverse Engineered nForce ethernet driver. Version 0.60.
+[    3.911286] tun: Universal TUN/TAP device driver, 1.6
+[    3.911473] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    3.912295] netconsole: not configured, aborting
+[    3.912600] Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+[    3.913216] ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+[    3.914578] PIIX3: IDE controller at PCI slot 0000:00:01.1
+[    3.914980] PIIX3: chipset revision 0
+[    3.915176] PIIX3: not 100% native mode: will probe irqs later
+[    3.916181]     ide0: BM-DMA at 0xc040-0xc047, BIOS settings: hda:pio, hdb:pio
+[    3.917091]     ide1: BM-DMA at 0xc048-0xc04f, BIOS settings: hdc:pio, hdd:pio
+[    5.279837] hdc: QEMU DVD-ROM, ATAPI CD/DVD-ROM drive
+[    5.953149] ide1 at 0x170-0x177,0x376 on irq 15
+[    6.529590] hdc: ATAPI 4X DVD-ROM drive, 512kB Cache, (U)DMA
+[    6.530433] Uniform CD-ROM driver Revision: 3.20
+[    6.538802] Fusion MPT base driver 3.04.05
+[    6.539034] Copyright (c) 1999-2007 LSI Logic Corporation
+[    6.539471] Fusion MPT SPI Host driver 3.04.05
+[    6.543146] ieee1394: raw1394: /dev/raw1394 device initialized
+[    6.547182] USB Universal Host Controller Interface driver v3.0
+[    6.548172] usbcore: registered new interface driver usblp
+[    6.548483] Initializing USB Mass Storage driver...
+[    6.549014] usbcore: registered new interface driver usb-storage
+[    6.549348] USB Mass Storage support registered.
+[    6.550253] PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    6.552286] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    6.552619] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    6.554120] mice: PS/2 mouse device common for all mice
+[    6.556445] input: AT Translated Set 2 keyboard as /class/input/input1
+[    6.559148] device-mapper: ioctl: 4.11.0-ioctl (2006-10-12) initialised: dm-devel@redhat.com
+[    6.559895] usbcore: registered new interface driver usbhid
+[    6.560136] drivers/hid/usbhid/hid-core.c: v2.6:USB HID core driver
+[    6.561091] oprofile: using NMI interrupt.
+[    6.561573] TCP cubic registered
+[    6.561740] NET: Registered protocol family 1
+[    6.562129] NET: Registered protocol family 10
+[    6.564625] IPv6 over IPv4 tunneling driver
+[    6.565569] NET: Registered protocol family 17
+[    6.566291] powernow-k8: Processor cpuid 663 not supported
+[    6.568270] Freeing unused kernel memory: 332k freed
+[    6.759320] input: ImExPS/2 Generic Explorer Mouse as /class/input/input2
+2 is done
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.01s
+prolaz 0
+0 is done
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+1 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+2 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+3 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+4 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+5 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+9 is done
+6 is done
+8 is done
+7 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 1
+0 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+1 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+2 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+3 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+7 is done
+6 is done
+9 is done
+4 is done
+8 is done
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+5 is done
+real	0m 20.08s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.11s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 2
+0 is done
+1 is done
+2 is done
+4 is done
+5 is done
+6 is done
+7 is done
+3 is done
+8 is done
+9 is done
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.08s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.09s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 3
+0 is done
+4 is done
+3 is done
+1 is done
+5 is done
+8 is done
+9 is done
+6 is done
+7 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+2 is done
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.08s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 4
+2 is done
+3 is done
+1 is done
+4 is done
+0 is done
+5 is done
+7 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+6 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+8 is done
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+sys	0m 0.00s
+real	0m 20.03s
+9 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 5
+0 is done
+2 is done
+3 is done
+1 is done
+6 is done
+5 is done
+7 is done
+8 is done
+4 is done
+9 is done
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 6
+0 is done
+1 is done
+2 is done
+3 is done
+4 is done
+5 is done
+6 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+8 is done
+7 is done
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+9 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 7
+0 is done
+5 is done
+7 is done
+3 is done
+6 is done
+4 is done
+1 is done
+2 is done
+8 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+9 is done
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 8
+0 is done
+1 is done
+3 is done
+5 is done
+4 is done
+2 is done
+6 is done
+7 is done
+real	0m 20.04s
+user	0m 0.00s
+8 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+9 is done
+real	0m 20.03s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+prolaz 9
+0 is done
+1 is done
+5 is done
+3 is done
+8 is done
+4 is done
+7 is done
+6 is done
+9 is done
+2 is done
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.06s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.05s
+user	0m 0.00s
+sys	0m 0.00s
+real	0m 20.07s
+user	0m 0.00s
+sys	0m 0.00s
+2 is done
+real	0m 20.04s
+user	0m 0.00s
+sys	0m 0.00s
+[ 1245.719904] Kernel panic - not syncing: Attempted to kill init!
