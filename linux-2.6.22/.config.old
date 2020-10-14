@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.22
-# Thu Oct  8 11:54:13 2020
+# Wed Oct 14 18:39:11 2020
 #
 CONFIG_X86_64=y
 CONFIG_64BIT=y

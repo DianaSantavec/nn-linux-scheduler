@@ -1,0 +1,13 @@
+#!/bin/sh
+
+chmod +x testA_IO
+chmod +x testB_IO
+chmod +x testC_IO
+chmod +x testD_IO
+chmod +x testE_IO
+
+./testA_IO A
+./testA_IO B
+./testA_IO C
+./testA_IO D
+./testA_IO E

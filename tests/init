@@ -1,13 +1,45 @@
 #!/bin/sh
 
-chmod +x testA_IO
-chmod +x testB_IO
-chmod +x testC_IO
-chmod +x testD_IO
-chmod +x testE_IO
+#chmod +x test1_IO
+#chmod +x test2_IO
+chmod +x test3_IO
 
-./testA_IO A
-./testA_IO B
-./testA_IO C
-./testA_IO D
-./testA_IO E
+chmod +x background
+
+./background &
+./background &
+#./background &
+#./background &
+#./background &
+
+#time ./test1_IO 0
+#time ./test2_IO 1
+time ./test3_IO 2
+
+counter_a=0
+counter_b=0
+
+while [ "$counter_a" -lt 10 ]
+do
+    counter_b=0
+    echo prolaz $counter_a
+    while [ "$counter_b" -lt 10 ]
+    do
+        #time ./test1_IO_io $counter_b 
+        #time ./test2_IO $counter_b &
+    
+        if [ $counter_b -eq 9 ]; then
+            time ./test3_IO $counter_b
+        else
+            time ./test3_IO $counter_b &
+        fi
+
+        counter_b=$((counter_b+1))
+    done
+    sleep 100
+    counter_a=$((counter_a+1))
+done
+
+#time ./test1_IO_IO 0
+#time ./test2_IO 1
+time ./test3_IO 2
