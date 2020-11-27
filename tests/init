@@ -1,19 +1,19 @@
 #!/bin/sh
 
-#chmod +x test1_IO
-#chmod +x test2
+chmod +x test1
+chmod +x test2
 chmod +x test3
 
 chmod +x background
 
-#./background &
-#./background &
+./background &
+./background &
 #./background &
 #./background &
 #./background &
 
-#time ./test1_IO 0
-#time ./test2_IO 1
+time ./test1 0
+time ./test2 1
 time ./test3 2
 
 counter_a=0
@@ -25,21 +25,21 @@ do
     echo prolaz $counter_a
     while [ "$counter_b" -lt 10 ]
     do
-        #time ./test1_IO_io $counter_b 
-        #time ./test2_IO $counter_b &
+        time ./test1 $counter_b &
+        time ./test2 $counter_b &
     
-        #if [ $counter_b -eq 9 ]; then
-        time ./test3 $counter_b
-        #else
-        #    time ./test3_IO $counter_b &
-        #fi
+        if [ $counter_b -eq 9 ]; then
+            time ./test3 $counter_b
+        else
+            time ./test3 $counter_b &
+        fi
 
         counter_b=$((counter_b+1))
     done
-    sleep 100
+    sleep 600
     counter_a=$((counter_a+1))
 done
 
-#time ./test1_IO_IO 0
-#time ./test2_IO 1
+time ./test1 0
+time ./test2 1
 time ./test3 2

@@ -883,7 +883,7 @@ fastcall NORET_TYPE void do_exit(long code)
 		my_table[current->my_key].start_counter -= 1;
 	}
 	//my_table[current->my_key].average_time == current->my_run_time ? printk("YES") : printk("NO");
-	printk("u exit.c: %d za proces: %d i key: %d vreme trajanja je: x a iz PD-a: %llu a prosecno: %u\n", my_table[current->my_key].start_counter, current->pid, current->my_key, current->sched_time, my_table[current->my_key].average_time);
+	printk("u exit.c: %d za proces: %d i key: %d vreme trajanja je: x a iz PD-a: %llu a prosecno: %u i dodatno %llu\n", my_table[current->my_key].start_counter, current->pid, current->my_key, current->sched_time, my_table[current->my_key].average_time, (current->utime + current->stime));
 
 	struct task_struct *tsk = current;
 	int group_dead;
